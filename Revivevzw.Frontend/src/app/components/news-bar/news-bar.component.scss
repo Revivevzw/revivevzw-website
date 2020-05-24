@@ -1,0 +1,28 @@
+@import 'src/variables.scss';
+
+.news-bar{
+   width: 100%;
+   background-color: $accent-color-light;
+   color: $text-color-dark;
+   font-weight: bold;
+   display: flex;
+   justify-content: center;
+   overflow: hidden;
+   box-sizing: border-box;
+   height: 50px;
+   align-items: center;
+   font-size: 16px;
+
+   a{
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      color: $text-color-dark;
+      display: block;
+   }
+
+   &__container{
+      overflow: hidden;
+      padding: 2px;
+   }
+}

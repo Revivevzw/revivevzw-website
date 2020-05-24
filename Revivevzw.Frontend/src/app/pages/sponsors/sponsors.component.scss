@@ -1,0 +1,31 @@
+@import "src/variables";
+
+.sponsors {
+   &__logos{
+      @media (min-width: $breakpoint-desktop) {
+         display: flex;
+         justify-content: space-between;
+         flex-wrap: wrap;
+      }
+   }
+
+   &__logo{
+      @media (min-width: $breakpoint-desktop) {
+         width: calc(90% / 3);
+      }
+
+      width: 100%;
+      padding: 30px;
+      box-sizing: border-box;
+      margin: 20px 0;
+      display: block;
+      border: 1px solid rgba(0,0,0,.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img{
+         max-width: 100%;
+      }
+   }
+}

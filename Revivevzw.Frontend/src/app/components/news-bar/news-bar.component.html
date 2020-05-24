@@ -1,0 +1,7 @@
+<div class="news-bar">
+   <div class="news-bar__container">
+      <ng-container *ngFor="let item of newsItems; let i = index;">
+         <a *ngIf="i === currentItem" @newsBarAnimation href="{{item.url}}">{{ localize(item.message) }}</a>
+      </ng-container>
+   </div>
+</div>

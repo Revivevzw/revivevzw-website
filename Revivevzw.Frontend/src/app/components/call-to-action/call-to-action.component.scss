@@ -1,0 +1,21 @@
+@import "src/variables";
+
+button{
+   transition: .3s all ease-out; 
+   display: block;
+   border: none;
+   background-color: $accent-color;
+   opacity: .5;
+   padding: 20px 45px;
+   font-weight: bold;
+   cursor: pointer;
+   border-radius: 2px;
+
+   @media (min-width: $breakpoint-desktop) {
+      padding: 15px 40px;
+    }
+}
+button:hover{
+   opacity: 1;
+}
+

@@ -1,0 +1,81 @@
+@import "src/variables";
+
+.calendar {
+  color: $text-color-dark;
+  padding: 60px 0;
+  @media (min-width: $breakpoint-desktop) {
+    justify-content: space-between;
+    display: flex;
+  }
+
+  &__info {
+    max-width: 400px;
+    margin-bottom: 40px;
+    @media (min-width: $breakpoint-desktop) {
+      width: 50%;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+  }
+  &__items {
+    @media (min-width: $breakpoint-desktop) {
+      width: 50%;
+    }
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $accent-color-light;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    border: 2px solid $accent-color-light;
+    transition: 0.2s ease;
+    cursor: pointer;
+    &:hover {
+      // background-color: rgba($color: $accent-color, $alpha: .5);
+      border: 2px solid $accent-color;
+    }
+
+    &__date {
+      height: 80px;
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $accent-color;
+      font-weight: bold;
+      text-align: center;
+      border-right: $line;
+      text-transform: uppercase;
+    }
+    &__content {
+      width: calc(100% - 70px);
+      padding: 0px 25px;
+      box-sizing: border-box;
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20%;
+        height: 100%;
+        background-image: linear-gradient(
+          to right,
+          transparent,
+          $accent-color-light
+        );
+      }
+
+      &__title {
+        font-weight: bold;
+        margin-bottom: 7px;
+        color: $accent-color-dark;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+C:\repos\revive-vzw\revive-vzw.entities\bin\Debug\netcoreapp3.1\Revivevzw.Entities.deps.json
+C:\repos\revive-vzw\revive-vzw.entities\bin\Debug\netcoreapp3.1\Revivevzw.Entities.dll
+C:\repos\revive-vzw\revive-vzw.entities\bin\Debug\netcoreapp3.1\Revivevzw.Entities.pdb
+C:\repos\revive-vzw\revive-vzw.entities\obj\Debug\netcoreapp3.1\Revivevzw.Entities.csprojAssemblyReference.cache
+C:\repos\revive-vzw\revive-vzw.entities\obj\Debug\netcoreapp3.1\Revivevzw.Entities.csproj.CoreCompileInputs.cache
+C:\repos\revive-vzw\revive-vzw.entities\obj\Debug\netcoreapp3.1\Revivevzw.Entities.AssemblyInfoInputs.cache
+C:\repos\revive-vzw\revive-vzw.entities\obj\Debug\netcoreapp3.1\Revivevzw.Entities.AssemblyInfo.cs
+C:\repos\revive-vzw\revive-vzw.entities\obj\Debug\netcoreapp3.1\Revivevzw.Entities.dll
+C:\repos\revive-vzw\revive-vzw.entities\obj\Debug\netcoreapp3.1\Revivevzw.Entities.pdb
+C:\repos\revive-vzw\Revivevzw.Entities\obj\Debug\netcoreapp3.1\Revivevzw.Entities.csproj.CoreCompileInputs.cache
+C:\repos\revive-vzw\Revivevzw.Entities\obj\Debug\netcoreapp3.1\Revivevzw.Entities.AssemblyInfoInputs.cache
+C:\repos\revive-vzw\Revivevzw.Entities\obj\Debug\netcoreapp3.1\Revivevzw.Entities.AssemblyInfo.cs
+C:\repos\revive-vzw\Revivevzw.Entities\bin\Debug\netcoreapp3.1\Revivevzw.Entities.deps.json
+C:\repos\revive-vzw\Revivevzw.Entities\bin\Debug\netcoreapp3.1\Revivevzw.Entities.dll
+C:\repos\revive-vzw\Revivevzw.Entities\bin\Debug\netcoreapp3.1\Revivevzw.Entities.pdb
+C:\repos\revive-vzw\Revivevzw.Entities\obj\Debug\netcoreapp3.1\Revivevzw.Entities.dll
+C:\repos\revive-vzw\Revivevzw.Entities\obj\Debug\netcoreapp3.1\Revivevzw.Entities.pdb

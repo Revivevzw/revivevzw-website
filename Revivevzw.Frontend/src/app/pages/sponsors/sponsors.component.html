@@ -1,0 +1,14 @@
+<div class="sponsors">
+   <div class="header_secondary">
+      <div class="responsive-container">
+         <div class="header_secondary__title">
+            Thumbs up for our sponsors!
+         </div>
+      </div>
+   </div>
+   <div class="sponsors__logos responsive-container">
+      <a href="{{sponsor.url}}" *ngFor="let sponsor of sponsors" class="sponsors__logo" title="Visit sponsor website.">
+         <img src="{{sponsor.logo.url}}" alt="{{sponsor.name}}">
+      </a>
+   </div>
+</div>

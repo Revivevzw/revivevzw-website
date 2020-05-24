@@ -1,0 +1,121 @@
+@import 'src/variables.scss';
+
+.navigation{
+   width: 100%;
+   box-sizing: border-box;
+   position: absolute;
+   transition: background-color .2s ease;
+
+   .container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+   
+   &--open{
+      background-color: $accent-color-dark;
+
+      .links{
+         height: 100vh;
+         li{
+            opacity: 1;
+         }
+      }
+
+      .burger{
+         height: 15px;
+      }
+
+      .menu-stripe{
+         &--one{
+            width: 14px;
+            transform: rotate(45deg) translateX(3px);
+         }
+         &--three{
+            width: 14px;
+            transform: rotate(-45deg) translateX(3px);
+         }
+      }
+   }
+}
+
+.links {
+   overflow: hidden;
+   transition: all .3s ease;
+   background-color: $accent-color-dark;
+   height: 0;
+
+   li{
+      transition: all .3s ease-in;
+      padding: 15px 0;
+      opacity: 0;
+      font-size: 1.5rem;
+   }
+   li:nth-child(1) {
+      transition-delay: 0.0s;
+    }
+   li:nth-child(2) {
+      transition-delay: 0.05s;
+    }
+   li:nth-child(3) {
+      transition-delay: 0.1s;
+    }
+   li:nth-child(4) {
+      transition-delay: 0.15s;
+    }
+   li:nth-child(5) {
+      transition-delay: 0.2s;
+    }
+   li:nth-child(6) {
+      transition-delay: 0.25s;
+    }
+    li:nth-child(7) {
+      transition-delay: 0.3s;
+    }
+}
+.burger{
+   z-index: 1;
+   opacity: .7;
+   height: 20px;
+   display: flex;
+   align-items: flex-end;
+   flex-direction: column;
+   justify-content: space-between;
+
+   &:hover{
+      opacity: 1;
+      cursor: pointer;
+   }
+
+   div{
+      transition: all .3s ease;
+      height: .15pc;
+      background-color: white;
+      width: 25px;
+      border-radius: 1px;
+   }
+}
+
+h1 {
+   opacity: .8;
+
+   a {
+      display: flex;
+      align-items: center;
+
+     img {
+       height: 55px;
+       transition: all 0.3s ease;
+     }
+
+     span {
+       margin-left: 10px;
+       font-size: 17px;
+     }
+   }
+ }
+
+ a {
+   text-decoration: none;
+   color: $text-color;
+ }

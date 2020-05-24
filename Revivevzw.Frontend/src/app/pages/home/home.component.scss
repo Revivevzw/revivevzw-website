@@ -1,0 +1,123 @@
+@import "src/variables";
+
+.call-to-action {
+  padding-top: 30px;
+  display: block;
+}
+
+.header {
+  height: 100vh;
+  width: 100%;
+
+  &__background {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: $accent-color-dark;
+
+    @media (min-width: $breakpoint-desktop) {
+      &__level_one {
+        width: 65%;
+        background-color: $accent-color-dark;
+      }
+      &__level_two {
+        width: 35%;
+        background-color: $accent-color;
+      }
+    }
+  }
+
+  &__content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+
+    .container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+  }
+
+  &__intro {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__content {
+
+      h1 {
+        font-size: 40px;
+        max-width: 450px;
+        margin-bottom: 20px;
+
+        @media (min-width: $breakpoint-desktop) {
+          font-size: 60px;
+          max-width: 700px;
+        }
+      }
+      h3 {
+        max-width: 350px;
+        line-height: 1.5rem;
+      }
+    }
+
+    &__media {
+      height: 70%;
+      width: 45%;
+      background-image: url("src/assets/media/header-img.jpg");
+      background-size: cover;
+      background-position: center top;
+      display: none;
+
+      @media (min-width: $breakpoint-desktop) {
+        display: block;
+      }
+    }
+  }
+}
+
+.key-values {
+  color: $text-color-dark;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  
+  &__subtitle{
+    margin-top: 10px;
+  }
+
+  &__items{
+    margin-top: 50px;
+
+    @media (min-width: $breakpoint-desktop) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__item{
+    margin-bottom: 40px;
+
+    &__image{
+      height: 240px;
+      width: 100%;
+      background-color: $accent-color-light;
+      border-radius: 2px;
+    }
+    h4{
+      padding-top: 10px;
+      font-weight: bold;
+    }
+    p{
+      padding-top: 5px;
+    }
+    
+    @media (min-width: $breakpoint-desktop) {
+      width: calc(90% / 3);
+    }
+  }
+}

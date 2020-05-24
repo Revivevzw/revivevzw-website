@@ -1,0 +1,27 @@
+<div class="header_secondary">
+  <div class="responsive-container">
+    <div class="header_secondary__title">
+      Save the date!
+    </div>
+  </div>
+</div>
+<div class="responsive-container">
+  <div class="calendar">
+    <div class="calendar__info">
+       <h2>Want to be part of one of our events?</h2>
+       <p>Some descriptive/ informative text</p>
+    </div>
+    <div class="calendar__items">
+      <div *ngFor="let item of activities" class="calendar__item">
+        <div class="calendar__item__date">
+          {{ item.startDate | date: 'dd' }}<br />
+          {{ item.startDate | date: 'MMM' }}
+        </div>
+        <div class="calendar__item__content">
+          <div class="calendar__item__content__title">{{ localize(getType(item.type)) }}</div>
+          <div class="calendar__item__content__description">{{ localize(item.name) }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

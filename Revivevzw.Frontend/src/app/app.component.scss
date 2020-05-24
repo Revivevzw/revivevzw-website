@@ -1,0 +1,13 @@
+@import "src/variables.scss";
+
+app-mobile-navigation {
+  width: 100%;
+  top: 0;
+}
+.header {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid transparent;
+}

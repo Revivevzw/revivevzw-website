@@ -1,0 +1,6 @@
+<div style="margin-top: 200px">
+   <button (click)="generateJsonFiles()">generate JSON files</button>
+</div>
+<div *ngFor="let url of downloadUrls">
+   <a class="btn btn-clear" title="Download JSON" [href]="url.url" download="{{url.name}}.json">Download {{url.name}}</a>
+</div>

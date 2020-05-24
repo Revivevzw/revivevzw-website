@@ -1,0 +1,12 @@
+C:\repos\revive-vzw\Revivevzw.DataContracts\obj\Debug\netcoreapp3.1\Revivevzw.DataContracts.csprojAssemblyReference.cache
+C:\repos\revive-vzw\Revivevzw.DataContracts\obj\Debug\netcoreapp3.1\Revivevzw.DataContracts.csproj.CoreCompileInputs.cache
+C:\repos\revive-vzw\Revivevzw.DataContracts\obj\Debug\netcoreapp3.1\Revivevzw.DataContracts.AssemblyInfoInputs.cache
+C:\repos\revive-vzw\Revivevzw.DataContracts\obj\Debug\netcoreapp3.1\Revivevzw.DataContracts.AssemblyInfo.cs
+C:\repos\revive-vzw\Revivevzw.DataContracts\bin\Debug\netcoreapp3.1\Revivevzw.DataContracts.deps.json
+C:\repos\revive-vzw\Revivevzw.DataContracts\bin\Debug\netcoreapp3.1\Revivevzw.DataContracts.dll
+C:\repos\revive-vzw\Revivevzw.DataContracts\bin\Debug\netcoreapp3.1\Revivevzw.DataContracts.pdb
+C:\repos\revive-vzw\Revivevzw.DataContracts\bin\Debug\netcoreapp3.1\Revivevzw.Enums.dll
+C:\repos\revive-vzw\Revivevzw.DataContracts\bin\Debug\netcoreapp3.1\Revivevzw.Enums.pdb
+C:\repos\revive-vzw\Revivevzw.DataContracts\obj\Debug\netcoreapp3.1\Revivevzw.DataContracts.csproj.CopyComplete
+C:\repos\revive-vzw\Revivevzw.DataContracts\obj\Debug\netcoreapp3.1\Revivevzw.DataContracts.dll
+C:\repos\revive-vzw\Revivevzw.DataContracts\obj\Debug\netcoreapp3.1\Revivevzw.DataContracts.pdb

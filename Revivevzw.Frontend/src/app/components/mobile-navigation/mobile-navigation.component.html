@@ -1,0 +1,22 @@
+<nav [ngClass]="navigationIsOpen ? 'navigation navigation--open' : 'navigation navigation--closed'">
+   <div class="default-container container">
+      <h1><a href="/"><img src="assets/media/logo.png" alt="Logo Revive vzw"><span>Revive vzw</span></a></h1>
+      <div class="burger" (click)="toggleNavigation()">
+         <div class="menu-stripe menu-stripe--one"></div>
+         <div class="menu-stripe menu-stripe--two"></div>
+         <div class="menu-stripe menu-stripe--three"></div>
+      </div>      
+   </div>
+   <div class="links">
+      <ul class="default-container">
+         <li><a href="about">{{ "NAVIGATION.ABOUT" | translate }}</a></li>
+         <li><a href="missions">{{ "NAVIGATION.MISSIONS" | translate }}</a></li>
+         <li><a href="calendar">{{ "NAVIGATION.CALENDAR" | translate }}</a></li>
+         <li><a href="volunteers">{{ "NAVIGATION.VOLUNTEERS" | translate }}</a></li>
+         <li><a href="sponsors">{{ "NAVIGATION.SPONSORS" | translate }}</a></li>
+         <li><app-language-selector></app-language-selector></li>
+         <li><app-call-to-action text='{{ "NAVIGATION.SUPPORT_US" | translate}}'></app-call-to-action></li>
+      </ul>   
+   </div>
+</nav>
+<div class="spacer"></div>

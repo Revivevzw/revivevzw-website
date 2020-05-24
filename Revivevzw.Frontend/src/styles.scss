@@ -1,0 +1,88 @@
+@import 'src/variables.scss';
+
+html{
+   font-family: 'Quicksand', sans-serif;
+   color: $text-color;
+   font-size: $text-size;
+}
+
+p{
+   line-height: 1.3rem;
+}
+
+::selection{
+   color: $text-color-dark;
+   background-color: $accent-color-secondary;
+}
+
+.nav-spacer{
+   margin-top: 150px;
+}
+
+.responsive-container{
+   max-width: $container-mobile;
+   margin: 0 auto;
+   padding: 25px;
+   box-sizing: border-box;
+
+   @media (min-width: $breakpoint-desktop) {
+      max-width: $container-desktop;
+    }
+}
+
+.default-container{
+   width: 100%;
+   max-width: $container-desktop;
+   margin: 0 auto;
+   padding: 25px;
+   box-sizing: border-box;
+}
+
+h2{
+   font-size: 2rem;
+   line-height: 2.2rem;
+}
+h3{
+   font-size: 1rem;
+   font-weight: lighter;
+}
+
+.header--scrolled{
+   background-color: rgba(24,55,53, 1);
+   border-bottom: 1px solid rgb(0,0,0,.1);
+ }
+
+ .header_secondary {
+    height: 60vh;
+    background-color: $accent-color-dark;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    &__title{
+       margin-top: 70px;
+       font-weight: bold;
+       font-size: 2rem;
+       display: block;
+       max-width: 600px;
+    }
+ }
+
+ .url{
+    text-decoration: none;
+    font-weight: bold;
+
+    &--primary{
+      color: $accent-color;
+      transition: all .2s ease;
+
+      &::after{
+         font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f30b";
+         top: 2px;
+         position: relative;
+      }
+      &:hover{
+         color: $accent-color-secondary;
+      }
+    }
+ }

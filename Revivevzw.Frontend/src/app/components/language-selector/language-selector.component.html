@@ -1,0 +1,12 @@
+<div class="language-selector">
+  <label for="ls"><i class="fas fa-globe-europe"></i></label>
+  <select
+    id="ls"
+    [value]="getCurrentLanguage()"
+    (change)="changeLanguage($event.target.value)"
+  >
+    <option value="en-GB">en</option>
+    <option value="nl-BE">nl</option>
+    <option value="fr-BE">fr</option>
+  </select>
+</div>

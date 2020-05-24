@@ -1,0 +1,14 @@
+$text-color-dark: rgb(40,40,40);
+$text-color: rgb(255,255,255);
+$text-size: 18px;
+
+// Colors
+$accent-color: #50b2abff;
+$accent-color-dark: darken($accent-color, 35);
+$accent-color-light: lighten($accent-color, 35);
+$accent-color-secondary: #ec1f27;
+$line: 1px solid rgba($color: #000000, $alpha: .05);
+
+$breakpoint-desktop: 900px;
+$container-desktop: 1200px;
+$container-mobile: 500px;
