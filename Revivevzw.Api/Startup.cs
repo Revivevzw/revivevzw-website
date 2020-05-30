@@ -70,7 +70,7 @@ namespace Revivevzw.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors()
+            app.UseCors();
 
             app.UseHttpsRedirection();
 
