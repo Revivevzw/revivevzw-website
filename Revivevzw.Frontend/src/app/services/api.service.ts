@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { isScullyRunning, TransferStateService } from '@scullyio/ng-lib';
 import { tap, shareReplay } from 'rxjs/operators';
@@ -13,12 +13,18 @@ export class ApiService {
       private transferStateService: TransferStateService
    ) { }
 
+   private httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+      })
+    };
+
    public get<T>(url: string) {
       if (environment.production) {
          const urlHash = btoa(url);
          if (isScullyRunning()) {
             return this.http
-               .get<T>(url)
+               .get<T>(url, this.httpOptions)
                .pipe(
                   tap(data => this.transferStateService.setState<T>(urlHash, data)),
                   shareReplay(1)
@@ -26,7 +32,7 @@ export class ApiService {
          }
          return this.transferStateService.getState<T>(urlHash).pipe(shareReplay(1));
       } else {
-         return this.http.get<T>(url);
+         return this.http.get<T>(url, this.httpOptions);
       }
    }
 }
