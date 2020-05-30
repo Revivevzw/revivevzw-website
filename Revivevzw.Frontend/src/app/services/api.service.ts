@@ -13,26 +13,26 @@ export class ApiService {
       private transferStateService: TransferStateService
    ) { }
 
-   private httpOptions = {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Origin': '*',
-      })
-    };
+   // private httpOptions = {
+   //    headers: new HttpHeaders({
+   //      'Access-Control-Allow-Origin': '*',
+   //    })
+   //  };
 
    public get<T>(url: string) {
-      if (environment.production) {
-         const urlHash = btoa(url);
-         if (isScullyRunning()) {
-            return this.http
-               .get<T>(url, this.httpOptions)
-               .pipe(
-                  tap(data => this.transferStateService.setState<T>(urlHash, data)),
-                  shareReplay(1)
-               );
-         }
-         return this.transferStateService.getState<T>(urlHash).pipe(shareReplay(1));
-      } else {
-         return this.http.get<T>(url, this.httpOptions);
-      }
+      // if (environment.production) {
+      //    const urlHash = btoa(url);
+      //    if (isScullyRunning()) {
+      //       return this.http
+      //          .get<T>(url)
+      //          .pipe(
+      //             tap(data => this.transferStateService.setState<T>(urlHash, data)),
+      //             shareReplay(1)
+      //          );
+      //    }
+      //    return this.transferStateService.getState<T>(urlHash).pipe(shareReplay(1));
+      // } else {
+         return this.http.get<T>(url);
+      // }
    }
 }

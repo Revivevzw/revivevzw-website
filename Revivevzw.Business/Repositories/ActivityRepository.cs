@@ -21,7 +21,8 @@ namespace Revivevzw.Business.Repositories
     {
       return await dbContext.Missions
         .Where(x => x.Einddatum > DateTime.Now)
-        .Where(x => x.Deleted != "true")
+        .Where(x => x.Deleted == "N")
+        .Where(x => x.Showonweb == "Y")
         .OrderBy(x => x.Startdatum)
         .ToListAsync();
     }
