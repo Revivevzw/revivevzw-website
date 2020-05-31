@@ -1,4 +1,27 @@
-<p>about works!</p>
-<div *ngFor="let cell of cells">
-   {{ cell.gs$cell.inputValue }}
-</div>
+<div class="header_secondary">
+   <div class="responsive-container">
+     <div class="header_secondary__title">
+       {{ 'ABOUT.TITLE' | translate }}
+     </div>
+   </div>
+ </div>
+ <div class="responsive-container">
+   <div class="about">
+      <p class="about__intro text-block-centered">
+         {{ 'ABOUT.INTRO' | translate }}
+      </p>
+      <div class="about__block">
+         <h4>{{ 'ABOUT.WHAT_TITLE' | translate }}</h4>
+         <p>{{ 'ABOUT.WHAT_TEXT' | translate }}</p>
+      </div>
+      <div class="about__block">
+         <h4>{{ 'ABOUT.WHO_TITLE' | translate }}</h4>
+         <p>{{ 'ABOUT.WHO_TEXT' | translate }}</p>
+      </div>
+      <div class="about__block">
+         <h4>{{ 'ABOUT.HOW_TITLE' | translate }}</h4>
+         <p>{{ 'ABOUT.HOW_TEXT' | translate }}</p>
+      </div>
+   </div>
+ </div>
+ 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Meta } from '@angular/platform-browser';
 import { KeyValue } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,8 @@ import { KeyValue } from '@angular/common';
 export class HomeComponent implements OnInit {
   constructor(
     private translateService: TranslateService,
-    private meta: Meta
+    private meta: Meta,
+    private router: Router
   ) { }
 
   private translations: Array<KeyValue<string, string>>;
@@ -39,6 +41,6 @@ export class HomeComponent implements OnInit {
   }
 
   public ctaAction = () => {
-    console.log('action');
+    this.router.navigate(["about"])
   } 
 }

@@ -16,6 +16,7 @@ import { GoogleSheetApiService } from './services/google-sheet-api.service';
 import { HeaderSecondaryComponent, TranslationsComponent, NavigationComponent, LanguageSelectorComponent, FooterComponent, MobileNavigationComponent, NewsBarComponent, CallToActionComponent } from './components';
 import { HomeComponent, AboutComponent, SponsorsComponent, MissionsComponent, VolunteersComponent, CalendarComponent } from './pages';
 import { NewsItemApiService, LocalizeService, ApiService, ActivityApiService } from './services';
+import { SupportUsComponent } from './pages/support-us/support-us.component';
 
 
 
@@ -36,6 +37,7 @@ import { NewsItemApiService, LocalizeService, ApiService, ActivityApiService } f
     VolunteersComponent,
     CalendarComponent,
     HeaderSecondaryComponent,
+    SupportUsComponent,
   ],
   imports: [
     BrowserAnimationsModule,

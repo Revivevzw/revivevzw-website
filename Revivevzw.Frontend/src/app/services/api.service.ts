@@ -19,20 +19,20 @@ export class ApiService {
    //    })
    //  };
 
-   public get<T>(url: string) {
-      // if (environment.production) {
-      //    const urlHash = btoa(url);
-      //    if (isScullyRunning()) {
-      //       return this.http
-      //          .get<T>(url)
-      //          .pipe(
-      //             tap(data => this.transferStateService.setState<T>(urlHash, data)),
-      //             shareReplay(1)
-      //          );
-      //    }
-      //    return this.transferStateService.getState<T>(urlHash).pipe(shareReplay(1));
-      // } else {
+   public get<T>(url: string, setToState: boolean = true) {
+      if (environment.production && setToState) {
+         const urlHash = btoa(url);
+         if (isScullyRunning()) {
+            return this.http
+               .get<T>(url)
+               .pipe(
+                  tap(data => this.transferStateService.setState<T>(urlHash, data)),
+                  shareReplay(1)
+               );
+         }
+         return this.transferStateService.getState<T>(urlHash).pipe(shareReplay(1));
+      } else {
          return this.http.get<T>(url);
-      // }
+      }
    }
 }
