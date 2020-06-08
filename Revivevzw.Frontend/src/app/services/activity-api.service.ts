@@ -14,7 +14,11 @@ export class ActivityApiService {
    private path = "activity";
 
    public getUpcoming = () => {
-      return this.apiService.get<Array<Activity>>(environment.revivevzwApiUrl + this.path + "/upcoming", false);
+      return this.apiService.get<Array<Activity>>(environment.revivevzwApiUrl + this.path + "/upcoming");
+   }
+
+   public get = (id: number) => {
+      return this.apiService.get<Activity>(environment.revivevzwApiUrl + this.path + "/" + id);
    }
 
    public getTypes = () => {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivityApiService, LocalizeService } from 'src/app/services';
 import { Activity, Localization } from 'src/app/models';
 import { KeyValue } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-calendar',
@@ -26,6 +27,8 @@ export class CalendarComponent implements OnInit {
     let result = this.activityTypes.find(x => x.key == key);
     return (result && result.value) || <Localization>{ nl: "Andere", fr: "Autres", en: "Other" }
   }
+
+  public getRouterLink = (id: number) => "['/calendar-detail/" + id + "']";
 
   ngOnInit(): void {
     this.activityApiService.getUpcoming().subscribe(result => {

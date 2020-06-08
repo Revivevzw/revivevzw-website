@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 
 namespace Revivevzw.Business.Services
 {
-  public interface IActivityService
-  {
-    Task<ICollection<Activity>> GetUpcoming();
-  }
+    public interface IActivityService
+    {
+        Task<Activity> Get(int id);
+        Task<ICollection<Activity>> GetUpcoming();
+    }
 }

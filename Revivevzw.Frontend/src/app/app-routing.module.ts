@@ -8,6 +8,7 @@ import { SponsorsComponent } from './pages/sponsors/sponsors.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { VolunteersComponent } from './pages/volunteers/volunteers.component';
 import { SupportUsComponent } from './pages/support-us/support-us.component';
+import { CalendarDetailComponent } from './pages';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'calendar', component: CalendarComponent },
   { path: 'volunteers', component: VolunteersComponent },
   { path: 'support-us', component: SupportUsComponent },
-  { path: 'translations', component: TranslationsComponent }
+  { path: 'translations', component: TranslationsComponent },
+  { path: 'calendar-detail/:id', component: CalendarDetailComponent }
 ];
 
 @NgModule({

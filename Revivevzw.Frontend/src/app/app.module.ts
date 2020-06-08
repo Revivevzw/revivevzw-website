@@ -17,6 +17,7 @@ import { HeaderSecondaryComponent, TranslationsComponent, NavigationComponent, L
 import { HomeComponent, AboutComponent, SponsorsComponent, MissionsComponent, VolunteersComponent, CalendarComponent } from './pages';
 import { NewsItemApiService, LocalizeService, ApiService, ActivityApiService } from './services';
 import { SupportUsComponent } from './pages/support-us/support-us.component';
+import { CalendarDetailComponent } from './pages/calendar-detail/calendar-detail.component';
 
 
 
@@ -38,6 +39,7 @@ import { SupportUsComponent } from './pages/support-us/support-us.component';
     CalendarComponent,
     HeaderSecondaryComponent,
     SupportUsComponent,
+    CalendarDetailComponent,
   ],
   imports: [
     BrowserAnimationsModule,
