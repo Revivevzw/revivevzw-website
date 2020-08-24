@@ -1,0 +1,29 @@
+@import "src/variables";
+
+.wrapper {
+  color: $text-color-dark;
+
+  @media (min-width: $breakpoint-desktop) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  div {
+    margin-bottom: 50px;
+    @media (min-width: $breakpoint-desktop) {
+      width: 45%;
+    }
+  }
+
+  .button {
+    margin-top: 40px;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    padding-bottom: 20px;
+  }
+}

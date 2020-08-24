@@ -1,8 +1,30 @@
 <div class="header_secondary">
-   <div class="responsive-container">
-     <div class="header_secondary__title">
-       {{id}}
-     </div>
-   </div>
- </div>
- <p>{{activity}}</p>
+  <div class="responsive-container">
+    <div *ngIf="activity" class="header_secondary__title">
+      {{ localize(activity.name) }}
+    </div>
+  </div>
+</div>
+<div *ngIf="activity" class="responsive-container content">
+  <div class="wrapper">
+    <div>
+      <h4>{{localize(activity.name)}}</h4>
+      <p>{{localize(activity.description)}}</p>
+    </div>
+    <div>
+      <ul>
+        <li>
+          <h4>{{'SHARED.DATE' | translate}}: </h4>
+          {{activity.startDate | date: 'dd/MM/yyyy'}} <ng-container *ngIf="activity.startDate != activity.endDate">- {{activity.endDate | date: 'dd/MM/yyyy'}}</ng-container>
+        </li>
+        <li>
+          <h4>{{'SHARED.ADDRESS' | translate}}: </h4>
+          {{activity.street}}, {{activity.postalCode}} {{activity.city}} ({{activity.country}})
+        </li>
+      </ul>
+      <div class="button">
+        <app-call-to-action text="{{'SHARED.RESERVATE' | translate}}" [action]="reservateAction"></app-call-to-action>
+      </div>
+    </div>
+  </div>
+</div>

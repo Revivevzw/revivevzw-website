@@ -11,6 +11,6 @@ export class LocalizeService {
 
    public localizeData = (localization: Localization) => {
       let language = this.translateService.currentLang.slice(0,2);
-      return localization[language];
+      return localization[language] || localization['nl'];
    }
 }

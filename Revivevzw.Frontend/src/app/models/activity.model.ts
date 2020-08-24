@@ -11,4 +11,5 @@ export interface Activity {
    country: string;
    street: string;
    postalCode: string;
+   canRegisterOnline: boolean;
 }
