@@ -1,27 +1,18 @@
-<div class="header_secondary">
-   <div class="responsive-container">
-     <div class="header_secondary__title">
-       {{ 'ABOUT.TITLE' | translate }}
-     </div>
-   </div>
- </div>
- <div class="responsive-container">
+ <app-main-page-base [title]="'ABOUT.TITLE' | translate">
    <div class="about">
-      <p class="quote about__intro">
-         {{ 'ABOUT.INTRO' | translate }}
-      </p>
+      <p class="quote about__intro" [innerHTML]="'ABOUT.INTRO' | translate"></p>
       <div class="about__block">
          <h4>{{ 'ABOUT.WHAT_TITLE' | translate }}</h4>
-         <p>{{ 'ABOUT.WHAT_TEXT' | translate }}</p>
+         <p [innerHTML]="'ABOUT.WHAT_TEXT' | translate"></p>
       </div>
       <div class="about__block">
          <h4>{{ 'ABOUT.WHO_TITLE' | translate }}</h4>
-         <p>{{ 'ABOUT.WHO_TEXT' | translate }}</p>
+         <p [innerHTML]="'ABOUT.WHO_TEXT' | translate"></p>
       </div>
       <div class="about__block">
          <h4>{{ 'ABOUT.HOW_TITLE' | translate }}</h4>
-         <p>{{ 'ABOUT.HOW_TEXT' | translate }}</p>
+         <p [innerHTML]="'ABOUT.HOW_TEXT' | translate"></p>
       </div>
    </div>
- </div>
+ </app-main-page-base>
  

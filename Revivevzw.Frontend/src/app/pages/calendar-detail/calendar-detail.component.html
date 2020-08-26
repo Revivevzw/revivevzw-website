@@ -1,12 +1,5 @@
-<div class="header_secondary">
-  <div class="responsive-container">
-    <div *ngIf="activity" class="header_secondary__title">
-      {{ localize(activity.name) }}
-    </div>
-  </div>
-</div>
-<div *ngIf="activity" class="responsive-container content">
-  <div class="wrapper">
+<app-main-page-base [title]="localize(activity.name)">
+  <div *ngIf="activity" class="wrapper content">
     <div>
       <h4>{{localize(activity.name)}}</h4>
       <p>{{localize(activity.description)}}</p>
@@ -27,4 +20,15 @@
       </div>
     </div>
   </div>
+</app-main-page-base>
+<!-- 
+<div class="header_secondary">
+  <div class="responsive-container">
+    <div *ngIf="activity" class="header_secondary__title">
+      {{ localize(activity.name) }}
+    </div>
+  </div>
 </div>
+<div *ngIf="activity" class="responsive-container content">
+  
+</div> -->

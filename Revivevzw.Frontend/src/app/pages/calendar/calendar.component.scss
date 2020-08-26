@@ -1,7 +1,6 @@
 @import "src/variables";
 
 .calendar {
-  color: $text-color-dark;
   padding: 60px 0;
   @media (min-width: $breakpoint-desktop) {
     justify-content: space-between;

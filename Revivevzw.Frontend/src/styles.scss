@@ -2,8 +2,8 @@
 
 html {
   font-family: "Quicksand", sans-serif;
-  color: $text-color;
   font-size: $text-size;
+  color: $text-color-dark;
 }
 
 p {
@@ -110,4 +110,10 @@ h4 {
 .content{
   padding-top: 100px;
   padding-bottom: 100px;
+}
+
+strong{
+  color: $accent-color-dark;
+  background-color: $accent-color-light;
+  // background-color: $accent-color-secondary-light;
 }

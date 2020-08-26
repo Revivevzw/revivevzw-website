@@ -5,6 +5,7 @@
    box-sizing: border-box;
    position: absolute;
    transition: background-color .2s ease;
+   color: $text-color;
 
    .container{
       display: flex;

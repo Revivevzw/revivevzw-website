@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mobile-navigation',
@@ -10,10 +9,6 @@ export class MobileNavigationComponent implements OnInit {
 
   public navigationIsOpen = false;
 
-  constructor(
-    private router: Router
-  ) { }
-
   public toggleNavigation = () => {
     this.navigationIsOpen = !this.navigationIsOpen;
   }
@@ -23,6 +18,7 @@ export class MobileNavigationComponent implements OnInit {
 
   public ctaAction = () => {
     this.toggleNavigation();
-    this.router.navigate(["support-us"]);
+    const url = "http://shop.revivevzw.be/";
+    window.open(url, '_blank');
   }
 }

@@ -18,6 +18,10 @@ import { HomeComponent, AboutComponent, SponsorsComponent, MissionsComponent, Vo
 import { NewsItemApiService, LocalizeService, ApiService, ActivityApiService } from './services';
 import { SupportUsComponent } from './pages/support-us/support-us.component';
 import { CalendarDetailComponent } from './pages/calendar-detail/calendar-detail.component';
+import { MissionDetailComponent } from './pages/mission-detail/mission-detail.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { HighlightComponent } from './components/highlight/highlight.component';
+import { MainPageBaseComponent } from './components/main-page-base/main-page-base.component';
 
 
 
@@ -40,6 +44,10 @@ import { CalendarDetailComponent } from './pages/calendar-detail/calendar-detail
     HeaderSecondaryComponent,
     SupportUsComponent,
     CalendarDetailComponent,
+    MissionDetailComponent,
+    ContactComponent,
+    HighlightComponent,
+    MainPageBaseComponent,
   ],
   imports: [
     BrowserAnimationsModule,
