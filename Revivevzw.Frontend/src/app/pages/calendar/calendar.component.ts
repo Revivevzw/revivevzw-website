@@ -31,11 +31,10 @@ export class CalendarComponent implements OnInit {
   public getRouterLink = (id: number) => "['/calendar-detail/" + id + "']";
 
   ngOnInit(): void {
+    this.activityTypes = this.activityApiService.getTypes();
     this.activityApiService.getUpcoming().subscribe(result => {
-      console.log(result);
       this.activities = result;
     })
-    this.activityTypes = this.activityApiService.getTypes();
   }
 
 }

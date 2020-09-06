@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MailchimpApiService } from 'src/app/services';
+
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mailchimpApi: MailchimpApiService) { }
 
   ngOnInit(): void {
   }
 
+  public subscribe = (email: string) => {
+    // this.mailchimpApi.subscribe(email).subscribe(x => {
+    //   console.log(x);
+    // })
+  }
 }

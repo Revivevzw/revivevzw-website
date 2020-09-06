@@ -15,7 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GoogleSheetApiService } from './services/google-sheet-api.service';
 import { HeaderSecondaryComponent, TranslationsComponent, NavigationComponent, LanguageSelectorComponent, FooterComponent, MobileNavigationComponent, NewsBarComponent, CallToActionComponent } from './components';
 import { HomeComponent, AboutComponent, SponsorsComponent, MissionsComponent, VolunteersComponent, CalendarComponent } from './pages';
-import { NewsItemApiService, LocalizeService, ApiService, ActivityApiService } from './services';
+import { NewsItemApiService, LocalizeService, ApiService, ActivityApiService, MailchimpApiService } from './services';
 import { SupportUsComponent } from './pages/support-us/support-us.component';
 import { CalendarDetailComponent } from './pages/calendar-detail/calendar-detail.component';
 import { MissionDetailComponent } from './pages/mission-detail/mission-detail.component';
@@ -72,7 +72,8 @@ import { MainPageBaseComponent } from './components/main-page-base/main-page-bas
     NewsItemApiService,
     LocalizeService,
     ApiService,
-    ActivityApiService
+    ActivityApiService,
+    MailchimpApiService
   ],
   bootstrap: [AppComponent]
 })

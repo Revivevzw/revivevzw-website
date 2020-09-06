@@ -17,20 +17,23 @@ namespace Revivevzw.Business.Repositories
             this.dbContext = dbContext;
         }
 
+        private IQueryable<Missions> GetForWeb()
+        {
+            return dbContext.Set<Missions>()
+                .Where(x => x.Showonweb == "Y")
+                .Where(x => x.Deleted == "N");
+        }
+
         public async Task<Missions> Get(int id)
         {
-            return await dbContext.Missions
-                .Where(x => x.Showonweb == "Y")
-                .Where(x => x.Deleted == "N")
+            return await GetForWeb()
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<ICollection<Missions>> GetUpcoming()
         {
-            return await dbContext.Missions
+            return await GetForWeb()
               .Where(x => x.Einddatum > DateTime.Now)
-              .Where(x => x.Deleted == "N")
-              .Where(x => x.Showonweb == "Y")
               .OrderBy(x => x.Startdatum)
               .ToListAsync();
         }

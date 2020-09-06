@@ -4,7 +4,7 @@
       <div class="news-letter">
         <label>Inschrijven op nieuwsbrief</label>
         <div class="news-letter__input">
-          <input type="email" placeholder="example@mail.be" /><i class="far fa-paper-plane"></i>
+          <input #email type="email" placeholder="example@mail.be" /><i (click)="subscribe(email.value)" class="far fa-paper-plane"></i>
         </div>
       </div>
       <ul class="social-media">

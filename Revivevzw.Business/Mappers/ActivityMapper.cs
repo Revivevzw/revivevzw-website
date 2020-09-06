@@ -36,7 +36,7 @@ namespace Revivevzw.Business.Mappers
               .ForMember(x => x.Street, x => x.MapFrom(y => y.Adreslijn1))
               .ForMember(x => x.PostalCode, x => x.MapFrom(y => y.Postcode))
               .ForMember(x => x.Type, x => x.MapFrom(y => y.Missionsort))
-              .ForMember(x => x.CanRegisterOnline, x => x.MapFrom(y => y.OnlineInschrijven.ToLower() == "ja"));
+              .ForMember(x => x.CanRegisterOnline, x => x.MapFrom(y => y.OnlineInschrijven == "Y"));
     }
   }
 }

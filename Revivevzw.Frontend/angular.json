@@ -32,7 +32,8 @@
               "src/variables.scss",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
