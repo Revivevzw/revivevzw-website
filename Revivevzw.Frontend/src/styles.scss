@@ -52,7 +52,7 @@ h4 {
 
 .header--scrolled {
   background-color: rgba(24, 55, 53, 1);
-  border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+  // border-bottom: 1px solid rgb(0, 0, 0, 0.1);
 }
 
 .header_secondary {
@@ -74,11 +74,10 @@ h4 {
 .url {
   text-decoration: none;
   font-weight: bold;
+  color: $accent-color;
+  transition: all 0.2s ease;
 
   &--primary {
-    color: $accent-color;
-    transition: all 0.2s ease;
-
     &::after {
       font-family: "Font Awesome 5 Free";
       font-weight: 900;
@@ -107,13 +106,38 @@ h4 {
   box-sizing: border-box;
 }
 
-.content{
+.content {
   padding-top: 100px;
   padding-bottom: 100px;
 }
 
-strong{
+strong {
   color: $accent-color-dark;
   background-color: $accent-color-light;
   // background-color: $accent-color-secondary-light;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding-bottom: 20px;
+}
+
+.responsive-columns {
+  .column{
+    margin-bottom: 30px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    display: flex;
+    justify-content: space-between;
+    .column {
+      margin-bottom: 0;
+      margin-right: 40px;
+    }
+    .column:last-of-type {
+      margin-right: 0;
+    }
+  }
 }

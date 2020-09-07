@@ -2,7 +2,7 @@
   <div class="footer__main">
     <div class="default-container">
       <div class="news-letter">
-        <label>Inschrijven op nieuwsbrief</label>
+        <label>{{'FOOTER.SUBSCRIBE_TO_NEWS_LETTER' | translate}}</label>
         <div class="news-letter__input">
           <input #email type="email" placeholder="example@mail.be" /><i (click)="subscribe(email.value)" class="far fa-paper-plane"></i>
         </div>
@@ -23,7 +23,7 @@
   <div class="footer__sub">
     <div class="default-container">
       <app-language-selector></app-language-selector>
-      <span>© Revive vzw | Made by <a class="url url--primary" href="https://www.linkedin.com/in/maarten-brysbaert" target="blank">Me </a></span>
+      <span>© Revive vzw | <a href="gdpr" class="url url--secondary">GDPR</a> | Made by <a class="url url--primary" href="https://www.linkedin.com/in/maarten-brysbaert" target="blank">Me </a></span>
     </div>
   </div>
 </div>

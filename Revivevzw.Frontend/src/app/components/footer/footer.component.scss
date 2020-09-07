@@ -7,6 +7,7 @@
 
   &__main {
     border-top: $line;
+    // background-color: rgba($color: #000000, $alpha: .05);
 
     .default-container {
       @media (min-width: $breakpoint-desktop) {
@@ -74,6 +75,7 @@
       padding: 10px 0;
       border: none;
       border-bottom: .08pc solid $accent-color;
+      background-color: transparent;
       &:focus {
         outline: none;
       }

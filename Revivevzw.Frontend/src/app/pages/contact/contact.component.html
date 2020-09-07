@@ -1,1 +1,44 @@
-<p>contact works!</p>
+<app-main-page-base [title]="'CONTACT.TITLE' | translate">
+  <div class="responsive-columns content">
+    <div class="column form">
+      <form>
+        <div class="form-field">
+          <label>{{ "SHARED.EMAIL" | translate }}</label>
+          <input class="form-item" type="text" />
+        </div>
+        <div class="form-field">
+          <label>{{ "SHARED.NAME" | translate }}</label>
+          <input class="form-item" type="text" />
+        </div>
+        <div class="form-field">
+          <label>{{ "SHARED.MESSAGE" | translate }}</label>
+          <textarea></textarea>
+        </div>
+        <div class="button-container">
+          <div class="button">
+            <app-call-to-action
+            [text]="'SHARED.SEND' | translate"
+            [action]="send"
+            ></app-call-to-action>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="info">
+      <ul>
+        <li>
+          <h4>{{ "SHARED.ADDRESS" | translate }}:</h4>
+          Wittepaalstraat 16 – 9051 Gent – België
+        </li>
+        <li>
+          <h4>{{ "SHARED.EMAIL" | translate }}:</h4>
+          info@revivevzw.be
+        </li>
+        <li>
+         <h4>{{ "SHARED.TEL" | translate }}:</h4>
+         +32 (0)475 467 557
+       </li>
+      </ul>
+    </div>
+  </div>
+</app-main-page-base>

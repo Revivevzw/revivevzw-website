@@ -22,6 +22,7 @@ import { MissionDetailComponent } from './pages/mission-detail/mission-detail.co
 import { ContactComponent } from './pages/contact/contact.component';
 import { HighlightComponent } from './components/highlight/highlight.component';
 import { MainPageBaseComponent } from './components/main-page-base/main-page-base.component';
+import { GdprComponent } from './pages/gdpr/gdpr.component';
 
 
 
@@ -48,6 +49,7 @@ import { MainPageBaseComponent } from './components/main-page-base/main-page-bas
     ContactComponent,
     HighlightComponent,
     MainPageBaseComponent,
+    GdprComponent,
   ],
   imports: [
     BrowserAnimationsModule,
