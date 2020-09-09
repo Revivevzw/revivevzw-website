@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.VisualBasic;
 using Revivevzw.Business.Mappers;
 using Revivevzw.Business.Repositories;
 using Revivevzw.Business.Services;
@@ -21,6 +23,8 @@ namespace Revivevzw.Api
 {
     public class Startup
     {
+        private static readonly string[] allowedOrigins = new string[] { "142.93.108.123", "68.183.215.91" };
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -33,13 +37,11 @@ namespace Revivevzw.Api
         {
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(
-                    builder =>
-                    {
-                        builder.WithOrigins("142.93.108.123", "68.183.215.91")
+                options.AddDefaultPolicy(builder =>
+                        builder.WithOrigins(allowedOrigins)
                                .AllowAnyHeader()
-                               .AllowAnyMethod();
-                    });
+                               .AllowAnyMethod()
+                        );
             });
 
             services.AddControllers();
@@ -72,7 +74,11 @@ namespace Revivevzw.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors();
+            app.UseCors(builder =>
+                builder.WithOrigins(allowedOrigins)
+                       .AllowAnyHeader()
+                       .AllowAnyMethod()
+                );
 
             app.UseHttpsRedirection();
 
