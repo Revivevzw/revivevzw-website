@@ -11,11 +11,11 @@ namespace Revivevzw.Api.Controllers
     [ApiController]
     public class ActivityController : ControllerBase
     {
-        private readonly IActivityService missionService;
+        private readonly IActivityService activityService;
 
-        public ActivityController(IActivityService missionService)
+        public ActivityController(IActivityService activityService)
         {
-            this.missionService = missionService;
+            this.activityService = activityService;
         }
 
         [HttpGet, Route("{id}")]
@@ -23,8 +23,8 @@ namespace Revivevzw.Api.Controllers
         {
             try
             {
-                var mission = await missionService.Get(id);
-                return Ok(mission);
+                var activity = await this.activityService.Get(id);
+                return Ok(activity);
             }
             catch (Exception ex)
             {
@@ -37,8 +37,8 @@ namespace Revivevzw.Api.Controllers
         {
             try
             {
-                var missions = await missionService.GetUpcoming();
-                return Ok(missions);
+                var activities = await this.activityService.GetUpcoming();
+                return Ok(activities);
             }
             catch (Exception ex)
             {

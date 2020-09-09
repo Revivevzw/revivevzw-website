@@ -19,12 +19,15 @@ namespace Revivevzw.DataAccess
         public virtual DbSet<Countries> Countries { get; set; }
         public virtual DbSet<Files> Files { get; set; }
         public virtual DbSet<Leden> Leden { get; set; }
+        public virtual DbSet<Materiaal> Materiaal { get; set; }
         public virtual DbSet<Missions> Missions { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Participants> Participants { get; set; }
         public virtual DbSet<Pasfotos> Pasfotos { get; set; }
         public virtual DbSet<Settings> Settings { get; set; }
         public virtual DbSet<Shoparticles> Shoparticles { get; set; }
+        public virtual DbSet<Stgroepen> Stgroepen { get; set; }
+        public virtual DbSet<Stock> Stock { get; set; }
         public virtual DbSet<Users> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -374,6 +377,106 @@ namespace Revivevzw.DataAccess
                     .HasDefaultValueSql("(space((0)))");
             });
 
+            modelBuilder.Entity<Materiaal>(entity =>
+            {
+                entity.ToTable("materiaal");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Aankoopdatum)
+                    .HasColumnName("aankoopdatum")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("('01/01/1900')");
+
+                entity.Property(e => e.Aankoopprijs)
+                    .HasColumnName("aankoopprijs")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Breedte)
+                    .HasColumnName("breedte")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Code)
+                    .HasColumnName("code")
+                    .HasMaxLength(200)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Dchanged)
+                    .HasColumnName("dchanged")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("('01/01/1900')");
+
+                entity.Property(e => e.Dcreated)
+                    .HasColumnName("dcreated")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Deleted)
+                    .HasColumnName("deleted")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("('N')");
+
+                entity.Property(e => e.Eenheid)
+                    .HasColumnName("eenheid")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Gewicht)
+                    .HasColumnName("gewicht")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Groep1)
+                    .HasColumnName("groep1")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Groep2)
+                    .HasColumnName("groep2")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Hoogte)
+                    .HasColumnName("hoogte")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Lengte)
+                    .HasColumnName("lengte")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Leverancier)
+                    .HasColumnName("leverancier")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Lijstnummer)
+                    .HasColumnName("lijstnummer")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Naam)
+                    .HasColumnName("naam")
+                    .HasMaxLength(200)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Omschrijving)
+                    .HasColumnName("omschrijving")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Opmerkingen)
+                    .HasColumnName("opmerkingen")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Stockplaats)
+                    .HasColumnName("stockplaats")
+                    .HasMaxLength(200)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Vervaldatum)
+                    .HasColumnName("vervaldatum")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("('01/01/1900')");
+
+                entity.Property(e => e.Whochanged)
+                    .HasColumnName("whochanged")
+                    .HasMaxLength(150)
+                    .HasDefaultValueSql("(space((0)))");
+            });
+
             modelBuilder.Entity<Missions>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -438,6 +541,18 @@ namespace Revivevzw.DataAccess
                     .HasColumnType("date")
                     .HasDefaultValueSql("('01/01/1900')");
 
+                entity.Property(e => e.ExperienceFr)
+                    .HasColumnName("experienceFR")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.ExperienceNl)
+                    .HasColumnName("experienceNL")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.ExperienceUk)
+                    .HasColumnName("experienceUK")
+                    .HasDefaultValueSql("(space((0)))");
+
                 entity.Property(e => e.Extention)
                     .HasColumnName("extention")
                     .HasMaxLength(50);
@@ -460,6 +575,18 @@ namespace Revivevzw.DataAccess
                     .HasColumnName("INSvanaf")
                     .HasColumnType("date")
                     .HasDefaultValueSql("('01/01/1900')");
+
+                entity.Property(e => e.InterventionsFr)
+                    .HasColumnName("interventionsFR")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.InterventionsNl)
+                    .HasColumnName("interventionsNL")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.InterventionsUk)
+                    .HasColumnName("interventionsUK")
+                    .HasDefaultValueSql("(space((0)))");
 
                 entity.Property(e => e.Land)
                     .HasColumnName("land")
@@ -514,6 +641,27 @@ namespace Revivevzw.DataAccess
                     .HasMaxLength(10)
                     .HasDefaultValueSql("('N')");
 
+                entity.Property(e => e.ReportDoneBy)
+                    .HasColumnName("reportDoneBy")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.ReportFr)
+                    .HasColumnName("reportFR")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.ReportNl)
+                    .HasColumnName("reportNL")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.ReportUk)
+                    .HasColumnName("reportUK")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.ShowReportOnWeb)
+                    .HasColumnName("showReportOnWeb")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("('N')");
+
                 entity.Property(e => e.Showonweb)
                     .HasColumnName("showonweb")
                     .HasMaxLength(10)
@@ -527,6 +675,10 @@ namespace Revivevzw.DataAccess
                 entity.Property(e => e.VraagAdres)
                     .HasMaxLength(10)
                     .HasDefaultValueSql("('N')");
+
+                entity.Property(e => e.WebMainPicture)
+                    .HasColumnName("webMainPicture")
+                    .HasDefaultValueSql("(space((0)))");
 
                 entity.Property(e => e.Whochanged)
                     .HasColumnName("whochanged")
@@ -929,6 +1081,149 @@ namespace Revivevzw.DataAccess
                     .HasDefaultValueSql("(space((0)))");
 
                 entity.Property(e => e.WieMailen).HasDefaultValueSql("((0))");
+            });
+
+            modelBuilder.Entity<Stgroepen>(entity =>
+            {
+                entity.ToTable("STgroepen");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Dchanged)
+                    .HasColumnName("dchanged")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("('01/01/1900')");
+
+                entity.Property(e => e.Dcreated)
+                    .HasColumnName("dcreated")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Deleted)
+                    .HasColumnName("deleted")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("('N')");
+
+                entity.Property(e => e.Groep)
+                    .HasColumnName("groep")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Mastergroep)
+                    .HasColumnName("mastergroep")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.NameFr)
+                    .HasColumnName("nameFR")
+                    .HasMaxLength(100)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.NameNl)
+                    .HasColumnName("nameNL")
+                    .HasMaxLength(100)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.NameUk)
+                    .HasColumnName("nameUK")
+                    .HasMaxLength(100)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Opmerking)
+                    .HasColumnName("opmerking")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Whochanged)
+                    .HasColumnName("whochanged")
+                    .HasMaxLength(150)
+                    .HasDefaultValueSql("(space((0)))");
+            });
+
+            modelBuilder.Entity<Stock>(entity =>
+            {
+                entity.ToTable("STOCK");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Aankoopprijs)
+                    .HasColumnName("aankoopprijs")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Aantal)
+                    .HasColumnName("aantal")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.ArticleId)
+                    .HasColumnName("articleID")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Dchanged)
+                    .HasColumnName("dchanged")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Dcreated)
+                    .HasColumnName("dcreated")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Deleted)
+                    .HasColumnName("deleted")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("('N')");
+
+                entity.Property(e => e.Eenheid)
+                    .HasColumnName("eenheid")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Kolom)
+                    .HasColumnName("kolom")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Leverancier)
+                    .HasColumnName("leverancier")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Lokaal)
+                    .HasColumnName("lokaal")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Merk)
+                    .HasColumnName("merk")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Opmerking)
+                    .HasColumnName("opmerking")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Rek)
+                    .HasColumnName("rek")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Rij)
+                    .HasColumnName("rij")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Steriel)
+                    .HasColumnName("steriel")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("('N')");
+
+                entity.Property(e => e.Vakje)
+                    .HasColumnName("vakje")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Vervaldatum)
+                    .HasColumnName("vervaldatum")
+                    .HasColumnType("date")
+                    .HasDefaultValueSql("('01/01/1900')");
+
+                entity.Property(e => e.Whochanged)
+                    .HasColumnName("whochanged")
+                    .HasMaxLength(100)
+                    .HasDefaultValueSql("(space((0)))");
             });
 
             modelBuilder.Entity<Users>(entity =>

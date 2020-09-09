@@ -28,7 +28,8 @@
       box-sizing: border-box;
       @media (min-width: $breakpoint-desktop) {
          padding: 10px;
-       }
+      }
+      font-family: inherit;
    }
 }
 

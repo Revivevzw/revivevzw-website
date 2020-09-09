@@ -36,7 +36,7 @@ namespace Revivevzw.Api
                 options.AddDefaultPolicy(
                     builder =>
                     {
-                        builder.WithOrigins("*")
+                        builder.WithOrigins("142.93.108.123", "68.183.215.91")
                                .AllowAnyHeader()
                                .AllowAnyMethod();
                     });
@@ -57,9 +57,11 @@ namespace Revivevzw.Api
 
             // Repository injection
             services.AddTransient<IActivityRepository, ActivityRepository>();
+            services.AddTransient<IMissionRepository, MissionRepository>();
 
             // Service injection
             services.AddTransient<IActivityService, ActivityService>();
+            services.AddTransient<IMissionService, MissionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

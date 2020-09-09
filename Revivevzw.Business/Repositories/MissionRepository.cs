@@ -1,3 +1,5 @@
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Revivevzw.DataAccess;
 using Revivevzw.Enums;
@@ -9,35 +11,33 @@ using System.Threading.Tasks;
 
 namespace Revivevzw.Business.Repositories
 {
-    public class ActivityRepository : IActivityRepository
+    public class MissionRepository : IMissionRepository
     {
         private readonly REVIVEContext dbContext;
 
-        public ActivityRepository(REVIVEContext dbContext)
+        public MissionRepository(REVIVEContext dbContext)
         {
-            this.dbContext = dbContext;
+            this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
-        private IQueryable<Missions> GetForWeb()
+        private IQueryable<Missions> GetApplicable()
         {
             return dbContext.Set<Missions>()
-                .Where(x => x.Missionsort != (int)ActivityType.Mission)
+                .Where(x => x.Missionsort == (int)ActivityType.Mission)
                 .Where(x => x.Showonweb == "Y")
+                .Where(x => x.ShowReportOnWeb == "Y")
                 .Where(x => x.Deleted == "N");
         }
 
         public async Task<Missions> Get(int id)
         {
-            return await GetForWeb()
+            return await GetApplicable()
                 .SingleOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<ICollection<Missions>> GetUpcoming()
+        public async Task<ICollection<Missions>> Get()
         {
-            return await GetForWeb()
-              .Where(x => x.Einddatum > DateTime.Now)
-              .OrderBy(x => x.Startdatum)
-              .ToListAsync();
+            return await GetApplicable().ToListAsync();
         }
     }
 }

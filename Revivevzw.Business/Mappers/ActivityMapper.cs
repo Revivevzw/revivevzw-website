@@ -11,7 +11,7 @@ namespace Revivevzw.Business.Mappers
   {
     public ActivityMapper()
     {
-            // Een kleine toelichting waarom er weinig logica zit tussen Database model en DataContract:
+            // Een kleine toelichting waarom er weinig logica zit tussen Entiteit en DataContract:
             // Database bestaat reeds (gemaakt door Erik) en deze is vrij onlogisch obgebouwd.
             // Er wordt geen consequente/ logische naamgeving gebruikt.
             // Missies wordt gezien als een algemeen object waar zowel missies als activiteiten etc in zitten.
