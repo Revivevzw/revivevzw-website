@@ -23,7 +23,7 @@ namespace Revivevzw.Api
 {
     public class Startup
     {
-        private static readonly string[] allowedOrigins = new string[] { "142.93.108.123", "68.183.215.91" };
+        private static readonly string[] allowedOrigins = new string[] { "https://revivevzw.netlify.app" };
 
         public Startup(IConfiguration configuration)
         {
