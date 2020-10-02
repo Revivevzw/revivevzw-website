@@ -4,7 +4,7 @@ using Revivevzw.DataContracts;
 
 namespace Revivevzw.Business.Mappers
 {
-    internal class MissionMapper : Profile
+    public class MissionMapper : Profile
     {
         public MissionMapper()
         {

@@ -26,6 +26,8 @@ namespace Revivevzw.DataAccess
         public virtual DbSet<Pasfotos> Pasfotos { get; set; }
         public virtual DbSet<Settings> Settings { get; set; }
         public virtual DbSet<Shoparticles> Shoparticles { get; set; }
+        public virtual DbSet<Splashinfo> Splashinfo { get; set; }
+        public virtual DbSet<Sponsors> Sponsors { get; set; }
         public virtual DbSet<Stgroepen> Stgroepen { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
         public virtual DbSet<Users> Users { get; set; }
@@ -34,7 +36,8 @@ namespace Revivevzw.DataAccess
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Name=Default");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=tcp:revive.database.windows.net,1433;Database=REVIVE;User ID=ReviveAdmin;Password=ReviveDocters8!;");
             }
         }
 
@@ -1081,6 +1084,126 @@ namespace Revivevzw.DataAccess
                     .HasDefaultValueSql("(space((0)))");
 
                 entity.Property(e => e.WieMailen).HasDefaultValueSql("((0))");
+            });
+
+            modelBuilder.Entity<Splashinfo>(entity =>
+            {
+                entity.ToTable("SPLASHinfo");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Dchanged)
+                    .HasColumnName("dchanged")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("('01/01/1900')");
+
+                entity.Property(e => e.Dcreated)
+                    .HasColumnName("dcreated")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Deleted)
+                    .HasColumnName("deleted")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("('N')");
+
+                entity.Property(e => e.EndDate)
+                    .HasColumnName("endDate")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("('01/01/1900')");
+
+                entity.Property(e => e.InfoUrl)
+                    .HasColumnName("infoURL")
+                    .HasMaxLength(300)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Opmerking)
+                    .HasColumnName("opmerking")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.ShowOnWeb)
+                    .HasColumnName("showOnWeb")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("('N')");
+
+                entity.Property(e => e.TitelFr)
+                    .HasColumnName("titelFR")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.TitelNl)
+                    .HasColumnName("titelNL")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.TitelUk)
+                    .HasColumnName("titelUK")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Whochanged)
+                    .HasColumnName("whochanged")
+                    .HasMaxLength(150)
+                    .HasDefaultValueSql("(space((0)))");
+            });
+
+            modelBuilder.Entity<Sponsors>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Bedrag)
+                    .HasColumnName("bedrag")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.ContactInfo)
+                    .HasColumnName("contactInfo")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Dchanged)
+                    .HasColumnName("dchanged")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("('01/01/1900')");
+
+                entity.Property(e => e.Dcreated)
+                    .HasColumnName("dcreated")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Deleted)
+                    .HasColumnName("deleted")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("('N')");
+
+                entity.Property(e => e.EndDate)
+                    .HasColumnName("endDate")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("('01/01/1900')");
+
+                entity.Property(e => e.Naam)
+                    .HasColumnName("naam")
+                    .HasMaxLength(200)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Opmerking)
+                    .HasColumnName("opmerking")
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.PicUrl)
+                    .HasColumnName("picURL")
+                    .HasMaxLength(300)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.ShowOnWeb)
+                    .HasColumnName("showOnWeb")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("('N')");
+
+                entity.Property(e => e.WebsiteUrl)
+                    .HasColumnName("websiteURL")
+                    .HasMaxLength(250)
+                    .HasDefaultValueSql("(space((0)))");
+
+                entity.Property(e => e.Whochanged)
+                    .HasColumnName("whochanged")
+                    .HasMaxLength(150)
+                    .HasDefaultValueSql("(space((0)))");
             });
 
             modelBuilder.Entity<Stgroepen>(entity =>

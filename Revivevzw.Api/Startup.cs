@@ -1,19 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.VisualBasic;
 using Revivevzw.Business.Mappers;
 using Revivevzw.Business.Repositories;
 using Revivevzw.Business.Services;
@@ -23,7 +14,9 @@ namespace Revivevzw.Api
 {
     public class Startup
     {
-        private static readonly string[] allowedOrigins = new string[] { /*"https://revivevzw.netlify.app"*/ "*" };
+        //Scaffold-DbContext "Server=tcp:revive.database.windows.net,1433;Database=REVIVE;User ID=ReviveAdmin;Password=ReviveDocters8!;" Microsoft.EntityFrameworkCore.SqlServer -force
+
+        public readonly string WebOriginPolicy = "webOriginPolicy";
 
         public Startup(IConfiguration configuration)
         {
@@ -37,8 +30,8 @@ namespace Revivevzw.Api
         {
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(builder =>
-                        builder.WithOrigins(allowedOrigins)
+                options.AddPolicy(name:  WebOriginPolicy ,builder =>
+                        builder.WithOrigins("https://revivevzw.netlify.app", "165.22.65.139", "157.230.103.136")
                                .AllowAnyHeader()
                                .AllowAnyMethod()
                         );
@@ -53,6 +46,8 @@ namespace Revivevzw.Api
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new ActivityMapper());
+                mc.AddProfile(new MissionMapper());
+                mc.AddProfile(new SponsorMapper());
             });
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
@@ -60,10 +55,12 @@ namespace Revivevzw.Api
             // Repository injection
             services.AddTransient<IActivityRepository, ActivityRepository>();
             services.AddTransient<IMissionRepository, MissionRepository>();
+            services.AddTransient<ISponsorRepository, SponsorRepository>();
 
             // Service injection
             services.AddTransient<IActivityService, ActivityService>();
             services.AddTransient<IMissionService, MissionService>();
+            services.AddTransient<ISponsorService, SponsorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,15 +71,11 @@ namespace Revivevzw.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(builder =>
-                builder.WithOrigins(allowedOrigins)
-                       .AllowAnyHeader()
-                       .AllowAnyMethod()
-                );
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(WebOriginPolicy);
 
             app.UseAuthorization();
 
