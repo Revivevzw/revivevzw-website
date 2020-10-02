@@ -51,10 +51,7 @@ export class SponsorsComponent implements OnInit {
   }
 
   private filterActiveSponsors = (sponsors: Array<Sponsor>) => {
-    return sponsors.filter(s => 
-      s.isActive
-      && (!s.activeFrom || new Date(s.activeFrom) <= new Date()) 
-      && (!s.activeTo || new Date(s.activeTo) >= new Date()));
+    return sponsors.filter(s => !s.endDate || new Date(s.endDate) <= new Date());
   }
 
 }

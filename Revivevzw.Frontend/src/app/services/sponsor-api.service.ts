@@ -12,10 +12,10 @@ export class SponsorApiService {
       private apiService: ApiService
    ) { }
 
-   private path = "sponsors";
+   private path = "sponsor";
 
    public getAll = () => {
-      let url = environment.strapiUrl + this.path;
-      return this.apiService.get<Array<Sponsor>>(url);
+      let url = environment.revivevzwApiUrl + this.path;
+      return this.apiService.get<Array<Sponsor>>(url + '/all');
    }
 }
