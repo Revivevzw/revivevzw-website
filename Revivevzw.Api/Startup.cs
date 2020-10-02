@@ -72,7 +72,7 @@ namespace Revivevzw.Api
 
             app.UseRouting();
 
-            app.UseCors(WebOriginPolicy);
+            //app.UseCors(WebOriginPolicy);
 
             app.UseAuthorization();
 
