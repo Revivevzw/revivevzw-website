@@ -30,11 +30,8 @@ namespace Revivevzw.Api
         {
             services.AddCors(options =>
             {
-                options.AddPolicy(name:  WebOriginPolicy ,builder =>
-                        builder.WithOrigins("https://revivevzw.netlify.app", "165.22.65.139", "157.230.103.136")
-                               .AllowAnyHeader()
-                               .AllowAnyMethod()
-                        );
+                options.AddPolicy(name: WebOriginPolicy, builder =>
+                        builder.WithOrigins("https://revivevzw.netlify.app", "165.22.65.139", "157.230.103.136"));
             });
 
             services.AddControllers();
