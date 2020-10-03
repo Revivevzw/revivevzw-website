@@ -51,7 +51,7 @@ export class SponsorsComponent implements OnInit {
   }
 
   private filterActiveSponsors = (sponsors: Array<Sponsor>) => {
-    return sponsors.filter(s => !s.endDate || new Date(s.endDate) <= new Date());
+    return sponsors.filter(s => !s.endDate || new Date(s.endDate) <= new Date()).sort((a, b) => b.amount - a.amount)
   }
 
 }

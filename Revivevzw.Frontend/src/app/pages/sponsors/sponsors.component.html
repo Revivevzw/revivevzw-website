@@ -1,6 +1,6 @@
 <app-main-page-base title="Thumbs up for our sponsors!">
    <div class="sponsors__logos">
-      <a href="{{sponsor.websiteUrl}}" *ngFor="let sponsor of sponsors" class="sponsors__logo" title="sponsor.name">
+      <a href="{{sponsor.websiteUrl}}" *ngFor="let sponsor of sponsors" target="blanc" class="sponsors__logo" title="{{sponsor.name}}">
          <img src="{{sponsor.logoUrl}}" alt="{{sponsor.name}}">
       </a>
    </div>
