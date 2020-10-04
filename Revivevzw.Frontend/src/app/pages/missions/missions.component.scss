@@ -1,0 +1,39 @@
+@import 'src/variables';
+
+.year{
+   h2{
+      padding-bottom: 10px;
+      border-bottom: $line;
+      margin-bottom: 15px;
+   }
+   .missions{
+      display: flex;
+      justify-content: space-between;
+      .mission:hover{
+         background-color: $accent-color-light;
+         border: 1px solid $accent-color-light;
+      }
+      .mission{
+         border: $line;
+         transition: .2s ease;
+         border-radius: $border-radius;
+         overflow: hidden;
+         width: calc(97% / 3);
+         cursor: pointer;
+         box-sizing: border-box;
+
+         &__text{
+            padding: 20px;
+         }
+
+         .image{
+            height: 200px;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            // background-image: url("src/assets/media/header-img.jpg");
+         }
+      }
+   }
+}

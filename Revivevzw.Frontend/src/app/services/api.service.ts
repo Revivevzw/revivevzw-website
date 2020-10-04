@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { isScullyRunning, TransferStateService } from '@scullyio/ng-lib';
 import { tap, shareReplay } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
+import { getuid } from 'process';
 
 @Injectable({
    providedIn: 'root'
@@ -13,16 +14,14 @@ export class ApiService {
       private transferStateService: TransferStateService
    ) { }
 
-   private httpOptions = {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS, POST, PUT',
-        'Access-Control-Allow-Headers': 'Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers',
-        'Content-Type': "application/json"
-      })
-    };
+   private getUrl(path: string){
+      return path;
+      // return environment.revivevzwApiUrl + path;
+   }
 
-   public get<T>(url: string, setToState: boolean = true) {
+   public get<T>(path: string, setToState: boolean = true) {
+      var url = this.getUrl(path);
+      
       if (environment.production && setToState) {
          const urlHash = btoa(url);
          if (isScullyRunning()) {
@@ -39,7 +38,8 @@ export class ApiService {
       }
    }
 
-   public post(url: string, object: any){
+   public post(path: string, object: any){
+      var url = this.getUrl(path);
       return this.http.post(url, object);
    }
 }
