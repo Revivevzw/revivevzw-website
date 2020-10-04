@@ -40,6 +40,6 @@ export class ApiService {
    }
 
    public post(url: string, object: any){
-      return this.http.post(url, object, this.httpOptions);
+      return this.http.post(url, object);
    }
 }

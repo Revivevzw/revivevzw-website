@@ -33,7 +33,7 @@ namespace Revivevzw.Api
                 //options.AddPolicy(name: WebOriginPolicy, builder =>
                 //        builder.WithOrigins("https://revivevzw.netlify.app", "165.22.65.139", "157.230.103.136"));
                 options.AddPolicy(name: WebOriginPolicy, builder =>
-                        builder.WithOrigins("*"));
+                        builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod());
             });
 
             services.AddControllers();
