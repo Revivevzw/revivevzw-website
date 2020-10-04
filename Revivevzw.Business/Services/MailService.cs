@@ -50,7 +50,7 @@ namespace Revivevzw.Business.Services
 
         private async Task Send(MailMessage message)
         {
-            message.To.Add(this.emailTo);
+            foreach (var email in this.emailTo.Split(", ")) message.To.Add(email);
             message.From = new MailAddress(this.emailFrom);
 
             using (var smtp = new SmtpClient())

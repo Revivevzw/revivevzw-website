@@ -11,7 +11,7 @@ export class CallToActionComponent implements OnInit {
   @Input() text: string;
   @Input() action: any;
   @Input() disabled: boolean = false;
-  @Input() invalidMessage: string;
+  @Input() disabledTitle: string;
 
   constructor() { }
 
