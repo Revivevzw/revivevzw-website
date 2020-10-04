@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { MailApiService } from 'src/app/services';
 
@@ -13,7 +14,8 @@ export class ContactComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private mailApi: MailApiService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private translate: TranslateService
   ) { }
 
   public isBusy: boolean = false;
@@ -33,11 +35,11 @@ export class ContactComponent implements OnInit {
     
     this.isBusy = true;
     this.mailApi.send(formValue).subscribe(result => {
-      this.toastr.success("Mail succesvol verzonden!");
+      this.toastr.success(this.translate.instant("SHARED.SEND_EMAIL_SUCCESSFULL"));
       this.form.reset();
+      this.isBusy = false;
     }, error => {
-      this.toastr.error("Verzenden van mail mislukt.")
-    }, () => {
+      this.toastr.error(this.translate.instant("SHARED.SEND_EMAIL_ERROR"))
       this.isBusy = false;
     });
   }
