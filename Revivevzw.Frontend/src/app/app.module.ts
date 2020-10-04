@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GoogleSheetApiService } from './services/google-sheet-api.service';
 import { HeaderSecondaryComponent, TranslationsComponent, NavigationComponent, LanguageSelectorComponent, FooterComponent, MobileNavigationComponent, NewsBarComponent, CallToActionComponent } from './components';
 import { HomeComponent, AboutComponent, SponsorsComponent, MissionsComponent, VolunteersComponent, CalendarComponent } from './pages';
-import { NewsItemApiService, LocalizeService, ApiService, ActivityApiService, MailchimpApiService } from './services';
+import { NewsItemApiService, LocalizeService, ApiService, ActivityApiService, MailchimpApiService, MailApiService } from './services';
 import { SupportUsComponent } from './pages/support-us/support-us.component';
 import { CalendarDetailComponent } from './pages/calendar-detail/calendar-detail.component';
 import { MissionDetailComponent } from './pages/mission-detail/mission-detail.component';
@@ -25,6 +25,7 @@ import { MainPageBaseComponent } from './components/main-page-base/main-page-bas
 import { GdprComponent } from './pages/gdpr/gdpr.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -62,6 +63,10 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     FormsModule,
     CommonModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+    }),
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -78,7 +83,8 @@ import { environment } from '../environments/environment';
     LocalizeService,
     ApiService,
     ActivityApiService,
-    MailchimpApiService
+    MailchimpApiService,
+    MailApiService
   ],
   bootstrap: [AppComponent]
 })

@@ -13,11 +13,14 @@ export class ApiService {
       private transferStateService: TransferStateService
    ) { }
 
-   // private httpOptions = {
-   //    headers: new HttpHeaders({
-   //      'Access-Control-Allow-Origin': '*',
-   //    })
-   //  };
+   private httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS, POST, PUT',
+        'Access-Control-Allow-Headers': 'Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers',
+        'Content-Type': "application/json"
+      })
+    };
 
    public get<T>(url: string, setToState: boolean = true) {
       if (environment.production && setToState) {
@@ -34,5 +37,9 @@ export class ApiService {
       } else {
          return this.http.get<T>(url);
       }
+   }
+
+   public post(url: string, object: any){
+      return this.http.post(url, object, this.httpOptions);
    }
 }

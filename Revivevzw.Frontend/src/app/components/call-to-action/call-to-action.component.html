@@ -1,1 +1,1 @@
-<button (click)="action()">{{text}}</button>
+<button (click)="clickAction()" [disabled]="disabled" [title]="(disabled && invalidMessage) || ''">{{text}}</button>

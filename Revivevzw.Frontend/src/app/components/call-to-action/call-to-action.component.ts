@@ -10,10 +10,16 @@ export class CallToActionComponent implements OnInit {
   @Input() color: string;
   @Input() text: string;
   @Input() action: any;
+  @Input() disabled: boolean = false;
+  @Input() invalidMessage: string;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public clickAction = () => {
+    if(!this.disabled) this.action();
   }
 
 }

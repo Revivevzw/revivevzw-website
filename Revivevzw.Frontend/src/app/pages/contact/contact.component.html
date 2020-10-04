@@ -1,24 +1,26 @@
 <app-main-page-base [title]="'CONTACT.TITLE' | translate">
   <div class="responsive-columns content">
     <div class="column form">
-      <form>
+      <form [formGroup]="form">
         <div class="form-field">
-          <label>{{ "SHARED.EMAIL" | translate }}</label>
-          <input class="form-item" type="text" />
+          <label>{{ "SHARED.EMAIL" | translate }}*</label>
+          <input class="form-item" formControlName="emailFrom" type="text" />
         </div>
         <div class="form-field">
-          <label>{{ "SHARED.NAME" | translate }}</label>
-          <input class="form-item" type="text" />
+          <label>{{ "SHARED.NAME" | translate }}*</label>
+          <input class="form-item" formControlName="name" type="text" />
         </div>
         <div class="form-field">
-          <label>{{ "SHARED.MESSAGE" | translate }}</label>
-          <textarea rows="5"></textarea>
+          <label>{{ "SHARED.MESSAGE" | translate }}*</label>
+          <textarea rows="5" formControlName="message"></textarea>
         </div>
         <div class="button-container">
           <div class="button">
             <app-call-to-action
             [text]="'SHARED.SEND' | translate"
             [action]="send"
+            [disabled]="!form.valid || isBusy"
+            invalidMessage="Fill in all required fields"
             ></app-call-to-action>
           </div>
         </div>

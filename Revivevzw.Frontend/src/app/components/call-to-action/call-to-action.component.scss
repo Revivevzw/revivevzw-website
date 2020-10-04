@@ -8,14 +8,14 @@ button{
    opacity: .5;
    padding: 20px 45px;
    font-weight: bold;
-   cursor: pointer;
    border-radius: 2px;
 
    @media (min-width: $breakpoint-desktop) {
       padding: 15px 40px;
     }
 }
-button:hover{
+button:enabled:hover{
    opacity: 1;
+   cursor: pointer;
 }
 
