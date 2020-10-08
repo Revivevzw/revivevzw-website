@@ -16,8 +16,10 @@ import { MissionDetailComponent } from './pages/mission-detail/mission-detail.co
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'missions', component: MissionsComponent },
-  { path: 'mission-detail/:id', component: MissionDetailComponent },
+  { path: 'missions', children: [
+    { path: ':id', component: MissionDetailComponent },
+    { path: '', component: MissionsComponent }
+  ]},
   { path: 'sponsors', component: SponsorsComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'calendar-detail/:id', component: CalendarDetailComponent },

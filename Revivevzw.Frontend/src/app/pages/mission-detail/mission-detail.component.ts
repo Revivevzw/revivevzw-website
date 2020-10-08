@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mission-detail',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MissionDetailComponent implements OnInit {
 
-  constructor() { }
+  public id: number;
+  
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(x => {if (x.has('id')) this.id = parseInt(x.get('id'))});
   }
 
 }

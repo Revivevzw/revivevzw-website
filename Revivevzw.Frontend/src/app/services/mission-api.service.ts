@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Mission } from '../models';
 import { ApiService } from './api.service';
 
@@ -12,10 +13,12 @@ export class MissionApiService {
   private basePath = "mission";
 
   public getAll(){
-    return this.apiService.get<Mission[]>(this.basePath + "/all");
+    const url = environment.revivevzwApiUrl + this.basePath + "/all"
+    return this.apiService.get<Mission[]>(url);
   }
 
   public getById(id: number){
-    return this.apiService.get<Mission>(this.basePath + "/" + id);
+    const url = environment.revivevzwApiUrl + this.basePath + "/" + id;
+    return this.apiService.get<Mission>(url);
   }
 }

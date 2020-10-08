@@ -1,29 +1,17 @@
 <app-main-page-base>
-   <div class="wrapper content">
-      <div class="year">
-         <h2>2020</h2>
+   <div *ngIf="missionsByYear.length" class="wrapper content">
+      <div *ngFor="let year of missionsByYear" class="year">
+         <h2>{{year.key}}</h2>
          <div class="missions">
-            <div class="mission" (click)="goToDetail(0)">
-               <div class="image" [style.background-image]="'url(header-img.jpg)'"></div>
+            <div *ngFor="let mission of year.value" class="mission" [routerLink]="mission.id">
+               <div class="image" [style.background-image]="'url(' + mission.mainImage + ')'"></div>
                <div class="mission__text">
-                  <b>Madagaskar - Antahala</b>
-                  <p>ingrepen</p>
+                  <b>{{localize.localizeData(mission.name)}} - {{mission.country}}</b>
+                  <div class="interventions">
+                     <div class="intervention" *ngFor='let intervention of splitInterventions(mission.interventions)'>{{intervention}}</div>
+                  </div>
                </div>
-            </div>
-            <div class="mission" (click)="goToDetail(0)">
-               <div class="image" [style.background-image]="'url(header-img.jpg)'"></div>
-               <div class="mission__text">
-                  <b>Madagaskar - Antahala</b>
-                  <p>ingrepen</p>
-               </div>
-            </div>
-            <div class="mission" (click)="goToDetail(0)">
-               <div class="image" [style.background-image]="'url(header-img.jpg)'"></div>
-               <div class="mission__text">
-                  <b>Madagaskar - Antahala</b>
-                  <p>ingrepen</p>
-               </div>
-            </div>
+            </div>            
          </div>
       </div>
    </div>

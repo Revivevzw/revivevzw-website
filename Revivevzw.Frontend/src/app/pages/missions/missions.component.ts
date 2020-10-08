@@ -1,7 +1,7 @@
 import { KeyValue } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Mission } from 'src/app/models';
-import { MissionApiService } from 'src/app/services';
+import { Localization, Mission } from 'src/app/models';
+import { LocalizeService, MissionApiService } from 'src/app/services';
 
 @Component({
   selector: 'app-missions',
@@ -10,18 +10,19 @@ import { MissionApiService } from 'src/app/services';
 })
 export class MissionsComponent implements OnInit {
 
-  constructor(private missionApi: MissionApiService) { }
+  constructor(private missionApi: MissionApiService, public localize: LocalizeService) { }
 
   public missions: Mission[];
   public missionsByYear: KeyValue<number, Mission[]>[] = [];
-  public imageUrl: "url('src/assets/media/header-img.jpg')"
 
   ngOnInit(): void {
     this.SetMissions();
   }
 
-  public goToDetail(id: number){
-    
+  public splitInterventions = (localization: Localization) => {
+    const data = this.localize.localizeData(localization);
+    var split = data.split(/[\s, ]+/).filter(x => x);
+    return split;
   }
 
   private SetMissions(){
@@ -29,11 +30,17 @@ export class MissionsComponent implements OnInit {
       this.missions = result;
 
       this.missionsByYear = result.reduce((previous, current) => {
-        const year = current.startDate.getFullYear();
-        return (previous[year] = previous[year] || []).push(current);
-      }, {});
+        const year = new Date(current.startDate).getFullYear();
+        let missions = previous.find(x => x.key == year);
+        if(!missions) {
+          missions = {key: year, value: []};
+          previous.push(missions);
+        }
+        (missions.value).push(current);
+        return previous;
+      }, []);
 
-      console.log(this.missionsByYear);
+      this.missionsByYear.sort((a, b) =>  b.key - a.key);
     })
   }
 
