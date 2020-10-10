@@ -1,5 +1,27 @@
 @import "src/variables";
 
-.header_secondary__title{
-   color: $text-color;
+.header_secondary{
+   height: 60vh;
+   background-color: $accent-color-dark;
+   width: 100%;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   
+   &__title {
+      margin-top: 70px;
+      font-weight: bold;
+      font-size: 2rem;
+      display: block;
+      max-width: 600px;
+      color: $text-color;
+   }
+
+   &__overlay{
+      background-color: transparentize($accent-color-dark, .15);
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+   }
 }

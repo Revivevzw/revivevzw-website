@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MainPageBaseComponent implements OnInit {
 
   @Input() title: string;
+  @Input() imageUrl: string;
 
   constructor() { }
 

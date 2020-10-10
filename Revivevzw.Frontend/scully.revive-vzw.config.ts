@@ -27,7 +27,7 @@ export const config: ScullyConfig = {
             property: 'id'
           }
         },
-        'missions/:id': {
+        '/missions/:id': {
           type: 'json',
           id: {
             url: 'https://revivevzwapi.azurewebsites.net/api/mission/all',

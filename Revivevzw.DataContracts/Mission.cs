@@ -32,5 +32,8 @@ namespace Revivevzw.DataContracts
 
         [DataMember(Name = "mainImage")]
         public string MainImage { get; set; }
+
+        [DataMember(Name = "quote")]
+        public Localization Quote { get; set; }
     }
 }

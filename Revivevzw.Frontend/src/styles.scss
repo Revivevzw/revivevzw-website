@@ -56,22 +56,6 @@ h4 {
   // border-bottom: 1px solid rgb(0, 0, 0, 0.1);
 }
 
-.header_secondary {
-  height: 60vh;
-  background-color: $accent-color-dark;
-  width: 100%;
-  display: flex;
-  align-items: center;
-
-  &__title {
-    margin-top: 70px;
-    font-weight: bold;
-    font-size: 2rem;
-    display: block;
-    max-width: 600px;
-  }
-}
-
 .url {
   text-decoration: none;
   font-weight: bold;

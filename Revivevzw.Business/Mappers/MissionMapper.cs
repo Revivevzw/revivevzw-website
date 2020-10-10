@@ -27,11 +27,17 @@ namespace Revivevzw.Business.Mappers
                     Fr = y.ActNaamFr,
                     En = y.ActNaamEn
                 }))
-                .ForMember(x => x.Description, x => x.MapFrom(y => new Localization() 
+                .ForMember(x => x.Description, x => x.MapFrom(y => new Localization()
                 {
                     Nl = y.MissieOmschrijving,
                     Fr = y.MissieOmschrijvingFr,
                     En = y.MissieOmschrijvingEn
+                }))
+                .ForMember(x => x.Quote, x => x.MapFrom(y => new Localization()
+                {
+                    Nl = y.ExperienceNl,
+                    Fr = y.ExperienceFr,
+                    En = y.ExperienceUk
                 }))
                 .ForMember(x => x.Country, x => x.MapFrom(y => y.Land))
                 .ForMember(x => x.StartDate, x => x.MapFrom(y => y.Startdatum))

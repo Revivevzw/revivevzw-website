@@ -11,4 +11,5 @@ export interface Mission{
    report: Localization;
    interventions: Localization;
    mainImage: string; // URL
+   quote: Localization;
 }

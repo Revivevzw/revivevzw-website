@@ -1,9 +1,11 @@
-<div class="header_secondary">
+<div class="header_secondary" [style.background-image]="'url(' + imageUrl + ')'">
+  <div class="header_secondary__overlay">
    <div class="responsive-container">
      <div class="header_secondary__title">
        {{title || 'This page is in progress...'}}
      </div>
    </div>
+  </div>
  </div>
  <div class="responsive-container">
    <ng-content></ng-content>

@@ -1,3 +1,19 @@
-<app-main-page-base [title]="id">
-
+<app-main-page-base [title]="localizeService.localizeData(mission.name)" [imageUrl]="mission.mainImage">
+   <div class="content">
+      <h2>{{localizeService.localizeData(mission.description)}}</h2>
+      <div class="flex">
+         <div>
+            <p>{{localizeService.localizeData(mission.report)}}</p>
+         </div>
+         <div>
+            <p class="quote">{{localizeService.localizeData(mission.quote)}}</p>
+            <!-- <div class="mission-quotes">
+               <div class="mission-quote">
+                  <div class="mission-quote__avatar"></div>
+                  <div class="mission-quote__text">{{localizeService.localizeData(mission.quote)}}<br>- Author name</div>
+               </div>
+            </div> -->
+         </div>
+      </div>
+   </div>
 </app-main-page-base>

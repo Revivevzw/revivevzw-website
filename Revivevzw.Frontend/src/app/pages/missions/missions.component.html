@@ -1,4 +1,4 @@
-<app-main-page-base>
+<app-main-page-base [title]="'MISSIONS.TITLE' | translate">
    <div *ngIf="missionsByYear.length" class="wrapper content">
       <div *ngFor="let year of missionsByYear" class="year">
          <h2>{{year.key}}</h2>
