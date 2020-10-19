@@ -19,27 +19,44 @@
   </div>
 </div>
 
-<div class="key-values">
-  <div class="responsive-container">
-    <h2 class="key-values__title">Key values</h2>
-    <h3 class="key-values__subtitle">That drive us</h3>
-
-    <div class="key-values__items">
-      <div class="key-values__item">
-        <div class="key-values__item__image"></div>
-        <h4>{{ "HOME.KEY_VALUE_1_TITLE" | translate }}</h4>
-        <p>{{ "HOME.KEY_VALUE_1_DESCRIPTION" | translate }}</p>
-      </div>
-      <div class="key-values__item">
-        <div class="key-values__item__image"></div>
-        <h4>{{ "HOME.KEY_VALUE_2_TITLE" | translate }}</h4>
-        <p>{{ "HOME.KEY_VALUE_2_DESCRIPTION" | translate }}</p>
-      </div>
-      <div class="key-values__item">
-        <div class="key-values__item__image"></div>
-        <h4>{{ "HOME.KEY_VALUE_3_TITLE" | translate }}</h4>
-        <p>{{ "HOME.KEY_VALUE_3_DESCRIPTION" | translate }}</p>
-      </div>
+<app-home-section titleKey="HOME.ABOUT_TITLE" subtitleKey="HOME.ABOUT_SUBTITLE" actionTitleKey="HOME.ABOUT_ACTION" path="about">
+  <div class="key-values__items">
+    <div class="key-values__item">
+      <div class="key-values__item__image"></div>
+      <h4>{{ "HOME.KEY_VALUE_1_TITLE" | translate }}</h4>
+      <p>{{ "HOME.KEY_VALUE_1_DESCRIPTION" | translate }}</p>
+    </div>
+    <div class="key-values__item">
+      <div class="key-values__item__image"></div>
+      <h4>{{ "HOME.KEY_VALUE_2_TITLE" | translate }}</h4>
+      <p>{{ "HOME.KEY_VALUE_2_DESCRIPTION" | translate }}</p>
+    </div>
+    <div class="key-values__item">
+      <div class="key-values__item__image"></div>
+      <h4>{{ "HOME.KEY_VALUE_3_TITLE" | translate }}</h4>
+      <p>{{ "HOME.KEY_VALUE_3_DESCRIPTION" | translate }}</p>
     </div>
   </div>
-</div>
+</app-home-section>
+
+<app-home-section hasBackground titleKey="HOME.MISSION_TITLE" subtitleKey="HOME.MISSION_SUBTITLE" actionTitleKey="HOME.MISSION_ACTION" path="missions">
+  {{'HOME.MISSION_TEXT' | translate}}
+</app-home-section>
+
+<app-home-section titleKey="HOME.CALENDAR_TITLE" subtitleKey="HOME.CALENDAR_SUBTITLE" actionTitleKey="HOME.CALENDAR_ACTION" path="calendar">
+  {{'HOME.CALENDAR_TEXT' | translate}}
+</app-home-section>
+
+<app-home-section hasBackground titleKey="HOME.VOLUNTEERS_TITLE" subtitleKey="HOME.VOLUNTEERS_SUBTITLE" actionTitleKey="HOME.VOLUNTEERS_ACTION" path="volunteers">
+  {{'HOME.VOLUNTEERS_TEXT' | translate}} 
+</app-home-section>
+
+<app-home-section titleKey="HOME.SPONSORS_TITLE" subtitleKey="HOME.SPONSORS_SUBTITLE" actionTitleKey="HOME.SPONSORS_ACTION" path="sponsors" align="center">
+  <div class="sponsors">
+    <a [href]="sponsor.websiteUrl" target="blank" *ngFor="let sponsor of sponsors" class="sponsor"><img [src]="sponsor.logoUrl"></a>
+  </div>
+</app-home-section>
+
+<app-home-section hasBackground titleKey="HOME.CONTACT_TITLE" subtitleKey="HOME.CONTACT_SUBTITLE" actionTitleKey="HOME.CONTACT_ACTION" path="contact">
+  {{'HOME.CONTACT_TEXT' | translate}}
+</app-home-section>

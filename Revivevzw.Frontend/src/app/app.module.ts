@@ -26,6 +26,7 @@ import { GdprComponent } from './pages/gdpr/gdpr.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ToastrModule } from 'ngx-toastr';
+import { HomeSectionComponent } from './components/home-section/home-section.component';
 
 
 
@@ -53,6 +54,7 @@ import { ToastrModule } from 'ngx-toastr';
     HighlightComponent,
     MainPageBaseComponent,
     GdprComponent,
+    HomeSectionComponent,
   ],
   imports: [
     BrowserAnimationsModule,

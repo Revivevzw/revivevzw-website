@@ -18,4 +18,8 @@ export class SponsorApiService {
       let url = environment.revivevzwApiUrl + this.path;
       return this.apiService.get<Array<Sponsor>>(url + '/all');
    }
+
+   public filterActiveSponsors = (sponsors: Array<Sponsor>) => {
+      return sponsors.filter(s => !s.endDate || new Date(s.endDate) <= new Date()).sort((a, b) => b.amount - a.amount)
+    }
 }

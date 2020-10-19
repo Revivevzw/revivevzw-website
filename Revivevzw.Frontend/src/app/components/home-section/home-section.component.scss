@@ -1,0 +1,14 @@
+@import 'src/variables';
+
+.subtitle{
+   margin-top: 6px;
+ }
+ .section-content{
+   padding: 50px 0;
+ }
+ .section{
+    padding: 50px 0;
+    &--background {
+      background-color: $light-gray;
+    }
+ }

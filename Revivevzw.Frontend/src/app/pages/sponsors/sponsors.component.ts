@@ -13,7 +13,7 @@ import { KeyValue } from '@angular/common';
 export class SponsorsComponent implements OnInit {
 
   constructor(
-    private sponsorApiService: SponsorApiService,
+    private sponsorApi: SponsorApiService,
     private translateService: TranslateService,
     private meta: Meta
     ) { }
@@ -45,13 +45,8 @@ export class SponsorsComponent implements OnInit {
   }
 
   private setSponsors = () => {
-    this.sponsorApiService.getAll().subscribe(result => {
-      this.sponsors = this.filterActiveSponsors(result);
+    this.sponsorApi.getAll().subscribe(result => {
+      this.sponsors = this.sponsorApi.filterActiveSponsors(result);
     })
   }
-
-  private filterActiveSponsors = (sponsors: Array<Sponsor>) => {
-    return sponsors.filter(s => !s.endDate || new Date(s.endDate) <= new Date()).sort((a, b) => b.amount - a.amount)
-  }
-
 }

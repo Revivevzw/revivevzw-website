@@ -1,4 +1,3 @@
-import { Local } from 'protractor/built/driverProviders';
 import { Localization } from './localization.model';
 
 export interface Mission{
@@ -11,5 +10,6 @@ export interface Mission{
    report: Localization;
    interventions: Localization;
    mainImage: string; // URL
+   images: string[];
    quote: Localization;
 }
