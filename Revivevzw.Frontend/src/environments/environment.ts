@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  strapiUrl: "https://revive-vzw-cms.herokuapp.com/",
   revivevzwApiUrl: "https://localhost:44373/api/"
 };
 

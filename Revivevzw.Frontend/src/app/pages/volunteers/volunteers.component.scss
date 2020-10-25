@@ -23,8 +23,8 @@
          width: 40%;
       }
       height: 260px;
-      background-color: $accent-color-light;
-      border-radius: 2px;
+      background-color: $light-gray;
+      border-radius: $border-radius;
    }
    &__content{
       padding-top: 20px;

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
-import { environment } from 'src/environments/environment';
 import { Activity, Localization } from '../models';
 import { KeyValue } from '@angular/common';
 
@@ -11,14 +10,12 @@ export class ActivityApiService {
 
    constructor(private apiService: ApiService) { }
 
-   private path = "activity";
-
    public getUpcoming = () => {
-      return this.apiService.get<Array<Activity>>(environment.revivevzwApiUrl + this.path + "/upcoming");
+      return this.apiService.get<Array<Activity>>("activity/upcoming");
    }
 
    public get = (id: number) => {
-      return this.apiService.get<Activity>(environment.revivevzwApiUrl + this.path + "/" + id);
+      return this.apiService.get<Activity>("activity/" + id);
    }
 
    public getTypes = () => {

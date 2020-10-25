@@ -85,7 +85,7 @@ h4 {
 
 .quote {
   padding: 50px;
-  border-radius: 2px;
+  border-radius: $border-radius;
   background-color: $accent-color-light;
   //  border: 1px solid $accent-color;
   border-left: 3px solid $accent-color;
@@ -93,8 +93,7 @@ h4 {
 }
 
 .content {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding: 50px 0;
 }
 
 strong {

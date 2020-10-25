@@ -4,6 +4,7 @@ import { NewsItemApiService } from 'src/app/services/news-item-api.service';
 import { NewsItem } from 'src/app/models/news-item.model';
 import { Localization } from 'src/app/models/localization.model';
 import { LocalizeService } from 'src/app/services/localize.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-bar',
@@ -25,7 +26,8 @@ export class NewsBarComponent implements OnInit {
 
   constructor(
     private newsItemApiService: NewsItemApiService,
-    private localizeService: LocalizeService
+    private localizeService: LocalizeService,
+    private router: Router
   ) { }
 
   public newsItems: Array<NewsItem> = [];
@@ -37,13 +39,19 @@ export class NewsBarComponent implements OnInit {
     this.SetNewsItems();
   }
 
+  public redirect = () => {
+    const url = this.newsItems[this.currentItem].url
+    // this.router.navigate([url]);
+    window.open(url);
+  }
+
   public localize = (localization: Localization) => {
     return this.localizeService.localizeData(localization);
   }
 
   private SetNewsItems = () => {
     this.newsItemApiService.getAll().subscribe(newsItems => {
-      this.newsItems = newsItems.filter(ni => ni.isActive);
+      this.newsItems = newsItems;
     })
   }
 

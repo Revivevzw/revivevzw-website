@@ -6,15 +6,18 @@
 }
 
 .sponsors{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @media (min-width: $breakpoint-desktop) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .sponsor{
+      width: calc(50% / 3);
+    }
+  }
   .sponsor{
     display: block;
-    padding: 0 25px;
-    width: calc(50% / 3);
+    padding: 25px;
     img{
-      // width: calc(50% / 3);
       width: 100%;
     }
   }

@@ -11,7 +11,7 @@ export class MailApiService {
   constructor(private apiService: ApiService) { }
 
   public send(mail: Mail){
-    let url = environment.revivevzwApiUrl + "email/send";
+    let url = "email/send";
     return this.apiService.post(url, mail);
   }
 }

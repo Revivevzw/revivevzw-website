@@ -47,6 +47,7 @@ namespace Revivevzw.Api
                 mc.AddProfile(new ActivityMapper());
                 mc.AddProfile(new MissionMapper());
                 mc.AddProfile(new SponsorMapper());
+                mc.AddProfile(new SplashMapper());
             });
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
@@ -55,12 +56,14 @@ namespace Revivevzw.Api
             services.AddTransient<IActivityRepository, ActivityRepository>();
             services.AddTransient<IMissionRepository, MissionRepository>();
             services.AddTransient<ISponsorRepository, SponsorRepository>();
+            services.AddTransient<ISplashRepository, SplashRepository>();
 
             // Service injection
             services.AddTransient<IActivityService, ActivityService>();
             services.AddTransient<IMissionService, MissionService>();
             services.AddTransient<ISponsorService, SponsorService>();
             services.AddTransient<IMailService, MailService>();
+            services.AddTransient<ISplashService, SplashService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

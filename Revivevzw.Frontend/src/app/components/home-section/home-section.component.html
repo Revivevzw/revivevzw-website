@@ -1,8 +1,10 @@
 <section class="section" [ngClass]="{'section--background' : hasBackground != null}">
    <div class="responsive-container">
-     <h2>{{titleKey | translate}}</h2>
-     <h3 class="subtitle">{{subtitleKey | translate}}</h3>
-      <div class="section-content"><ng-content></ng-content></div>
-     <a class="url url--primary" [href]="path">{{actionTitleKey | translate}}</a>
+      <h2>{{titleKey | translate}}</h2>
+      <h3 class="subtitle">{{subtitleKey | translate}}</h3>
+      <ng-content class="section-content"></ng-content>
+      <div class="action">
+        <a class="url url--primary" [href]="path">{{actionTitleKey | translate}}</a>
+      </div>
    </div>
  </section>

@@ -2,7 +2,6 @@ import { Localization } from './index';
 
 export interface NewsItem {
    id: number;
-   isActive: boolean;
-   message: Localization;
+   title: Localization;
    url: string;
 }

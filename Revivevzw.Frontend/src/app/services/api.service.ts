@@ -15,8 +15,7 @@ export class ApiService {
    ) { }
 
    private getUrl(path: string) {
-      return path;
-      // return environment.revivevzwApiUrl + path;
+      return environment.revivevzwApiUrl + path;
    }
 
    // public get<T>(path: string, setToState: boolean = true) {
