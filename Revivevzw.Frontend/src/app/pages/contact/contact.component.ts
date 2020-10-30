@@ -26,7 +26,7 @@ export class ContactComponent implements OnInit {
       name: ['', Validators.required],
       emailFrom: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required],
-      subject: ["Email via website form", Validators.required]
+      subject: ["Email via revivevzw.be", Validators.required]
     })
   }
 

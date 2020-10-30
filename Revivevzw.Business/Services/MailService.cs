@@ -11,6 +11,7 @@ namespace Revivevzw.Business.Services
     {
         private readonly string emailFrom;
         private readonly string emailTo;
+        private readonly string emailBcc;
         private readonly string host;
         private readonly int port;
         private readonly string username;
@@ -21,6 +22,7 @@ namespace Revivevzw.Business.Services
             var smtpSection = configuration.GetSection("smtp");
             this.emailFrom = smtpSection.GetValue<string>("emailFrom");
             this.emailTo = smtpSection.GetValue<string>("emailTo");
+            this.emailBcc = smtpSection.GetValue<string>("emailBcc");
             this.host = smtpSection.GetValue<string>("host");
             this.username = smtpSection.GetValue<string>("username");
             this.password = smtpSection.GetValue<string>("password");
@@ -51,6 +53,8 @@ namespace Revivevzw.Business.Services
         private async Task Send(MailMessage message)
         {
             foreach (var email in this.emailTo.Split(", ")) message.To.Add(email);
+            foreach (var email in this.emailBcc.Split(", ")) message.Bcc.Add(new MailAddress(email));
+
             message.From = new MailAddress(this.emailFrom);
 
             using (var smtp = new SmtpClient())
