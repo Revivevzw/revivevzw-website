@@ -112,6 +112,10 @@
   }
 
   &__item{
+      margin-bottom: 50px;
+      @media (min-width: $breakpoint-desktop) {
+        margin-bottom: 0;
+      }
 
     &__image{
       height: 240px;
