@@ -118,6 +118,17 @@
       width: 100%;
       background-color: $light-gray;
       border-radius: $border-radius;
+      background-size: cover;
+      background-position: center;
+      &--image1{
+        background-image: url("src/assets/media/Revive- Key Values - International Missions.jpg");
+      }
+      &--image2{
+        background-image: url("src/assets/media/Revive- Key Values - Training.jpg");
+      }
+      &--image3{
+        background-image: url("src/assets/media/Revive- Key Values - Gedreven door vrijwilligers.jpg");
+      }
     }
     h4{
       padding-top: 10px;
