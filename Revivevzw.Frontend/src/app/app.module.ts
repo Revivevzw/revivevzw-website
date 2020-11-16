@@ -27,7 +27,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeSectionComponent } from './components/home-section/home-section.component';
-
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 
 @NgModule({
@@ -66,6 +66,7 @@ import { HomeSectionComponent } from './components/home-section/home-section.com
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
+    IvyCarouselModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
     }),
@@ -94,7 +95,8 @@ import { HomeSectionComponent } from './components/home-section/home-section.com
 
 export class AppModule {
   constructor(translate: TranslateService) {
-      translate.use('nl-BE');
+      const language = localStorage.getItem('language') || 'nl-BE';
+      translate.use(language);
   }
 }
 

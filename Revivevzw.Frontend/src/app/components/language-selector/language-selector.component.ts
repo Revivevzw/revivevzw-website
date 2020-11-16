@@ -16,11 +16,12 @@ export class LanguageSelectorComponent implements OnInit {
   }
 
   public getCurrentLanguage = () => {
-    return this.translateService.currentLang;
+    const language = localStorage.getItem('language') || this.translateService.currentLang;
+    return language;
   }
 
   public changeLanguage = (language: string) => {
+    localStorage.setItem('language', language);
     this.translateService.use(language);
   }
-
 }

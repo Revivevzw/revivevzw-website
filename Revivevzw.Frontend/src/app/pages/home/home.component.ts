@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
 
   private translations: Array<KeyValue<string, string>>;
   public sponsors: Sponsor[];
+  public images: { path: string }[];
 
   ngOnInit() {
     this.setData().then(this.setMetaData);
@@ -34,7 +35,8 @@ export class HomeComponent implements OnInit {
         this.sponsorApi.getAll()
       ]).subscribe(results => {
         this.translations = results[0];
-        this.sponsors = this.sponsorApi.filterActiveSponsors(results[1]).slice(0, 3);
+        this.sponsors = this.sponsorApi.filterActiveSponsors(results[1]);
+        this.images = this.sponsors.map(x => ({path: x.logoUrl}));
         resolve();
       })
     })
@@ -42,12 +44,12 @@ export class HomeComponent implements OnInit {
 
   private setMetaData = () => {
     this.meta.addTags([
-      {name: "description", content: this.translations['HOME.HEAD_SUBTITLE']},
-      {name: "keywords", content: 'Revive vzw, humanitaire hulp, vrijwilligers'}
+      { name: "description", content: this.translations['HOME.HEAD_SUBTITLE'] },
+      { name: "keywords", content: 'Revive vzw, humanitaire hulp, vrijwilligers' }
     ])
   }
 
   public ctaAction = () => {
     this.router.navigate(["about"])
-  } 
+  }
 }

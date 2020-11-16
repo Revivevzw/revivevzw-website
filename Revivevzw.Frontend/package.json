@@ -32,6 +32,7 @@
     "@scullyio/init": "0.0.23",
     "@scullyio/ng-lib": "latest",
     "@scullyio/scully": "^1.0.3",
+    "angular-responsive-carousel": "^1.5.11",
     "mailchimp": "^1.2.1",
     "ngx-toastr": "^13.0.1",
     "node": "^14.13.0",

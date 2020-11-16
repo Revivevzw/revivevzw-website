@@ -12,6 +12,14 @@
       justify-content: space-between;
       align-items: center;
    }
+
+   .right{
+      display: flex;
+      align-items: center;
+      .burger{
+         margin-left: 20px;
+      }
+   }
    
    &--open{
       background-color: $accent-color-dark;
@@ -76,7 +84,6 @@
 }
 .burger{
    z-index: 1;
-   opacity: .7;
    height: 20px;
    display: flex;
    align-items: flex-end;
@@ -84,7 +91,6 @@
    justify-content: space-between;
 
    &:hover{
-      opacity: 1;
       cursor: pointer;
    }
 
