@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MailchimpApiService } from 'src/app/services';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { finalize } from 'rxjs/operators';
+import { MailchimpApiService, PersonApiService } from 'src/app/services';
 
 
 @Component({
@@ -9,14 +12,38 @@ import { MailchimpApiService } from 'src/app/services';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private mailchimpApi: MailchimpApiService) { }
+  public isBusy: boolean;
+  public email: string;
+
+  // public form: FormGroup;
+
+  constructor(
+    private personApi: PersonApiService,
+    private toastr: ToastrService,
+    private fb: FormBuilder,
+  ) { }
 
   ngOnInit(): void {
+    // this.initForm();
   }
 
-  public subscribe = (email: string) => {
-    // this.mailchimpApi.subscribe(email).subscribe(x => {
-    //   console.log(x);
-    // })
+  // private initForm = () => {
+  //   this.form = this.fb.group({
+  //     email: ['', Validators.required]
+  //   })
+  // }
+
+  public subscribe = () => {
+    // if(!this.form.valid || this.isBusy) return;
+
+    this.isBusy = true;
+    this.personApi.subscribe(this.email).pipe(
+      finalize(() => this.isBusy = false)
+    ).subscribe(x => {
+      this.toastr.success('Subscribed!');
+      this.email = "";
+    }, error => {
+      this.toastr.error('Something went wrong.');
+    })
   }
 }

@@ -4,7 +4,9 @@
       <div class="news-letter">
         <label>{{'FOOTER.SUBSCRIBE_TO_NEWS_LETTER' | translate}}</label>
         <div class="news-letter__input">
-          <input #email type="email" placeholder="example@mail.be" /><i (click)="subscribe(email.value)" class="far fa-paper-plane"></i>
+          <input [(ngModel)]="email" type="email" placeholder="example@mail.be" />
+          <i *ngIf="!isBusy" (click)="subscribe()" class="far fa-paper-plane"></i>
+          <i *ngIf="isBusy" class="fas fa-circle-notch fa-spin"></i>
         </div>
       </div>
       <ul class="social-media">

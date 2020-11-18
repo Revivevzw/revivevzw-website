@@ -22,10 +22,17 @@ export class HomeComponent implements OnInit {
 
   private translations: Array<KeyValue<string, string>>;
   public sponsors: Sponsor[];
-  public images: { path: string }[];
+  // public images: { path: string }[];
+  public loaded: boolean;
 
   ngOnInit() {
     this.setData().then(this.setMetaData);
+    window.addEventListener('resize', () => {
+      this.loaded = false;
+      setTimeout(() => {
+        this.loaded = true;
+      }, 1);
+    })
   }
 
   private setData = () => {
@@ -36,7 +43,8 @@ export class HomeComponent implements OnInit {
       ]).subscribe(results => {
         this.translations = results[0];
         this.sponsors = this.sponsorApi.filterActiveSponsors(results[1]);
-        this.images = this.sponsors.map(x => ({path: x.logoUrl}));
+        // this.images = this.sponsors.map(x => ({path: x.logoUrl}));
+        this.loaded = true;
         resolve();
       })
     })
