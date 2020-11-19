@@ -77,7 +77,8 @@
       height: 70%;
       width: 45%;
       background-image: url("src/assets/media/header-2.jpg");
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
       background-position: center top;
       display: none;
 
