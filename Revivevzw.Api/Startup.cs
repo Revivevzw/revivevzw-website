@@ -57,6 +57,7 @@ namespace Revivevzw.Api
             services.AddTransient<IMissionRepository, MissionRepository>();
             services.AddTransient<ISponsorRepository, SponsorRepository>();
             services.AddTransient<ISplashRepository, SplashRepository>();
+            services.AddTransient<IPersonRepository, PersonRepository>();
 
             // Service injection
             services.AddTransient<IActivityService, ActivityService>();
@@ -64,6 +65,7 @@ namespace Revivevzw.Api
             services.AddTransient<ISponsorService, SponsorService>();
             services.AddTransient<IMailService, MailService>();
             services.AddTransient<ISplashService, SplashService>();
+            services.AddTransient<IPersonService, PersonService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
