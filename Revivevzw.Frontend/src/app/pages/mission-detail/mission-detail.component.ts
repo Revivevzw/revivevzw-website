@@ -21,6 +21,7 @@ export class MissionDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.setIdFromRoute().then(() => this.setMission())
+    window.scroll(0,0);
   }
 
   private setMission(){

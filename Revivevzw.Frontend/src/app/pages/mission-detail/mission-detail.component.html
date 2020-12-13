@@ -6,7 +6,10 @@
             <p>{{localizeService.localizeData(mission.report)}}</p>
          </div>
          <div>
-            <p class="quote">{{localizeService.localizeData(mission.quote)}}</p>
+            <p *ngIf="localizeService.localizeData(mission.quote)" class="quote">{{localizeService.localizeData(mission.quote)}}</p>
+            <figure>
+               <img class="media-item" *ngFor="let mediaUrl of mission.mediaUrls" [src]="mediaUrl">
+            </figure>
             <!-- <div class="mission-quotes">
                <div class="mission-quote">
                   <div class="mission-quote__avatar"></div>

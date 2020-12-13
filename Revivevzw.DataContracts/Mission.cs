@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Revivevzw.DataContracts
@@ -35,5 +36,8 @@ namespace Revivevzw.DataContracts
 
         [DataMember(Name = "quote")]
         public Localization Quote { get; set; }
+
+        [DataMember(Name = "mediaUrls")]
+        public IEnumerable<string> MediaUrls { get; set; }
     }
 }
