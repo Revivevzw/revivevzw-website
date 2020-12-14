@@ -4,7 +4,7 @@ import { isScullyRunning, TransferStateService } from '@scullyio/ng-lib';
 import { tap, shareReplay, mergeAll, mergeScan } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { getuid } from 'process';
-import { AsyncSubject, BehaviorSubject, forkJoin, Observable, Subject } from 'rxjs';
+import { AsyncSubject, BehaviorSubject, forkJoin, merge, Observable, Subject } from 'rxjs';
 
 @Injectable({
    providedIn: 'root'
@@ -67,11 +67,7 @@ export class ApiService {
 
    public get<T>(path: string, setToState: boolean = true) {
       const observables = this.getObservables(path, setToState);
-      const subject = new Subject<T>();
-
-      observables.forEach(x => x.subscribe((y: T) => subject.next(y)));
-
-      return subject.asObservable();
+      return merge<T>(observables[0], observables[1]);
    }
 
    public post(path: string, object: any) {
