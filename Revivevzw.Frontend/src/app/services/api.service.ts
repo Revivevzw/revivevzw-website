@@ -67,9 +67,9 @@ export class ApiService {
 
    public get<T>(path: string, setToState: boolean = true) {
       const observables = this.getObservables(path, setToState);
-      const subject = new Subject();
+      const subject = new Subject<T>();
 
-      observables.forEach(x => x.subscribe(y => subject.next(y)));
+      observables.forEach(x => x.subscribe((y: T) => subject.next(y)));
 
       return subject.asObservable();
    }
