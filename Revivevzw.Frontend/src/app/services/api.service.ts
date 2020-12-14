@@ -67,7 +67,7 @@ export class ApiService {
 
    public get<T>(path: string, setToState: boolean = true) {
       const observables = this.getObservables(path, setToState);
-      return merge<T>(observables[0], observables[1]);
+      return merge<T>(...observables);
    }
 
    public post(path: string, object: any) {
