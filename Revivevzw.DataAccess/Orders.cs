@@ -8,7 +8,10 @@ namespace Revivevzw.DataAccess
         public int Id { get; set; }
         public int? Artid { get; set; }
         public int? MemberId { get; set; }
+        public double? Eenheidprijs { get; set; }
         public double? Price { get; set; }
+        public double? Ordertotaal { get; set; }
+        public string Factuur { get; set; }
         public string Maat { get; set; }
         public int? Quantity { get; set; }
         public string StrucMsg { get; set; }

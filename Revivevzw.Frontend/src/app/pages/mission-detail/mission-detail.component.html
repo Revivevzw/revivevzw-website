@@ -1,9 +1,9 @@
 <app-main-page-base [title]="localizeService.localizeData(mission.name)" [imageUrl]="mission.mainImage">
    <div class="content">
-      <h2>{{localizeService.localizeData(mission.description)}}</h2>
+      <h2>{{localizeService.localizeData(mission.description) || localizeService.localizeData(mission.name)}}</h2>
       <div class="flex">
          <div>
-            <p>{{localizeService.localizeData(mission.report)}}</p>
+            <p>{{localizeService.localizeData(mission.report) || 'No report available.'}}</p>
          </div>
          <div>
             <p *ngIf="localizeService.localizeData(mission.quote)" class="quote">{{localizeService.localizeData(mission.quote)}}</p>

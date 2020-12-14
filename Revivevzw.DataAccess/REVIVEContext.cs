@@ -34,11 +34,6 @@ namespace Revivevzw.DataAccess
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=tcp:revive.database.windows.net,1433;Database=REVIVE;User ID=ReviveAdmin;Password=ReviveDocters8!;");
-            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -395,6 +390,11 @@ namespace Revivevzw.DataAccess
                     .HasColumnName("aankoopprijs")
                     .HasDefaultValueSql("((0))");
 
+                entity.Property(e => e.BestelId)
+                    .HasColumnName("bestelID")
+                    .HasMaxLength(250)
+                    .HasDefaultValueSql("(space((0)))");
+
                 entity.Property(e => e.Breedte)
                     .HasColumnName("breedte")
                     .HasDefaultValueSql("((0))");
@@ -726,6 +726,15 @@ namespace Revivevzw.DataAccess
                     .HasMaxLength(10)
                     .HasDefaultValueSql("('N')");
 
+                entity.Property(e => e.Eenheidprijs)
+                    .HasColumnName("eenheidprijs")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Factuur)
+                    .HasColumnName("factuur")
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("('N')");
+
                 entity.Property(e => e.GeleverdOp)
                     .HasColumnName("geleverdOP")
                     .HasColumnType("date")
@@ -745,6 +754,10 @@ namespace Revivevzw.DataAccess
                     .HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.Opmerking).HasColumnName("opmerking");
+
+                entity.Property(e => e.Ordertotaal)
+                    .HasColumnName("ordertotaal")
+                    .HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.Price)
                     .HasColumnName("price")
@@ -796,6 +809,8 @@ namespace Revivevzw.DataAccess
                 entity.Property(e => e.Altto)
                     .HasColumnType("date")
                     .HasDefaultValueSql("('01/01/1900')");
+
+                entity.Property(e => e.Betaald).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.Betaald1)
                     .HasColumnName("betaald1")
@@ -1035,6 +1050,14 @@ namespace Revivevzw.DataAccess
                     .HasColumnName("ID")
                     .ValueGeneratedOnAdd();
 
+                entity.Property(e => e.Inkoopprijs)
+                    .HasColumnName("INKOOPprijs")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Instatistiek)
+                    .HasMaxLength(10)
+                    .HasDefaultValueSql("('Y')");
+
                 entity.Property(e => e.Maten)
                     .HasColumnName("maten")
                     .HasMaxLength(250)
@@ -1125,6 +1148,11 @@ namespace Revivevzw.DataAccess
                     .HasColumnName("showOnWeb")
                     .HasMaxLength(10)
                     .HasDefaultValueSql("('N')");
+
+                entity.Property(e => e.SplashUrl)
+                    .HasColumnName("splashURL")
+                    .HasMaxLength(350)
+                    .HasDefaultValueSql("(space((0)))");
 
                 entity.Property(e => e.TitelFr)
                     .HasColumnName("titelFR")
@@ -1277,6 +1305,11 @@ namespace Revivevzw.DataAccess
                 entity.Property(e => e.ArticleId)
                     .HasColumnName("articleID")
                     .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.BestelId)
+                    .HasColumnName("bestelID")
+                    .HasMaxLength(250)
+                    .HasDefaultValueSql("(space((0)))");
 
                 entity.Property(e => e.Dchanged)
                     .HasColumnName("dchanged")

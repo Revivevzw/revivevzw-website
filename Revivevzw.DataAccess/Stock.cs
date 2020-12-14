@@ -8,6 +8,7 @@ namespace Revivevzw.DataAccess
         public int Id { get; set; }
         public int? ArticleId { get; set; }
         public int? Leverancier { get; set; }
+        public string BestelId { get; set; }
         public int? Merk { get; set; }
         public int? Lokaal { get; set; }
         public string Rek { get; set; }

@@ -13,6 +13,7 @@ namespace Revivevzw.DataAccess
         public DateTime? Aankoopdatum { get; set; }
         public double? Aankoopprijs { get; set; }
         public int? Leverancier { get; set; }
+        public string BestelId { get; set; }
         public double? Gewicht { get; set; }
         public double? Lengte { get; set; }
         public double? Breedte { get; set; }

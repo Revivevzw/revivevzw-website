@@ -9,6 +9,7 @@ namespace Revivevzw.DataAccess
         public string Omskort { get; set; }
         public string Omslang { get; set; }
         public double? Prijs { get; set; }
+        public double? Inkoopprijs { get; set; }
         public string Maten { get; set; }
         public int? Portvrijvanaf { get; set; }
         public double? Portkosten { get; set; }
@@ -21,5 +22,6 @@ namespace Revivevzw.DataAccess
         public string Whochanged { get; set; }
         public int? Sortorder { get; set; }
         public string Tooninlijst { get; set; }
+        public string Instatistiek { get; set; }
     }
 }

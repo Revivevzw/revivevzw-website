@@ -16,7 +16,7 @@ namespace Revivevzw.Business.Mappers
                     Fr = y.TitelFr,
                     En = y.TitelUk
                 }))
-                .ForMember(x => x.Url, x => x.MapFrom(y => y.InfoUrl));
+                .ForMember(x => x.Url, x => x.MapFrom(y => y.SplashUrl));
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Revivevzw.DataAccess
         public string ShowOnWeb { get; set; }
         public DateTime? EndDate { get; set; }
         public string InfoUrl { get; set; }
+        public string SplashUrl { get; set; }
         public string Opmerking { get; set; }
         public string Deleted { get; set; }
         public DateTime? Dcreated { get; set; }

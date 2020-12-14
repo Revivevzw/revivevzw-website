@@ -74,13 +74,18 @@
     }
 
     &__media {
-      height: 70%;
       width: 60%;
-      background-image: url("src/assets/media/header-2.jpg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
+      // height: 100%;
+      // background-image: url("src/assets/media/header-2.jpg");
+      // background-size: contain;
+      // background-repeat: no-repeat;
+      // background-position: center;
       display: none;
+      
+      img{
+        border-radius: $border-radius;
+        width: 100%;
+      }
 
       @media (min-width: $breakpoint-desktop) {
         display: block;
