@@ -35,12 +35,14 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  private setData = () => {
+  private setData = (): Promise<void> => {
+    this.loaded = false;
     return new Promise((resolve) => {
       forkJoin([
         this.translateService.get(['HOME.HEAD_SUBTITLE']),
         this.sponsorApi.getAll()
       ]).subscribe(results => {
+        this.loaded = false;
         this.translations = results[0];
         this.sponsors = this.sponsorApi.filterActiveSponsors(results[1]);
         // this.images = this.sponsors.map(x => ({path: x.logoUrl}));
@@ -59,5 +61,10 @@ export class HomeComponent implements OnInit {
 
   public ctaAction = () => {
     this.router.navigate(["about"])
+  }
+
+  public supportUs = () => {
+    const url = "https://shop.revivevzw.be/SHOP/SHOP.aspx";
+    window.open(url, '_blank');
   }
 }

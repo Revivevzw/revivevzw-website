@@ -5,7 +5,6 @@ button{
    display: block;
    border: none;
    background-color: $accent-color;
-   opacity: .5;
    padding: 20px 45px;
    font-weight: bold;
    border-radius: 2px;
@@ -15,7 +14,7 @@ button{
     }
 }
 button:enabled:hover{
-   opacity: 1;
+   opacity: .6;
    cursor: pointer;
 }
 
