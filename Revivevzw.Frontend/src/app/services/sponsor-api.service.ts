@@ -14,7 +14,7 @@ export class SponsorApiService {
    private path = "sponsor";
 
    public getAll = () => {
-      return this.apiService.get<Array<Sponsor>>(this.path + '/all');
+      return this.apiService.get<Array<Sponsor>>(this.path + '/all', false);
    }
 
    public filterActiveSponsors = (sponsors: Array<Sponsor>) => {
