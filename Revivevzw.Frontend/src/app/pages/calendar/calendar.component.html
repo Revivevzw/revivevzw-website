@@ -1,11 +1,11 @@
-<app-main-page-base title="Save the date!">
+<app-main-page-base [title]="'CALENDAR.TITLE' | translate">
   <div class="calendar">
     <div class="calendar__info">
        <h2>{{'CALENDAR.SUBTITLE' | translate}}</h2>
        <p>{{'CALENDAR.TEXT' | translate}}</p>
     </div>
     <div class="calendar__items">
-      <p *ngIf="!activities || !activities.length">{{'MISSION.NO_EVENTS' | translate}}</p>
+      <p *ngIf="!activities || !activities.length">{{'MISSION.NO_EVENTS' | translate}}</p>      
       <a *ngFor="let item of activities" class="calendar__item" routerLink="../calendar-detail/{{item.id}}">
         <div class="calendar__item__date">
           {{ item.startDate | date: 'dd' }}<br />
