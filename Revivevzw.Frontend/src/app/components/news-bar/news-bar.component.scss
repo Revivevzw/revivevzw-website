@@ -26,6 +26,11 @@
       text-decoration: none;
       color: $text-color-dark;
       display: block;
+
+      span{
+         text-decoration: underline;
+         color: $accent-color;
+      }
    }
 
    &__container{

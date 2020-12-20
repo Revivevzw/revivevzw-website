@@ -1,7 +1,7 @@
 <div class="news-bar" (click)="redirect()">
    <div class="news-bar__container">
       <ng-container *ngFor="let item of newsItems; let i = index;">
-         <a *ngIf="i === currentItem" @newsBarAnimation>{{ localize(item.title) }}</a>
+         <a *ngIf="i === currentItem" @newsBarAnimation>{{ localize(item.title) }} <span *ngIf="item.url">{{'SPLASH.CLICK_HERE' | translate}}</span></a>
       </ng-container>
    </div>
 </div>

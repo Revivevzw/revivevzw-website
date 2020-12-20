@@ -41,8 +41,9 @@ export class NewsBarComponent implements OnInit {
 
   public redirect = () => {
     const url = this.newsItems[this.currentItem].url
+    if(!url) return;
     // this.router.navigate([url]);
-    window.open(url);
+    window.open(url, 'blank');
   }
 
   public localize = (localization: Localization) => {

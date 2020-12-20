@@ -39,10 +39,11 @@ li{
   list-style-type: none;
   display: flex;
   justify-content: space-between;
-  width: 90px;
+  width: 100px;
 
   a {
     color: $text-color-dark;
+    font-size: 1.2rem;
   }
   a:hover {
     color: $accent-color;

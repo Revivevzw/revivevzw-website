@@ -21,7 +21,7 @@ namespace Revivevzw.Business.Repositories
         private IQueryable<Missions> GetForWeb()
         {
             return dbContext.Set<Missions>()
-                .Where(x => x.Missionsort != (int)ActivityType.Mission)
+                //.Where(x => x.Missionsort != (int)ActivityType.Mission)
                 .Where(x => x.Showonweb == "Y")
                 .Where(x => x.Deleted == "N");
         }

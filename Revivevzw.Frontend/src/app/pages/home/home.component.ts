@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
   }
 
   public supportUs = () => {
-    const url = "https://shop.revivevzw.be/SHOP/SHOP.aspx";
+    const url = "https://shop.revivevzw.be/";
     window.open(url, '_blank');
   }
 }

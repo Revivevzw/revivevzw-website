@@ -10,4 +10,8 @@
     &--background {
       background-color: $light-gray;
     }
+    &--borders{
+      border-top: $line;
+      border-bottom: $line;
+    }
  }

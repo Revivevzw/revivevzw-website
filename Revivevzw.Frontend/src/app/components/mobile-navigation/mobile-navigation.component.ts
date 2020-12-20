@@ -18,7 +18,7 @@ export class MobileNavigationComponent implements OnInit {
 
   public ctaAction = () => {
     this.toggleNavigation();
-    const url = "https://shop.revivevzw.be/SHOP/SHOP.aspx";
+    const url = "https://shop.revivevzw.be/";
     window.open(url, '_blank');
   }
 }
