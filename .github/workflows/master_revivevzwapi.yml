@@ -27,9 +27,9 @@ jobs:
       run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
     - name: Deploy to Azure Web App
-      uses: azure/webapps-deploy@v1
+      uses: azure/webapps-deploy@v2
       with:
         app-name: 'revivevzwapi'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_c96879eea0b64e1696da0b398a12d551 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_c389e9ac02974f6cbb9393a69d940dc3 }}
         package: ${{env.DOTNET_ROOT}}/myapp 
