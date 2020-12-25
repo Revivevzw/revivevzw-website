@@ -42,6 +42,7 @@ namespace Revivevzw.Business.Mappers
                 .ForMember(x => x.Country, x => x.MapFrom(y => y.Land))
                 .ForMember(x => x.StartDate, x => x.MapFrom(y => y.Startdatum))
                 .ForMember(x => x.EndDate, x => x.MapFrom(y => y.Einddatum))
+                .ForMember(x => x.ShowReport, x => x.MapFrom(y => y.ShowReportOnWeb == "Y"))
                 .ForMember(x => x.MainImage, x => x.MapFrom(y => y.WebMainPicture));
         }
     }

@@ -13,4 +13,5 @@ export interface Mission{
    images: string[];
    quote: Localization;
    mediaUrls: string[];
+   showReport: boolean;
 }

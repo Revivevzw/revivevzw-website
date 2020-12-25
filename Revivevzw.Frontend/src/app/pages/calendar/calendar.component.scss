@@ -34,12 +34,12 @@
     background-color: $accent-color-light;
     border-radius: 2px;
     margin-bottom: 20px;
-    border: 2px solid $accent-color-light;
+    border: 3px solid $accent-color-light;
     transition: 0.2s ease;
     cursor: pointer;
     &:hover {
       // background-color: rgba($color: $accent-color, $alpha: .5);
-      border: 2px solid $accent-color;
+      border: 3px solid $accent-color;
     }
 
     &__date {

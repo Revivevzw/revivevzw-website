@@ -1,4 +1,4 @@
-<app-main-page-base title="Thumbs up for our sponsors!">
+<app-main-page-base [title]="'SPONSORS.TITLE' | translate">
    <div class="sponsors__logos">
       <a href="{{sponsor.websiteUrl}}" *ngFor="let sponsor of sponsors" target="blanc" class="sponsors__logo" title="{{sponsor.name}}">
          <img src="{{sponsor.logoUrl}}" alt="{{sponsor.name}}">

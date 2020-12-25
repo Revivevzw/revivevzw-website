@@ -1,4 +1,4 @@
-<app-main-page-base *ngIf="mission" [title]="localizeService.localizeData(mission.name)" [imageUrl]="mission.mainImage">
+<app-main-page-base *ngIf="mission && mission.showReport" [title]="localizeService.localizeData(mission.name)" [imageUrl]="mission.mainImage">
    <div class="content">
       <h2>{{localizeService.localizeData(mission.description) || localizeService.localizeData(mission.name)}}</h2>
       <div class="flex">
@@ -21,3 +21,6 @@
    </div>
 </app-main-page-base>
 <app-main-page-base *ngIf="!mission" title="loading..."></app-main-page-base>
+<app-main-page-base *ngIf="!mission.showReport" title="No report available.">
+   <section>This mission has no report yet. Come back later!</section>
+</app-main-page-base>

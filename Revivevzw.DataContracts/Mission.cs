@@ -37,6 +37,9 @@ namespace Revivevzw.DataContracts
         [DataMember(Name = "quote")]
         public Localization Quote { get; set; }
 
+        [DataMember(Name = "showReport")]
+        public bool ShowReport { get; set; }
+
         [DataMember(Name = "mediaUrls")]
         public IEnumerable<string> MediaUrls { get; set; }
     }
