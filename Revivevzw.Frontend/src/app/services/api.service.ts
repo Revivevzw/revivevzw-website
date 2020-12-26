@@ -49,22 +49,22 @@ export class ApiService {
 
       var url = this.getUrl(path);
 
-      if (setToState) {
+      if (setToState && isScullyRunning()) {
          const urlHash = btoa(url);
-         if (isScullyRunning()) {
-            var observable = this.http
-               .get<T>(url)
-               .pipe(
-                  tap(data => this.transferStateService.setState<T>(urlHash, data)),
-                  shareReplay(1)
-               );
-            // observables.push(observable);
-         } else {
-            var observable = this.getFromState<T>(path);
-            observables.push(observable);
-         }
+         var observable = this.http
+            .get<T>(url)
+            .pipe(
+               tap(data => this.transferStateService.setState<T>(urlHash, data)),
+               shareReplay(1)
+            );
+         // observables.push(observable);
       }
 
+      // Get from state
+      var observable = this.getFromState<T>(path);
+      observables.push(observable);
+
+      // Get from api
       var observable = this.http.get<T>(url);
       observables.push(observable);
 
