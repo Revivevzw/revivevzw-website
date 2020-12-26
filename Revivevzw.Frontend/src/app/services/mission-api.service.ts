@@ -13,7 +13,7 @@ export class MissionApiService {
 
   public getAll(){
     const path = this.basePath + "/all"
-    return this.apiService.get<Mission[]>(path);
+    return this.apiService.get<Mission[]>(path, false);
   }
 
   public getById(id: number){
