@@ -17,8 +17,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'missions', children: [
-    { path: ':id', component: MissionDetailComponent },
-    { path: '', component: MissionsComponent }
+    { path: '', component: MissionsComponent },
+    { path: ':id', component: MissionDetailComponent }
   ]},
   { path: 'sponsors', component: SponsorsComponent },
   { path: 'calendar', component: CalendarComponent },

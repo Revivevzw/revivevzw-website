@@ -30,7 +30,7 @@ export class MissionDetailComponent implements OnInit {
     })
   }
   
-  private setIdFromRoute(){
+  private setIdFromRoute(): Promise<void>{
     return new Promise((resolve, reject) => {
       this.route.paramMap.subscribe(x => {
         if (x.has('id')) this.id = parseInt(x.get('id'));
@@ -38,5 +38,4 @@ export class MissionDetailComponent implements OnInit {
       });
     })
   }
-
 }
