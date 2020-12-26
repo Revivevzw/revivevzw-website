@@ -38,6 +38,12 @@ export class ApiService {
    //    }
    // }
 
+   public getFromState<T>(path: string): Observable<T> {
+      const url = this.getUrl(path);
+      const urlHash = btoa(url);
+      return this.transferStateService.getState<T>(urlHash).pipe(shareReplay(1));
+   }
+
    public getObservables<T>(path: string, setToState: boolean = true): Observable<T>[] {
       const observables: Observable<T>[] = [];
 
@@ -52,9 +58,9 @@ export class ApiService {
                   tap(data => this.transferStateService.setState<T>(urlHash, data)),
                   shareReplay(1)
                );
-            observables.push(observable);
+            // observables.push(observable);
          } else {
-            var observable = this.transferStateService.getState<T>(urlHash).pipe(shareReplay(1));
+            var observable = this.getFromState<T>(path);
             observables.push(observable);
          }
       }

@@ -16,6 +16,11 @@ export class MissionApiService {
     return this.apiService.get<Mission[]>(path);
   }
 
+  public getAllFromState(){
+    const path = this.basePath + "/all"
+    return this.apiService.getFromState<Mission[]>(path);
+  }
+
   public getById(id: number){
     const path = this.basePath + "/" + id;
     return this.apiService.get<Mission>(path);

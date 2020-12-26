@@ -27,9 +27,9 @@ export class MissionsComponent implements OnInit {
 
   private SetMissions() {
     this.missionApi.getAll().subscribe(result => {
-      this.missions = result;
-
       if (!result) return;
+
+      this.missions = result;
       this.missionsByYear = result.reduce((previous, current) => {
         const year = new Date(current.startDate).getFullYear();
         let missions = previous.find(x => x.key == year);
@@ -42,7 +42,7 @@ export class MissionsComponent implements OnInit {
       }, []);
 
       this.missionsByYear.sort((a, b) => b.key - a.key);
-    })
+    });
   }
 
 }
