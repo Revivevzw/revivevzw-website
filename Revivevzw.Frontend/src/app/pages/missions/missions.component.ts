@@ -25,22 +25,23 @@ export class MissionsComponent implements OnInit {
     return split;
   }
 
-  private SetMissions(){
+  private SetMissions() {
     this.missionApi.getAll().subscribe(result => {
       this.missions = result;
 
+      if (!result) return;
       this.missionsByYear = result.reduce((previous, current) => {
         const year = new Date(current.startDate).getFullYear();
         let missions = previous.find(x => x.key == year);
-        if(!missions) {
-          missions = {key: year, value: []};
+        if (!missions) {
+          missions = { key: year, value: [] };
           previous.push(missions);
         }
         (missions.value).push(current);
         return previous;
       }, []);
 
-      this.missionsByYear.sort((a, b) =>  b.key - a.key);
+      this.missionsByYear.sort((a, b) => b.key - a.key);
     })
   }
 
