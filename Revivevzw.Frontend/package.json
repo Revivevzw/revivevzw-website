@@ -9,9 +9,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "scully": "scully --scanRoutes",
+    "scully": "scully",
     "scully:serve": "scully serve",
-    "scully-build": "ng build --prod && npm run scully",
+    "scully-build": "ng build --prod && npm run scully -- --scanRoutes",
     "scully-build-old": "ng build --prod && npm run scully -- --scanRoutes && npm run scully"
   },
   "private": true,
