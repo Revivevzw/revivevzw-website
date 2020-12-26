@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "scully": "scully --scanRoutes --serverTimeout=240000",
+    "scully": "scully --scanRoutes",
     "scully:serve": "scully serve",
     "scully-build": "ng build --prod && npm run scully",
     "scully-build-old": "ng build --prod && npm run scully -- --scanRoutes && npm run scully"
