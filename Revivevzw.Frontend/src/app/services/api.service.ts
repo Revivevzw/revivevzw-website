@@ -51,22 +51,22 @@ export class ApiService {
 
       if (setToState && isScullyRunning()) {
          const urlHash = btoa(url);
-         var observable = this.http
+         const observable = this.http
             .get<T>(url)
             .pipe(
                tap(data => this.transferStateService.setState<T>(urlHash, data)),
                shareReplay(1)
             );
-         // observables.push(observable);
+         observables.push(observable);
+      }else{
+         // Get from state
+         const stateObservable = this.getFromState<T>(path);
+         observables.push(stateObservable);
+
+         // Get from api
+         const apiObservable = this.http.get<T>(url);
+         observables.push(apiObservable);
       }
-
-      // Get from state
-      var observable = this.getFromState<T>(path);
-      observables.push(observable);
-
-      // Get from api
-      var observable = this.http.get<T>(url);
-      observables.push(observable);
 
       return observables;
    }
