@@ -43,21 +43,21 @@ export class ApiService {
 
       var url = this.getUrl(path);
 
-      if (setToState) {
-         const urlHash = btoa(url);
-         if (isScullyRunning()) {
-            var observable = this.http
-               .get<T>(url)
-               .pipe(
-                  tap(data => this.transferStateService.setState<T>(urlHash, data)),
-                  shareReplay(1)
-               );
-            observables.push(observable);
-         } else {
-            var observable = this.transferStateService.getState<T>(urlHash).pipe(shareReplay(1));
-            observables.push(observable);
-         }
-      }
+      // if (setToState) {
+      //    const urlHash = btoa(url);
+      //    if (isScullyRunning()) {
+      //       var observable = this.http
+      //          .get<T>(url)
+      //          .pipe(
+      //             tap(data => this.transferStateService.setState<T>(urlHash, data)),
+      //             shareReplay(1)
+      //          );
+      //       observables.push(observable);
+      //    } else {
+      //       var observable = this.transferStateService.getState<T>(urlHash).pipe(shareReplay(1));
+      //       observables.push(observable);
+      //    }
+      // }
 
       var observable = this.http.get<T>(url);
       observables.push(observable);
