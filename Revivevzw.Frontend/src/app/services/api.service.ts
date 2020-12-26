@@ -43,7 +43,7 @@ export class ApiService {
 
       var url = this.getUrl(path);
 
-      if (environment.production && setToState) {
+      if (setToState) {
          const urlHash = btoa(url);
          if (isScullyRunning()) {
             var observable = this.http
