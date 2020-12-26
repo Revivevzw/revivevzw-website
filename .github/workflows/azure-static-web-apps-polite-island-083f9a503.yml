@@ -29,8 +29,6 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/Revivevzw.Frontend" # App source code path
           output_location: "dist/static" # Built app content directory - optional
-        env:
-          PRE_BUILD_COMMAND: './scripts/setup-puppeteer.sh'
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
