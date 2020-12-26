@@ -22,6 +22,7 @@ jobs:
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v0.0.1-preview
         with:
+          app_build_command: npm build --prod npm && run scully -- --host='0.0.0.0' --scanRoutes --serverTimeout=60000
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_POLITE_ISLAND_083F9A503 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
@@ -30,7 +31,6 @@ jobs:
           app_location: "/Revivevzw.Frontend" # App source code path
           output_location: "dist/static" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-          app_build_command: npm build --prod npm && run scully -- --host='0.0.0.0' --scanRoutes --serverTimeout=60000
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
