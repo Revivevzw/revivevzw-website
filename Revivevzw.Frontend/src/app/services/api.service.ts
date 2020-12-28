@@ -1,10 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-import { isScullyRunning, TransferStateService } from '@scullyio/ng-lib';
-import { tap, shareReplay, mergeAll, mergeScan } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { getuid } from 'process';
-import { AsyncSubject, BehaviorSubject, forkJoin, merge, Observable, Subject } from 'rxjs';
+import { isScullyRunning, TransferStateService } from '@scullyio/ng-lib';
+import { merge, Observable } from 'rxjs';
+import { shareReplay, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
    providedIn: 'root'
@@ -49,24 +48,26 @@ export class ApiService {
 
       var url = this.getUrl(path);
 
-      if (setToState && isScullyRunning()) {
-         const urlHash = btoa(url);
-         const observable = this.http
-            .get<T>(url)
-            .pipe(
-               tap(data => this.transferStateService.setState<T>(urlHash, data)),
-               shareReplay(1)
-            );
-         observables.push(observable);
-      }else{
-         // Get from state
-         const stateObservable = this.getFromState<T>(path);
-         observables.push(stateObservable);
-
-         // Get from api
-         const apiObservable = this.http.get<T>(url);
-         observables.push(apiObservable);
+      if (setToState) {
+         if (isScullyRunning()) {
+            const urlHash = btoa(url);
+            const observable = this.http
+               .get<T>(url)
+               .pipe(
+                  tap(data => this.transferStateService.setState<T>(urlHash, data)),
+                  shareReplay(1)
+               );
+            observables.push(observable);
+         } else {
+            // Get from state
+            const stateObservable = this.getFromState<T>(path);
+            observables.push(stateObservable);
+         }
       }
+      
+      // Get from api
+      const apiObservable = this.http.get<T>(url);
+      observables.push(apiObservable);
 
       return observables;
    }

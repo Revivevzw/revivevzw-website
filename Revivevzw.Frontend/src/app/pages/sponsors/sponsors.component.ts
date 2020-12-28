@@ -33,8 +33,8 @@ export class SponsorsComponent implements OnInit {
     ])
   }
 
-  private setTranslations = () => {
-    return new Promise((resolve, reject) => {
+  private setTranslations = (): Promise<void> => {
+    return new Promise((resolve) => {
       this.translateService.get([
         'HOME.HEAD_SUBTITLE'
       ]).subscribe(result => {
