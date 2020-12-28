@@ -32,6 +32,8 @@ export class ContactComponent implements OnInit {
 
   public send = () => {
     const formValue = this.form.getRawValue();
+
+    formValue.message += `\n\nGegevens:\nNaam: ${formValue.name}\nEmail: ${formValue.emailFrom}`;
     
     this.isBusy = true;
     this.mailApi.send(formValue).subscribe(result => {
