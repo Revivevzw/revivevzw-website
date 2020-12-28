@@ -44,5 +44,4 @@ export class MissionsComponent implements OnInit {
       this.missionsByYear.sort((a, b) => b.key - a.key);
     });
   }
-
 }
