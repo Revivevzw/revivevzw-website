@@ -45,5 +45,4 @@ export class ContactComponent implements OnInit {
       this.isBusy = false;
     });
   }
- 
 }
