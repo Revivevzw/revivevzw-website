@@ -9,7 +9,7 @@
       <div class="header__intro">
         <div class="header__intro__content">
           <h1>{{ "HOME.HEAD_TITLE" | translate }}</h1>
-          <h3>{{ "HOME.HEAD_SUBTITLE" | translate }}</h3>
+          <h3 [innerHTML]="'HOME.HEAD_SUBTITLE' | translate"></h3>
           <app-call-to-action class="call-to-action" [action]="ctaAction" text="{{ 'HOME.CTA_LEARN_MORE' | translate }}"></app-call-to-action>
         </div>
         <figure class="header__intro__media"><img src="../../../assets/media/header-2.jpg" alt="Sfeerbeelden Revive vzw"></figure>
