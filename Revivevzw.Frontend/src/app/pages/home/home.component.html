@@ -10,7 +10,10 @@
         <div class="header__intro__content">
           <h1>{{ "HOME.HEAD_TITLE" | translate }}</h1>
           <h3 [innerHTML]="'HOME.HEAD_SUBTITLE' | translate"></h3>
-          <app-call-to-action class="call-to-action" [action]="ctaAction" text="{{ 'HOME.CTA_LEARN_MORE' | translate }}"></app-call-to-action>
+          <div class="call-to-actions__container">
+            <button class="btn btn--primary" (click)="ctaAction()">{{ 'HOME.CTA_LEARN_MORE' | translate }}</button>
+            <button class="btn btn--default shop" (click)="redirectToShop()">{{'SHARED.SHOP' | translate}}</button>
+          </div>
         </div>
         <figure class="header__intro__media"><img src="../../../assets/media/header-2.jpg" alt="Sfeerbeelden Revive vzw"></figure>
       </div>
@@ -43,7 +46,8 @@
 </app-home-section>
 
 <app-home-section titleKey="HOME.SUPPORT_US_TITLE" subtitleKey="HOME.SUPPORT_US_SUBTITLE">
-  <app-call-to-action text='{{ "NAVIGATION.SUPPORT_US" | translate}}' [action]="supportUs"></app-call-to-action>
+  <button class="btn btn--primary" (click)="redirectToShop()">{{ 'SHARED.SHOP' | translate }}</button>
+  <!-- <app-call-to-action text='{{ "NAVIGATION.SUPPORT_US" | translate}}' [action]="supportUs"></app-call-to-action> -->
 </app-home-section>
 
 <app-home-section hasBackground titleKey="HOME.CALENDAR_TITLE" subtitleKey="HOME.CALENDAR_SUBTITLE" actionTitleKey="HOME.CALENDAR_ACTION" path="calendar">

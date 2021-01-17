@@ -127,3 +127,50 @@ li {
     }
   }
 }
+
+.btn{
+  transition: .3s all ease-out;
+  display: block;
+  border: none;
+  padding: 20px 30px;
+  font-weight: bold;
+  border-radius: 2px;
+  border: 2px solid $accent-color;
+  cursor: pointer;
+
+  &--primary{
+    background-color: $accent-color;
+  }
+
+  &--secondary{
+    color: $accent-color;
+    background-color: transparent;
+    box-sizing: content-box;
+
+    &:hover{
+      background-color: $accent-color;
+      color: $text-color-dark;
+    }
+  }
+
+  &--default{
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+    box-sizing: content-box;
+
+    &:hover{
+      background-color: white;
+      color: $text-color-dark;
+    }
+  }
+
+  button:enabled:hover{
+    opacity: .6;
+    cursor: pointer;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    padding: 15px 25px;
+  }
+}

@@ -1,10 +1,13 @@
 @import "src/variables";
 
-.call-to-action {
+.call-to-actions__container{
   padding-top: 30px;
-  display: block;
+  display: flex;
 }
 
+.shop{
+  margin-left: 10px;
+}
 
 .carousel{
   z-index: 0;

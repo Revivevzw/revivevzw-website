@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["about"])
   }
 
-  public supportUs = () => {
+  public redirectToShop = () => {
     const url = "https://shop.revivevzw.be/";
     window.open(url, '_blank');
   }
