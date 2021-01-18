@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Meta } from '@angular/platform-browser';
 import { KeyValue } from '@angular/common';
 import { Router } from '@angular/router';
@@ -22,11 +22,12 @@ export class HomeComponent implements OnInit {
 
   private translations: Array<KeyValue<string, string>>;
   public sponsors: Sponsor[];
-  // public images: { path: string }[];
   public loaded: boolean;
+  public currentLanguage: string;
 
   ngOnInit() {
     this.setData().then(this.setMetaData);
+    this.translateService.onLangChange.subscribe((params: LangChangeEvent) => this.currentLanguage = params.lang);
     window.addEventListener('resize', () => {
       this.loaded = false;
       setTimeout(() => {
@@ -61,6 +62,11 @@ export class HomeComponent implements OnInit {
 
   public ctaAction = () => {
     this.router.navigate(["about"])
+  }
+
+  public redirectToSponsoring = () => {
+    const url = "https://shop.revivevzw.be/SHOP/SHOP.aspx";
+    window.open(url, '_blank');
   }
 
   public redirectToShop = () => {
