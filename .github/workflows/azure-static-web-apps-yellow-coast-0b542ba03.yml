@@ -15,11 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
+      - name: check
+        run: ldd chrome | grep not
       - uses: actions/checkout@v2
         with:
           submodules: true
-      - name: Install Chromium browser
-        run: sudo DEBIAN_FRONTEND=noninteractive apt-get install -y chromium-browser
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v0.0.1-preview
