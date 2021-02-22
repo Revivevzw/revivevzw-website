@@ -22,6 +22,7 @@ jobs:
 
     - name: npm install, build, and test
       run: |
+        cd Revivevzw.Frontend
         npm install
         npm run build --if-present
         npm run test --if-present
@@ -32,4 +33,4 @@ jobs:
         app-name: 'revivevzw-web'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_9242ee75a51e4c99b87d142cde480cce }}
-        package: 'Revivevzw.Frontend'
+        package: .
