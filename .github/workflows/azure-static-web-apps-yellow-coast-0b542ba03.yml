@@ -15,8 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - name: check
-        run: ldd chrome | grep not
       - uses: actions/checkout@v2
         with:
           submodules: true
@@ -33,6 +31,8 @@ jobs:
           api_location: "api" # Api source code path - optional
           output_location: "Revivevzw.Frontend/./dist/static" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+      - name: check
+        run: ldd chrome | grep not
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
