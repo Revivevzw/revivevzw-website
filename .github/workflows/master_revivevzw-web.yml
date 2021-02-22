@@ -32,4 +32,4 @@ jobs:
         app-name: 'revivevzw-web'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_9242ee75a51e4c99b87d142cde480cce }}
-        package: .
+        package: 'Revivevzw.Frontend'
