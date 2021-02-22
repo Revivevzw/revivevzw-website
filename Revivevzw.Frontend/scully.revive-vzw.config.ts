@@ -14,6 +14,7 @@
 // };
 
 import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
+
 // import { GoogleAnalytics } from '@scullyio/scully-plugin-google-analytics';
 
 // const defaultPostRenderers = [];
@@ -21,7 +22,7 @@ import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
 // defaultPostRenderers.push(GoogleAnalytics);
 
 export const config: ScullyConfig = {
-  puppeteerLaunchOptions: {executablePath: '@scullyio/scully/node_modules/puppeteer/.local-chromium/linux-818858'},
+  puppeteerLaunchOptions: { executablePath: 'puppeteer/.local-chromium/linux-848005' },
   projectRoot: './src',
   projectName: 'revive-vzw',
   outDir: './dist/static',
