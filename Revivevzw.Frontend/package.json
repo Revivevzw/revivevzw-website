@@ -39,6 +39,7 @@
     "mailchimp": "^1.2.1",
     "ngx-toastr": "^13.2.0",
     "node": "^14.15.2",
+    "puppeteer": "^7.1.0",
     "reset-css": "^5.0.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.14.1",
