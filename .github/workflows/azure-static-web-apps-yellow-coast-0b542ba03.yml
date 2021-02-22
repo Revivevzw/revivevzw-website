@@ -15,6 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
+      - uses: nanasess/setup-chromedriver@master
+      - run: |
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optiona
+            - name: Build And Deploy
+              id: builddeploy
       - uses: actions/checkout@v2
         with:
           submodules: true
@@ -31,8 +38,6 @@ jobs:
           api_location: "api" # Api source code path - optional
           output_location: "Revivevzw.Frontend/./dist/static" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-      - name: check
-        run: ldd chrome | grep not
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
