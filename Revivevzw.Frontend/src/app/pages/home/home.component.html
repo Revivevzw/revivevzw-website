@@ -61,7 +61,7 @@
 <app-home-section hasBorders titleKey="HOME.SPONSORS_TITLE" subtitleKey="HOME.SPONSORS_SUBTITLE" actionTitleKey="HOME.SPONSORS_ACTION" path="sponsors" align="center">
   <div class="sponsors content">
     <!-- <carousel [images]="images"></carousel> -->
-    <carousel *ngIf="sponsors && loaded" autoplay="true" loop="true" autoplayInterval="1500">
+    <carousel *ngIf="sponsors && loaded" autoplay="true" loop="true" autoplayInterval="3000">
       <a [href]="sponsor.websiteUrl" target="blank" *ngFor="let sponsor of sponsors" class="carousel-cell">
           <img [src]="sponsor.logoUrl">
       </a>

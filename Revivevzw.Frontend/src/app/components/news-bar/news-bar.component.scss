@@ -7,13 +7,10 @@
    background-color: $accent-color-light;
    color: $text-color-dark;
    font-weight: bold;
-   display: flex;
-   justify-content: center;
-   overflow: hidden;
    box-sizing: border-box;
-   height: 60px;
-   align-items: center;
    font-size: 16px;
+   padding: 20px;
+   padding-bottom: 35px;
 
    &:hover{
       background-color: darken($accent-color-light, 10);
@@ -21,11 +18,15 @@
    }
 
    a{
-      position: relative;
+      height: 100%;
+      width: 100%;
+      position: absolute;;
       text-align: center;
       text-decoration: none;
       color: $text-color-dark;
-      display: block;
+      display: inline;
+      // top: 25px;
+      left: 0;
 
       span{
          text-decoration: underline;
@@ -34,7 +35,7 @@
    }
 
    &__container{
-      overflow: hidden;
-      padding: 2px;
+      // overflow: hidden;
+      // padding: 40px;
    }
 }

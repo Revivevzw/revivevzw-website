@@ -13,11 +13,11 @@ import { Router } from '@angular/router';
   animations: [
     trigger('newsBarAnimation', [
       transition('void => *', [
-        style({ top: '50px' }),
-        animate('300ms ease-in-out', style({ top: 0 }))
+        style({ left: '100vw' }),
+        animate('500ms ease-in-out', style({ left: 0 }))
       ]),
       transition('* => void', [
-        animate('300ms ease-in-out', style({ top: '-50px' }))
+        animate('500ms ease-in-out', style({ left: '-100vw' }))
       ])
     ])
   ]
@@ -63,6 +63,6 @@ export class NewsBarComponent implements OnInit {
       } else {
         this.currentItem += 1;
       }
-    }, 3000)
+    }, 6000)
   }
 }

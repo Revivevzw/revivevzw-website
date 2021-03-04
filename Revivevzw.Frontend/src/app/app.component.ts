@@ -16,7 +16,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('navigation', { read: ElementRef }) public navigation: ElementRef<any>;
 
   ngAfterViewInit() {
-    window.addEventListener('scroll', this.scrolled);
+    // window.addEventListener('scroll', this.scrolled);
   }
 
   private scrolled = () => {
@@ -29,5 +29,4 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.renderer.removeClass(this.navigation.nativeElement.children[0], 'header--scrolled');
     }
   }
-
 }

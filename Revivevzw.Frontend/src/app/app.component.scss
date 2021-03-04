@@ -3,6 +3,7 @@
 app-mobile-navigation {
   width: 100%;
   top: 0;
+
 }
 .header {
   position: absolute;
@@ -10,4 +11,13 @@ app-mobile-navigation {
   top: 0;
   width: 100%;
   border-bottom: 1px solid transparent;
+}
+
+.header{
+  position: fixed;
+}
+
+.home-button{
+  display: flex;
+  flex-direction: row-reverse;
 }
