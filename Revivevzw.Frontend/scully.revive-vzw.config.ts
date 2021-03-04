@@ -14,6 +14,9 @@
 // };
 
 import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
+// import { chromePath } from '@gen6033/chrome-path'
+const chromePath = require('@gen6033/chrome-path');
+
 
 // import { GoogleAnalytics } from '@scullyio/scully-plugin-google-analytics';
 
@@ -23,6 +26,7 @@ import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
 
 export const config: ScullyConfig = {
   // puppeteerLaunchOptions: { executablePath: 'puppeteer/.local-chromium/linux-848005' },
+  puppeteerLaunchOptions: { executablePath: chromePath.chromium },
   projectRoot: './src',
   projectName: 'revive-vzw',
   outDir: './dist/static',
