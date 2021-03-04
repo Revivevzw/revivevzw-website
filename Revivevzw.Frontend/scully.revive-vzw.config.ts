@@ -22,7 +22,7 @@ import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
 // defaultPostRenderers.push(GoogleAnalytics);
 
 export const config: ScullyConfig = {
-  puppeteerLaunchOptions: { executablePath: 'puppeteer/.local-chromium/linux-848005' },
+  // puppeteerLaunchOptions: { executablePath: 'puppeteer/.local-chromium/linux-848005' },
   projectRoot: './src',
   projectName: 'revive-vzw',
   outDir: './dist/static',
