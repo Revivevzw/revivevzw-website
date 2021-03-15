@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Revivevzw.DataAccess;
 using Revivevzw.DataContracts;
+using Revivevzw.Enums;
+using System;
 
 namespace Revivevzw.Business.Mappers
 {
@@ -43,7 +45,15 @@ namespace Revivevzw.Business.Mappers
                 .ForMember(x => x.StartDate, x => x.MapFrom(y => y.Startdatum))
                 .ForMember(x => x.EndDate, x => x.MapFrom(y => y.Einddatum))
                 .ForMember(x => x.ShowReport, x => x.MapFrom(y => y.ShowReportOnWeb == "Y"))
-                .ForMember(x => x.MainImage, x => x.MapFrom(y => y.WebMainPicture));
+                .ForMember(x => x.MainImage, x => x.MapFrom(y => y.WebMainPicture))
+                .ForMember(x => x.Type, x => x.MapFrom(y =>
+                    y.Missionsort == (int)ActivityType.Mission
+                        ? y.Einddatum >= DateTime.Now
+                            ? DTOActivityType.PlannedMission
+                            : DTOActivityType.PastMission
+                        : y.Einddatum >= DateTime.Now
+                            ? DTOActivityType.PlannedScouting
+                            : DTOActivityType.PastScouting));
         }
     }
 }

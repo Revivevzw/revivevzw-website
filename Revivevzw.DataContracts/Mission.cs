@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Revivevzw.Enums;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -42,5 +43,8 @@ namespace Revivevzw.DataContracts
 
         [DataMember(Name = "mediaUrls")]
         public IEnumerable<string> MediaUrls { get; set; }
+
+        [DataMember(Name = "type")]
+        public DTOActivityType Type { get; set; }
     }
 }
