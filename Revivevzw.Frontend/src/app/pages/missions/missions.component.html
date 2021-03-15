@@ -1,4 +1,7 @@
 <app-main-page-base [title]="'MISSIONS.TITLE' | translate">
+   <select class="form-control" [(ngModel)]="selectedType" (change)="typeSelected()">
+      <option *ngFor="let type of missionTypes" [ngValue]="type">{{type.value | translate}}</option>
+   </select>
    <div *ngIf="missionsByYear.length" class="wrapper content">
       <div *ngFor="let year of missionsByYear" class="year">
          <h2>{{year.key}}</h2>

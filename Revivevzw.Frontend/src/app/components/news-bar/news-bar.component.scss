@@ -9,33 +9,30 @@
    font-weight: bold;
    box-sizing: border-box;
    font-size: 16px;
+   text-align: center;
    padding: 20px;
-   padding-bottom: 35px;
-
+   
    &:hover{
       background-color: darken($accent-color-light, 10);
-      // background-color: $accent-color-secondary-light;
    }
 
+   &__container{
+      display: flex;
+      overflow: hidden;
+      width: 200vh;
+   }
+   
    a{
-      height: 100%;
-      width: 100%;
-      position: absolute;;
-      text-align: center;
+      margin-left: 0;
       text-decoration: none;
       color: $text-color-dark;
-      display: inline;
-      // top: 25px;
-      left: 0;
+      // white-space: nowrap;
+      text-align: center;
+      width: 100%;
 
       span{
          text-decoration: underline;
          color: $accent-color;
       }
-   }
-
-   &__container{
-      // overflow: hidden;
-      // padding: 40px;
    }
 }

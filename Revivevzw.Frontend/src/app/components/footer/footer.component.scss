@@ -33,6 +33,9 @@
 li{
   padding-bottom: 0;
 }
+ul{
+  margin-bottom: 0;
+}
 
 .social-media {
   padding-top: 40px;
@@ -56,10 +59,6 @@ li{
 .news-letter {
   text-align: left;
 
-  label {
-    padding-bottom: 7px;
-    display: block;
-  }
   &__input {
     width: 100%;
     display: flex;
@@ -75,14 +74,17 @@ li{
       @media (min-width: $breakpoint-desktop) {
         min-width: 270px;
       }
+
       flex-grow: 1;
       font-family: inherit;
-      padding: 10px 0;
       border: none;
       border-bottom: .08pc solid $accent-color;
       background-color: transparent;
       &:focus {
         outline: none;
+      }
+      &::placeholder{
+        font-size: .7rem;
       }
     }
   }

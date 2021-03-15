@@ -28,6 +28,7 @@ import { environment } from '../environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeSectionComponent } from './components/home-section/home-section.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
           deps: [HttpClient]
       }
   }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    NgbModule
   ],
   providers: [
     HttpClient,

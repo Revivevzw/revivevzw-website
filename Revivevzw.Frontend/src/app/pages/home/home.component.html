@@ -11,8 +11,8 @@
           <h1>{{ "HOME.HEAD_TITLE" | translate }}</h1>
           <h3 [innerHTML]="'HOME.HEAD_SUBTITLE' | translate"></h3>
           <div class="call-to-actions__container">
-            <button class="btn btn--primary" (click)="ctaAction()">{{ 'HOME.CTA_LEARN_MORE' | translate }}</button>
-            <button *ngIf="currentLanguage == 'nl-BE'" class="btn btn--default shop" (click)="redirectToSponsoring()">{{'SHARED.SHOP' | translate}}</button>
+            <button class="btn btn-primary" (click)="ctaAction()">{{ 'HOME.CTA_LEARN_MORE' | translate }}</button>
+            <button *ngIf="currentLanguage == 'nl-BE'" class="btn btn-outline-light shop" (click)="redirectToSponsoring()">{{'SHARED.SHOP' | translate}}</button>
           </div>
         </div>
         <figure class="header__intro__media"><img src="../../../assets/media/header-2.jpg" alt="Sfeerbeelden Revive vzw"></figure>
@@ -41,12 +41,22 @@
   </div>
 </app-home-section>
 
-<app-home-section hasBackground titleKey="HOME.MISSION_TITLE" subtitleKey="HOME.MISSION_SUBTITLE" actionTitleKey="HOME.MISSION_ACTION" path="missions">
+<app-home-section hasBackground titleKey="HOME.MISSION_TITLE" subtitleKey="HOME.MISSION_SUBTITLE" path="missions">
   <p class="content">{{'HOME.MISSION_TEXT' | translate}}</p>
+  <div class="row m-0">
+    <div class="btn-group mb-2 mr-2">
+      <a href="/missions/type/0" class="btn btn-outline-primary border-right-0">{{'PLANNED_MISSIONS' | translate}}</a>
+      <a href="/missions/type/2" class="btn btn-outline-primary">{{'PAST_MISSIONS' | translate}}</a>
+    </div>
+    <div class="btn-group mb-2">
+      <a href="/missions/type/1" class="btn btn-outline-primary border-right-0">{{'PLANNED_SCOUTINGS' | translate}}</a>
+      <a href="/missions/type/3" class="btn btn-outline-primary">{{'PAST_SCOUTINGS' | translate}}</a>
+    </div>
+  </div>
 </app-home-section>
 
 <app-home-section titleKey="HOME.SUPPORT_US_TITLE" subtitleKey="HOME.SUPPORT_US_SUBTITLE">
-  <button class="btn btn--primary" (click)="redirectToShop()">{{ 'NAVIGATION.SUPPORT_US' | translate }}</button>
+  <button class="btn btn-primary" (click)="redirectToShop()">{{ 'NAVIGATION.SUPPORT_US' | translate }}</button>
   <!-- <app-call-to-action text='{{ "NAVIGATION.SUPPORT_US" | translate}}' [action]="supportUs"></app-call-to-action> -->
 </app-home-section>
 

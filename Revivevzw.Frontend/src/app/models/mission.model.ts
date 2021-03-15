@@ -14,4 +14,5 @@ export interface Mission{
    quote: Localization;
    mediaUrls: string[];
    showReport: boolean;
+   type: number;
 }

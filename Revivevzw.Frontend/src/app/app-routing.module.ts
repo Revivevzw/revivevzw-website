@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'missions', children: [
     { path: '', component: MissionsComponent },
+    { path: 'type/:key', component: MissionsComponent },
     { path: ':id', component: MissionDetailComponent }
   ]},
   { path: 'sponsors', component: SponsorsComponent },
