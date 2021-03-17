@@ -1,4 +1,4 @@
-<app-main-page-base [title]="'CALENDAR.TITLE' | translate">
+<app-main-page-base [title]="calendarTitleKey | translate">
   <div class="calendar">
     <div class="calendar__info">
        <h2>{{'CALENDAR.SUBTITLE' | translate}}</h2>
@@ -6,7 +6,7 @@
     </div>
     <div class="calendar__items">
       <p *ngIf="!activities || !activities.length">{{'MISSION.NO_EVENTS' | translate}}</p>      
-      <a *ngFor="let item of activities" class="calendar__item" routerLink="../calendar-detail/{{item.id}}">
+      <a *ngFor="let item of activities" class="calendar__item" routerLink="../detail/{{item.id}}">
         <div class="calendar__item__date">
           {{ item.startDate | date: 'dd' }}<br />
           {{ item.startDate | date: 'MMM' }}

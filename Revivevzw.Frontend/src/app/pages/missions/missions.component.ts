@@ -48,7 +48,7 @@ export class MissionsComponent implements OnInit {
 
   public splitInterventions = (localization: Localization) => {
     const data = this.localize.localizeData(localization);
-    var split = data.split(/[\s, -]+/).filter(x => x);
+    var split = data.split(/,|-|–/).filter(x => x).map(x => x.trim())
     return split;
   } 
 

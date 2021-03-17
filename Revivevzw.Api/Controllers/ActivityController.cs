@@ -45,5 +45,12 @@ namespace Revivevzw.Api.Controllers
                 return BadRequest(ex);
             }
         }
+
+        [HttpGet, Route("past")]
+        public async Task<IEnumerable<Activity>> GetPast()
+        {
+            var activities = await this.activityService.GetPast();
+            return activities;
+        }
     }
 }

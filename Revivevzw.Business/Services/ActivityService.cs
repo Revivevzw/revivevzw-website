@@ -28,5 +28,11 @@ namespace Revivevzw.Business.Services
             var missions = await missionRepository.GetUpcoming();
             return mapper.Map<ICollection<Activity>>(missions);
         }
+
+        public async Task<IEnumerable<Activity>> GetPast()
+        {
+            var missions = await missionRepository.GetPast();
+            return mapper.Map<IEnumerable<Activity>>(missions);
+        }
     }
 }

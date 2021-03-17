@@ -1,10 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Revivevzw.DataAccess;
-using Revivevzw.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Revivevzw.Business.Repositories
@@ -38,6 +36,14 @@ namespace Revivevzw.Business.Repositories
               .Where(x => x.Einddatum > DateTime.Now)
               .OrderBy(x => x.Startdatum)
               .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Missions>> GetPast()
+        {
+            return await GetForWeb()
+                .Where(x => x.Einddatum <= DateTime.Now)
+                .OrderBy(x => x.Startdatum)
+                .ToListAsync();
         }
     }
 }

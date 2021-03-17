@@ -8,5 +8,6 @@ namespace Revivevzw.Business.Repositories
     {
         Task<Missions> Get(int id);
         Task<ICollection<Missions>> GetUpcoming();
+        Task<IEnumerable<Missions>> GetPast();
     }
 }

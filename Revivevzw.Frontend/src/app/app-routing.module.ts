@@ -22,8 +22,11 @@ const routes: Routes = [
     { path: ':id', component: MissionDetailComponent }
   ]},
   { path: 'sponsors', component: SponsorsComponent },
-  { path: 'calendar', component: CalendarComponent },
-  { path: 'calendar-detail/:id', component: CalendarDetailComponent },
+  { path: 'calendar', children: [
+    { path: 'past', component: CalendarComponent },
+    { path: 'upcoming', component: CalendarComponent },
+    { path: 'detail/:id', component: CalendarDetailComponent },
+  ]},
   { path: 'volunteers', component: VolunteersComponent },
   { path: 'support-us', component: SupportUsComponent },
   { path: 'translations', component: TranslationsComponent },

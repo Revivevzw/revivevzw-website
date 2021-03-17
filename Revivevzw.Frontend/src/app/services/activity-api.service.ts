@@ -14,6 +14,10 @@ export class ActivityApiService {
       return this.apiService.get<Array<Activity>>("activity/upcoming");
    }
 
+   public getPast(){
+      return this.apiService.get<Activity[]>("activity/past");
+   }
+
    public get = (id: number) => {
       return this.apiService.get<Activity>("activity/" + id);
    }
