@@ -50,7 +50,7 @@ export class MissionsComponent implements OnInit {
     const data = this.localize.localizeData(localization);
     var split = data.split(/[\s, -]+/).filter(x => x);
     return split;
-  }
+  } 
 
   private setMissionsByYear = (missions: Mission[]) => {
     this.missionsByYear = missions.reduce((previous, current) => {
