@@ -1,5 +1,42 @@
 @import 'src/variables.scss';
 
+// .news-bar{
+//    cursor: pointer;
+//    transition: .3s ease;
+//    width: 100%;
+//    background-color: $accent-color-light;
+//    color: $text-color-dark;
+//    font-weight: bold;
+//    box-sizing: border-box;
+//    font-size: 16px;
+//    text-align: center;
+//    padding: 20px;
+   
+//    &:hover{
+//       background-color: darken($accent-color-light, 10);
+//    }
+
+//    &__container{
+//       display: flex;
+//       overflow: hidden;
+//       width: 200vh;
+//    }
+   
+//    a{
+//       margin-left: 0;
+//       text-decoration: none;
+//       color: $text-color-dark;
+//       // white-space: nowrap;
+//       text-align: center;
+//       width: 100%;
+
+//       span{
+//          text-decoration: underline;
+//          color: $accent-color;
+//       }
+//    }
+// }
+
 .news-bar{
    cursor: pointer;
    transition: .3s ease;
@@ -10,25 +47,18 @@
    box-sizing: border-box;
    font-size: 16px;
    text-align: center;
-   padding: 20px;
+   height: 65px;
    
    &:hover{
       background-color: darken($accent-color-light, 10);
    }
-
-   &__container{
-      display: flex;
-      overflow: hidden;
-      width: 200vh;
-   }
    
    a{
-      margin-left: 0;
       text-decoration: none;
       color: $text-color-dark;
-      // white-space: nowrap;
       text-align: center;
       width: 100%;
+      padding: 20px;
 
       span{
          text-decoration: underline;

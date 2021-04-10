@@ -35,7 +35,7 @@ export class NewsBarComponent implements OnInit {
   public currentItem = 0;
 
   ngOnInit(): void {
-    // this.startAnimation();
+    this.startAnimation();
     this.SetNewsItems();
   }
 
