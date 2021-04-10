@@ -17,7 +17,7 @@ export class NewsBarComponent implements OnInit {
   ) { }
 
   public newsItems: Array<NewsItem> = [];
-  public isBusy: boolean = true;
+  public isBusy: boolean;
 
   ngOnInit(): void {
     this.SetNewsItems();
@@ -32,6 +32,14 @@ export class NewsBarComponent implements OnInit {
     this.newsItemApiService.getAll().subscribe(newsItems => {
       this.newsItems = newsItems;
       this.isBusy = false;
+      this.fixCarouselBug();
     })
+  }
+
+  private fixCarouselBug = () => {
+    this.isBusy = true;
+    setTimeout(() => {
+      this.isBusy = false;
+    }, 1);
   }
 }
