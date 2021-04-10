@@ -6,7 +6,7 @@
       <div *ngFor="let year of missionsByYear" class="year">
          <h2>{{year.key}}</h2>
          <div class="missions">
-            <div *ngFor="let mission of year.value" class="mission" [routerLink]="mission.id">
+            <div *ngFor="let mission of year.value" class="mission" [routerLink]="'../../' + mission.id">
                <div class="image" [style.background-image]="'url(' + mission.mainImage + ')'"></div>
                <div class="mission__text">
                   <b>{{localize.localizeData(mission.name)}} - {{mission.country}}</b>
