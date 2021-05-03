@@ -24,14 +24,13 @@ namespace Revivevzw.Api.Controllers
             try
             {
                 var organigram = await settingService.GetOrganigramURL();
-                var url = organigram.V0;
-                return Ok(url);
+                return Ok(organigram);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex);
             }
         }
-        
+
     }
 }

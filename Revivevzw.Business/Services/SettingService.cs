@@ -24,8 +24,8 @@ namespace Revivevzw.Business.Services
         public async Task<Settings> GetOrganigramURL()
         {
             var entity = await settingRepository.Get("ORGANIGRAM");
-            var url = entity.FirstOrDefault();
-            return url;
+            var setting = entity.FirstOrDefault();
+            return setting;
         }
     }
 }
