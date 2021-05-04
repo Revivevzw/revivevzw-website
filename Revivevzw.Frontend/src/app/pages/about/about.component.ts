@@ -12,14 +12,9 @@ export class AboutComponent implements OnInit {
   cells: any;
   public setting: Setting;
 
-  constructor(private googleSheetApiService: GoogleSheetApiService,
-              private settingApi: SettingApiService) {}
+  constructor(private settingApi: SettingApiService) {}
 
   ngOnInit() {
-    this.googleSheetApiService.getTranslations().subscribe(x => {
-      this.cells = x.feed.entry;
-    });
-
     this.settingApi.getOrganigram().subscribe(x => {
       this.setting = x;
     });
