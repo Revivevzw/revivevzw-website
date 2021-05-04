@@ -1,7 +1,7 @@
-<div class="news-bar" (click)="redirect()">
-   <div class="news-bar__container">
-      <ng-container *ngFor="let item of newsItems; let i = index;">
-         <a *ngIf="i === currentItem" @newsBarAnimation>{{ localize(item.title) }} <span *ngIf="item.url">{{'SPLASH.CLICK_HERE' | translate}}</span></a>
-      </ng-container>
-   </div>
+<div class="news-bar">
+   <carousel *ngIf="newsItems && !isBusy" autoplay="true" loop="true" autoplayInterval="3000" transitionDuration="500" [arrows]="false" cellsToShow="1" height="100%">
+      <a [href]="item.url" target="blank" *ngFor="let item of newsItems" class="carousel-cell">
+         {{localize(item.title)}} <span *ngIf="item.url">{{'SPLASH.CLICK_HERE' | translate}}</span>
+      </a>
+   </carousel>
 </div>
