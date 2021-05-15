@@ -36,19 +36,19 @@ export const config: ScullyConfig = {
     //   type: 'contentFolder',
     //   postRenderers: [...defaultPostRenderers],
     // },
-    '/calendar-detail/:id': {
-      type: 'json',
-      id: {
-        url: 'https://revivevzwapi.azurewebsites.net/api/activity/upcoming',
-        property: 'id'
-      }
-    },
-    '/missions/:id': {
-      type: 'json',
-      id: {
-        url: 'https://revivevzwapi.azurewebsites.net/api/mission/all',
-        property: 'id'
-      }
-    }
+    // '/calendar-detail/:id': {
+    //   type: 'json',
+    //   id: {
+    //     url: 'https://revivevzwapi.azurewebsites.net/api/activity/upcoming',
+    //     property: 'id'
+    //   }
+    // },
+    // '/missions/:id': {
+    //   type: 'json',
+    //   id: {
+    //     url: 'https://revivevzwapi.azurewebsites.net/api/mission/all',
+    //     property: 'id'
+    //   }
+    // }
   }
 };
