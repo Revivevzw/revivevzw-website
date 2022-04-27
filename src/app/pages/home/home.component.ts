@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
   }
 
   public redirectToSponsoring = () => {
-    const url = "https://shop.revivevzw.be/SHOP/SHOP.aspx";
+    const url = "https://shop.revivevzw.be/shop/pergroep.aspx";
     window.open(url, '_blank');
   }
 
