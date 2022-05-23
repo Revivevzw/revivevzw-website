@@ -12,8 +12,8 @@
           {{ item.startDate | date: 'MMM' }}
         </div>
         <div class="calendar__item__content">
-          <div class="calendar__item__content__title">{{ localize(getType(item.type)) }}</div>
-          <div class="calendar__item__content__description">{{ localize(item.name) }}</div>
+          <div class="calendar__item__content__title">{{ localize(getType(item.type) || item.name) }}</div>
+          <div class="calendar__item__content__description">{{ localize(item.description) }}</div>
         </div>
       </a>
     </div>

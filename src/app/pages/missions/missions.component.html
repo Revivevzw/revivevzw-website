@@ -1,7 +1,17 @@
 <app-main-page-base [title]="'MISSIONS.TITLE' | translate">
-   <select class="form-control" [(ngModel)]="selectedType" (change)="typeSelected()">
+   <div class="row m-0 justify-content-center">
+      <div class="btn-group mb-2 mr-2">
+        <a href="/missions/type/0" [ngClass]="{'active': selectedType.key === 0}" class="btn btn-outline-primary border-right-0">{{'PLANNED_MISSIONS' | translate}}</a>
+        <a href="/missions/type/2" [ngClass]="{'active': selectedType.key === 2}" class="btn btn-outline-primary">{{'PAST_MISSIONS' | translate}}</a>
+      </div>
+      <div class="btn-group mb-2">
+        <a href="/missions/type/1" [ngClass]="{'active': selectedType.key === 1}" class="btn btn-outline-primary border-right-0">{{'PLANNED_SCOUTINGS' | translate}}</a>
+        <a href="/missions/type/3" [ngClass]="{'active': selectedType.key === 3}" class="btn btn-outline-primary">{{'PAST_SCOUTINGS' | translate}}</a>
+      </div>
+   </div>
+   <!-- <select class="form-control" [(ngModel)]="selectedType" (change)="typeSelected()">
       <option *ngFor="let type of missionTypes" [ngValue]="type">{{type.value | translate}}</option>
-   </select>
+   </select> -->
    <div *ngIf="missionsByYear.length" class="wrapper content">
       <div *ngFor="let year of missionsByYear" class="year">
          <h2>{{year.key}}</h2>

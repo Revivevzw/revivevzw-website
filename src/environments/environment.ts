@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  revivevzwApiUrl: "https://localhost:44373/api/"
+  revivevzwApiUrl: "https://revivevzwapi.azurewebsites.net/api/"
+  // revivevzwApiUrl: "https://localhost:44373/api/"
 };
 
 /*

@@ -27,24 +27,23 @@ export class CalendarComponent implements OnInit {
 
   public getType = (key: number) => {
     let result = this.activityTypes.find(x => x.key == key);
-    return (result && result.value) || <Localization>{ nl: "Andere", fr: "Autres", en: "Other" }
+    return result && result.value;
   }
 
   // public getRouterLink = (id: number) => "['../detail/" + id + "']";
 
   ngOnInit(): void {
     this.activityTypes = this.activityApiService.getTypes();
-    if (this.router.url.includes('past')) {
+    if (this.router.url && this.router.url.includes('past')) {
       this.calendarTitleKey = "PAST_EVENTS";
       this.activityApiService.getPast().subscribe(result => {
-        this.activities = result;
+        if (result) this.activities = result.filter(x => x.type != 35);
       })
     } else {
       this.calendarTitleKey = "CALENDAR.TITLE";
       this.activityApiService.getUpcoming().subscribe(result => {
-        this.activities = result;
+        if (result) this.activities = result.filter(x => x.type != 35);
       })
     }
   }
-
 }

@@ -1,0 +1,118 @@
+{
+  "configVersion": 1,
+  "timestamp": 1651092309194,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main-es2015.3d79e82b487b5571fc27.js",
+        "/main-es5.3d79e82b487b5571fc27.js",
+        "/manifest.webmanifest",
+        "/polyfills-es2015.364a15709ae532ee2137.js",
+        "/polyfills-es5.1349602e6fc349924d60.js",
+        "/runtime-es2015.0dae8cbc97194c7caed4.js",
+        "/runtime-es5.0dae8cbc97194c7caed4.js",
+        "/styles.702c7088f40f7475ca47.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/Revive- Key Values - Gedreven door vrijwilligers.ed76b42ce83781720e95.jpg",
+        "/Revive- Key Values - International Missions.0739c61a7d12a54355f2.jpg",
+        "/Revive- Key Values - Training.87b121f6384f9ea22eb7.jpg",
+        "/Revive- Vrijwilliger - internationale missie.b8baefedf02416aa7f2c.jpg",
+        "/Revive- Vrijwilliger - praktische organisatie.9c377e1ea430ecb995c3.jpg",
+        "/assets/i18n/en-GB.json",
+        "/assets/i18n/fr-BE.json",
+        "/assets/i18n/nl-BE.json",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/media/LOGO_wit.png",
+        "/assets/media/Revive- Key Values - Gedreven door vrijwilligers.jpg",
+        "/assets/media/Revive- Key Values - International Missions.jpg",
+        "/assets/media/Revive- Key Values - Training.jpg",
+        "/assets/media/Revive- Vrijwilliger - internationale missie.jpg",
+        "/assets/media/Revive- Vrijwilliger - praktische organisatie.jpg",
+        "/assets/media/collage zigzag.png",
+        "/assets/media/header-2.jpg",
+        "/assets/media/header-img.jpg",
+        "/assets/media/logo.png",
+        "/assets/routes.json"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/Revive- Key Values - Gedreven door vrijwilligers.ed76b42ce83781720e95.jpg": "75330f7c00e3661fbaeee6e8114bc288946cf3e2",
+    "/Revive- Key Values - International Missions.0739c61a7d12a54355f2.jpg": "24051b51dcc332a17f742772bc20d0ff400e49a5",
+    "/Revive- Key Values - Training.87b121f6384f9ea22eb7.jpg": "ac536c5463fc57cc600b8eca2690fafc4c2c9a21",
+    "/Revive- Vrijwilliger - internationale missie.b8baefedf02416aa7f2c.jpg": "28a462da03ed91272afcd6bb3d4073e425773623",
+    "/Revive- Vrijwilliger - praktische organisatie.9c377e1ea430ecb995c3.jpg": "59abca354f5e540b25acc0f51a339c75a3a742e3",
+    "/assets/i18n/en-GB.json": "73eb9ede75943f6f08e5fea4647687d5fec5e9ef",
+    "/assets/i18n/fr-BE.json": "89b6e5f021748f0bfbc19e2e479ef5d21ed0f50f",
+    "/assets/i18n/nl-BE.json": "303335f568c0f5e19c30aacd51e28ffdbd4b7ff7",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/media/LOGO_wit.png": "c91f4f68f10ec676bd94a2f6b3f671903191a7c5",
+    "/assets/media/Revive- Key Values - Gedreven door vrijwilligers.jpg": "75330f7c00e3661fbaeee6e8114bc288946cf3e2",
+    "/assets/media/Revive- Key Values - International Missions.jpg": "24051b51dcc332a17f742772bc20d0ff400e49a5",
+    "/assets/media/Revive- Key Values - Training.jpg": "ac536c5463fc57cc600b8eca2690fafc4c2c9a21",
+    "/assets/media/Revive- Vrijwilliger - internationale missie.jpg": "28a462da03ed91272afcd6bb3d4073e425773623",
+    "/assets/media/Revive- Vrijwilliger - praktische organisatie.jpg": "59abca354f5e540b25acc0f51a339c75a3a742e3",
+    "/assets/media/collage zigzag.png": "69e11981135ce698deed12ec40b6067a6a01939f",
+    "/assets/media/header-2.jpg": "f2e84aff39d14d8ed4aec37e9233d216ee53f1ff",
+    "/assets/media/header-img.jpg": "e99c41f6f959973b826dd80a0cb4a05c63c72968",
+    "/assets/media/logo.png": "037ef9d4bd1a782bea4b1f0328905b50c4bfda36",
+    "/assets/routes.json": "65f6f9ce9aca0ebb3be9acfdd49cce178e20504d",
+    "/favicon.ico": "7ce9eed8a002694dfe480d7d8d80d424ee93179c",
+    "/index.html": "cc69a9909613f97abdb64038e4b1b8cfe42944bd",
+    "/main-es2015.3d79e82b487b5571fc27.js": "13e50d06b60d3862faaa2f8d449d7c7df09f6ce5",
+    "/main-es5.3d79e82b487b5571fc27.js": "612cd8c50f8383edd9b92f60197a2dad417217a5",
+    "/manifest.webmanifest": "64107320f7a6f14986d343e3aa41e56d6885b351",
+    "/polyfills-es2015.364a15709ae532ee2137.js": "7e926a7a76e158130348055edc8b82646806fe35",
+    "/polyfills-es5.1349602e6fc349924d60.js": "70d982fd4269f1c78c0a27cfc9d0236c7cd495fd",
+    "/runtime-es2015.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/runtime-es5.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/styles.702c7088f40f7475ca47.css": "bb5930004773212aa7fe5a9db1232e20b8301500"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
