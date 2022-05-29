@@ -9,7 +9,7 @@ export class LocalizeService {
 
    constructor(private translateService: TranslateService) { }
 
-   public localizeData = (localization: Localization) => {
+   public localizeData = (localization: Localization): string => {
       let language = this.translateService.currentLang.slice(0,2);
       return localization[language] || localization['nl'];
    }

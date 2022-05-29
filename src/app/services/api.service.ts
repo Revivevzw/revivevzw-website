@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { isScullyRunning, TransferStateService } from '@scullyio/ng-lib';
-import { merge, Observable } from 'rxjs';
-import { shareReplay, tap } from 'rxjs/operators';
+import { empty, merge, Observable } from 'rxjs';
+import { filter, shareReplay, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -40,7 +40,10 @@ export class ApiService {
    public getFromState<T>(path: string): Observable<T> {
       const url = this.getUrl(path);
       const urlHash = btoa(url);
-      return this.transferStateService.getState<T>(urlHash).pipe(shareReplay(1));
+      
+      return this.transferStateService.stateHasKey(urlHash) 
+         ? this.transferStateService.getState<T>(urlHash).pipe(shareReplay(1), filter(x => x != null))
+         : empty();
    }
 
    public getObservables<T>(path: string, setToState: boolean = true): Observable<T>[] {

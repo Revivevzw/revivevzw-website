@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Setting } from 'src/app/models/setting.model';
+import { Organigram } from 'src/app/models/organigram.model';
+import { LocalizeService } from 'src/app/services';
 import { SettingApiService } from 'src/app/services/setting-api.service';
-import { GoogleSheetApiService } from '../../services/google-sheet-api.service';
 
 @Component({
   selector: 'app-about',
@@ -9,14 +9,20 @@ import { GoogleSheetApiService } from '../../services/google-sheet-api.service';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-  cells: any;
-  public setting: Setting;
+  public organigram: Organigram;
 
-  constructor(private settingApi: SettingApiService) {}
+  public get isPdf() {
+    return this.localize.localizeData(this.organigram.url).endsWith('.pdf');
+  }
+
+  constructor(
+    private settingApi: SettingApiService,
+    private localize: LocalizeService
+  ) {}
 
   ngOnInit() {
     this.settingApi.getOrganigram().subscribe(x => {
-      this.setting = x;
+      this.organigram = x;
     });
   }
 }

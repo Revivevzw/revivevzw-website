@@ -37,12 +37,12 @@ export class CalendarComponent implements OnInit {
     if (this.router.url && this.router.url.includes('past')) {
       this.calendarTitleKey = "PAST_EVENTS";
       this.activityApiService.getPast().subscribe(result => {
-        if (result) this.activities = result.filter(x => x.type != 35);
+        if (result) this.activities = result;
       })
     } else {
       this.calendarTitleKey = "CALENDAR.TITLE";
       this.activityApiService.getUpcoming().subscribe(result => {
-        if (result) this.activities = result.filter(x => x.type != 35);
+        if (result) this.activities = result;
       })
     }
   }

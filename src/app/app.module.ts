@@ -29,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HomeSectionComponent } from './components/home-section/home-section.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LocalizePipe } from './pipes/localize.pipe';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MainPageBaseComponent,
     GdprComponent,
     HomeSectionComponent,
+    LocalizePipe
   ],
   imports: [
     BrowserAnimationsModule,

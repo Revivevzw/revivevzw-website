@@ -1,8 +1,13 @@
  <app-main-page-base [title]="'ABOUT.TITLE' | translate">
    <div class="about">
       <p class="quote about__intro" [innerHTML]="'ABOUT.INTRO' | translate"></p>
-      <div class="about__block">
-         <a class="url" href="{{ setting?.v0 || '/about#' }}">{{ 'ABOUT.ORGANIZATIONAL_CHART' | translate }} <i class="far fa-file-pdf"></i></a>
+      <div *ngIf="organigram" class="about__block">
+         <ng-container *ngIf="!isPdf">
+            <!-- <h4>{{ 'ABOUT.ORGANIZATIONAL_CHART' | translate }}</h4> -->
+            <img [src]="organigram.url | localize">
+         </ng-container>
+         <a *ngIf="isPdf" [href]="organigram.url | localize"><i class="fas fa-download"></i> {{ 'ABOUT.ORGANIZATIONAL_CHART' | translate }}</a>
+         <!-- <a class="url" href="{{ setting?.v0 || '/about#' }}">{{ 'ABOUT.ORGANIZATIONAL_CHART' | translate }} <i class="far fa-file-pdf"></i></a> -->
       </div>
       <div class="about__block">
          <h4>{{ 'ABOUT.WHAT_TITLE' | translate }}</h4>

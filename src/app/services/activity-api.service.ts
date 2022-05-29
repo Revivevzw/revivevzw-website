@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Activity, Localization } from '../models';
 import { KeyValue } from '@angular/common';
+import { map } from 'rxjs/operators';
 
 @Injectable({
    providedIn: 'root'
@@ -11,11 +12,13 @@ export class ActivityApiService {
    constructor(private apiService: ApiService) { }
 
    public getUpcoming = () => {
-      return this.apiService.get<Array<Activity>>("activity/upcoming");
+      return this.apiService.get<Array<Activity>>("activity/upcoming")
+         .pipe(map(x => x.filter(y => y.type != 35)));
    }
 
-   public getPast(){
-      return this.apiService.get<Activity[]>("activity/past");
+   public getPast() {
+      return this.apiService.get<Activity[]>("activity/past")
+         .pipe(map(x => x.filter(y => y.type != 35)));
    }
 
    public get = (id: number) => {
