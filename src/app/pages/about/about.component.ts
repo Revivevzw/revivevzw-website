@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Organigram } from 'src/app/models/organigram.model';
+import { Setting } from 'src/app/models/setting.model';
 import { LocalizeService } from 'src/app/services';
 import { SettingApiService } from 'src/app/services/setting-api.service';
 
@@ -9,7 +9,8 @@ import { SettingApiService } from 'src/app/services/setting-api.service';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-  public organigram: Organigram;
+  public organigram: Setting;
+  public articlesOfAssociation: Setting;
 
   public get isPdf() {
     return this.localize.localizeData(this.organigram.url).endsWith('.pdf');
@@ -20,9 +21,12 @@ export class AboutComponent implements OnInit {
     private localize: LocalizeService
   ) {}
 
-  ngOnInit() {
+  ngOnInit() { 
     this.settingApi.getOrganigram().subscribe(x => {
       this.organigram = x;
     });
+    this.settingApi.getArticlesOfAssociation().subscribe(x => {
+      this.articlesOfAssociation = x;
+    })
   }
 }

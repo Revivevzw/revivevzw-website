@@ -1,4 +1,5 @@
-export interface Setting{
-    id: number;
-    v0: string;
+import { Localization } from "./localization.model";
+
+export interface Setting {
+   url: Localization;
 }

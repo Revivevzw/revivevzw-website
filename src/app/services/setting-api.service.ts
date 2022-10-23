@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Organigram } from "../models/organigram.model";
+import { Setting } from "../models/setting.model";
 import { ApiService } from "./api.service";
 
 @Injectable({
@@ -14,7 +14,12 @@ export class SettingApiService {
 
     public getOrganigram() {
         const path = this.basePath + "/organigram";
-        return this.apiService.get<Organigram>(path);
+        return this.apiService.get<Setting>(path);
+    }
+
+    public getArticlesOfAssociation() {
+        const path = this.basePath + "/articles-of-association";
+        return this.apiService.get<Setting>(path);
     }
 
 }

@@ -3,12 +3,18 @@
       <p class="quote about__intro" [innerHTML]="'ABOUT.INTRO' | translate"></p>
       <div *ngIf="organigram" class="about__block">
          <ng-container *ngIf="!isPdf">
-            <!-- <h4>{{ 'ABOUT.ORGANIZATIONAL_CHART' | translate }}</h4> -->
             <img [src]="organigram.url | localize">
          </ng-container>
          <a *ngIf="isPdf" [href]="organigram.url | localize"><i class="fas fa-download"></i> {{ 'ABOUT.ORGANIZATIONAL_CHART' | translate }}</a>
-         <!-- <a class="url" href="{{ setting?.v0 || '/about#' }}">{{ 'ABOUT.ORGANIZATIONAL_CHART' | translate }} <i class="far fa-file-pdf"></i></a> -->
       </div>
+
+      <div *ngIf="articlesOfAssociation" class="about__block">
+         <ng-container *ngIf="!isPdf">
+            <img [src]="articlesOfAssociation.url | localize">
+         </ng-container>
+         <a *ngIf="isPdf" [href]="articlesOfAssociation.url | localize"><i class="fas fa-download"></i> {{ 'ABOUT.ARTICLES_OF_ASSOCIATION' | translate }}</a>
+      </div>
+
       <div class="about__block">
          <h4>{{ 'ABOUT.WHAT_TITLE' | translate }}</h4>
          <p [innerHTML]="'ABOUT.WHAT_TEXT' | translate"></p>
