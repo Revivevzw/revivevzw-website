@@ -28,7 +28,7 @@ import { environment } from '../environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeSectionComponent } from './components/home-section/home-section.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule, NgbModule, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
 import { LocalizePipe } from './pipes/localize.pipe';
 
 
@@ -57,7 +57,7 @@ import { LocalizePipe } from './pipes/localize.pipe';
     MainPageBaseComponent,
     GdprComponent,
     HomeSectionComponent,
-    LocalizePipe
+    LocalizePipe,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -81,7 +81,9 @@ import { LocalizePipe } from './pipes/localize.pipe';
       }
   }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    NgbModule
+    NgbModule,
+    NgbCarouselModule,
+    BrowserAnimationsModule
   ],
   providers: [
     HttpClient,

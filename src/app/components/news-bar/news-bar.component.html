@@ -1,7 +1,15 @@
 <div class="news-bar">
-   <carousel *ngIf="newsItems && !isBusy" autoplay="true" loop="true" autoplayInterval="3000" transitionDuration="500" [arrows]="false" cellsToShow="1" height="100%">
+   <!-- <carousel *ngIf="newsItems && !isBusy" autoplay="true" loop="true" autoplayInterval="3000" transitionDuration="500" [arrows]="false" cellsToShow="1" height="100%">
       <a [href]="item.url" target="blank" *ngFor="let item of newsItems" class="carousel-cell">
          {{localize(item.title)}} <span *ngIf="item.url">{{'SPLASH.CLICK_HERE' | translate}}</span>
       </a>
-   </carousel>
+   </carousel> -->
+
+   <ngb-carousel *ngIf="newsItems && !isBusy" [showNavigationArrows]="false" [showNavigationIndicators]="false" [interval]="3000" [pauseOnHover]="true">
+      <ng-template ngbSlide *ngFor="let item of newsItems">         
+         <a [href]="item.url" target="blank" class="carousel-cell">
+            {{localize(item.title)}} <span *ngIf="item.url">{{'SPLASH.CLICK_HERE' | translate}}</span>
+         </a>
+      </ng-template>
+   </ngb-carousel>
 </div>

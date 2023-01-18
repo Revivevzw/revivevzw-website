@@ -52,13 +52,14 @@
    &:hover{
       background-color: darken($accent-color-light, 10);
    }
-   
+
    a{
+      display: block;
       text-decoration: none;
       color: $text-color-dark;
       text-align: center;
       width: 100%;
-      padding: 20px;
+      padding: 20px 0;
 
       span{
          text-decoration: underline;
