@@ -14,6 +14,6 @@ export class NewsItemApiService {
    private path = "splash";
 
    public getAll = () => {
-      return this.apiService.get<Array<NewsItem>>(this.path, false);
+      return this.apiService.get<Array<NewsItem>>(this.path);
    }
 }
