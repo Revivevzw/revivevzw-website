@@ -9,6 +9,13 @@
   margin-left: 10px;
 }
 
+.news-item__items {
+  flex-direction: column;
+  @media (min-width: $breakpoint-desktop) {
+    flex-direction: row;
+  }
+}
+
 .carousel{
   z-index: 0;
 }

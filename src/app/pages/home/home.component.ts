@@ -3,9 +3,9 @@ import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Meta } from '@angular/platform-browser';
 import { KeyValue } from '@angular/common';
 import { Router } from '@angular/router';
-import { SponsorApiService } from 'src/app/services';
+import { LocalizeService, NewsItemApiService, SponsorApiService } from 'src/app/services';
 import { forkJoin } from 'rxjs';
-import { Sponsor } from 'src/app/models';
+import { Localization, NewsItem, Sponsor } from 'src/app/models';
 
 @Component({
   selector: 'app-home',
@@ -17,11 +17,14 @@ export class HomeComponent implements OnInit {
     private translateService: TranslateService,
     private meta: Meta,
     private router: Router,
-    private sponsorApi: SponsorApiService
+    private sponsorApi: SponsorApiService,
+    private newsItemApi: NewsItemApiService,
+    private localizeService: LocalizeService
   ) { }
 
   private translations: Array<KeyValue<string, string>>;
   public sponsors: Sponsor[];
+  public newsItems: NewsItem[]; 
   public loaded: boolean;
   public currentLanguage: string;
 
@@ -36,16 +39,22 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  public localize = (localization: Localization) => {
+    return this.localizeService.localizeData(localization);
+  }
+
   private setData = (): Promise<void> => {
     this.loaded = false;
     return new Promise((resolve) => {
       forkJoin([
         this.translateService.get(['HOME.HEAD_SUBTITLE']),
-        this.sponsorApi.getAll()
+        this.sponsorApi.getAll(),
+        this.newsItemApi.getAll(),
       ]).subscribe(results => {
         this.loaded = false;
         this.translations = results[0];
         this.sponsors = this.sponsorApi.filterActiveSponsors(results[1]);
+        this.newsItems = results[2].slice(0, 3);
         // this.images = this.sponsors.map(x => ({path: x.logoUrl}));
         this.loaded = true;
         resolve();
