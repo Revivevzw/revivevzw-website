@@ -76,14 +76,8 @@ export class ApiService {
    }
 
    public get<T>(path: string, setToState: boolean = true) {
-      var url = this.getUrl(path);
-      const urlHash = btoa(url);
-      const observable = this.http.get<T>(url);
-      return setToState 
-         ? this.transferStateService.useScullyTransferState<T>(urlHash, observable) 
-         : observable
-      // const observables = this.getObservables(path, setToState);
-      // return merge<T>(...observables);
+      const observables = this.getObservables(path, setToState);
+      return merge<T>(...observables);
    }
 
    public post(path: string, object: any) {

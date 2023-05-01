@@ -14,6 +14,6 @@ export class NewsItemApiService {
    private path = "splash";
 
    public getAll = () => {
-      return this.apiService.get<Array<NewsItem>>(this.path);
+      return this.apiService.get<Array<NewsItem>>(this.path, false); // Disabled SetToState because for some reason something goes wrong resulting in no data shown on home page in production.
    }
 }
