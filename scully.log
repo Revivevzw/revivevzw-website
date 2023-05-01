@@ -104,3 +104,9 @@ You can ignore the warning (TLS) or run scully with --no-warning
 ****************************************************************************************
 
 No configuration for route "/calendar/detail/:id" found. Skipping
+No configuration for route "/missions/type/:key" found. Skipping****************************************************************************************
+This is a development tool for Scully applications.
+You can ignore the warning (TLS) or run scully with --no-warning
+****************************************************************************************
+
+No configuration for route "/calendar/detail/:id" found. Skipping
