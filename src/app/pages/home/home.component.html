@@ -1,9 +1,4 @@
 <div class="header">
-  <div class="header__background">
-    <div class="header__background__level_one"></div>
-    <div class="header__background__level_two"></div>
-  </div>
-
   <div class="header__content">
     <div class="responsive-container container">
       <div class="header__intro">
@@ -22,9 +17,9 @@
 </div>
 
 <app-home-section titleKey="Laatste berichten">
-  <div class="news-item__items d-flex justify-content-between">
+  <div class="news-item__items d-flex justify-content-between mt-4">
     <div class="news-item__item mb-4" *ngFor="let newsItem of newsItems">
-      <p >{{localize(newsItem.title)}}</p>
+      <p class="mb-4">{{localize(newsItem.title)}}</p>
       <!-- <div class="action"> -->
         <a class="url url--primary" [href]="newsItem.url">Meer info</a>
       <!-- </div> -->

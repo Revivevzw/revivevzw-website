@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
         this.loaded = false;
         this.translations = results[0];
         this.sponsors = this.sponsorApi.filterActiveSponsors(results[1]);
-        this.newsItems = results[2].slice(0, 3);
+        this.newsItems = results[2];
         // this.images = this.sponsors.map(x => ({path: x.logoUrl}));
         this.loaded = true;
         resolve();
