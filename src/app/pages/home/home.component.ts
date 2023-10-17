@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   public newsItems: NewsItem[]; 
   public loaded: boolean;
   public currentLanguage: string;
+  public youtubeIds: string[] = ["17Xn4hChnVU?si=cr3HvnKlKIyHFe7P"]
 
   ngOnInit() {
     this.setData().then(this.setMetaData);
