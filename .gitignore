@@ -32,4 +32,4 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
-/src/environments/environment.ts
+# /src/environments/environment.ts
