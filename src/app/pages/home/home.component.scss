@@ -11,6 +11,8 @@
 
 .news-item__items {
   flex-direction: column;
+  gap: 10px;
+  flex-wrap: wrap;
   @media (min-width: $breakpoint-desktop) {
     flex-direction: row;
   }

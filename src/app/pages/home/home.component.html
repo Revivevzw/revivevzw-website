@@ -10,15 +10,25 @@
             <button *ngIf="currentLanguage == 'nl-BE'" class="btn btn-outline-light shop" (click)="redirectToSponsoring()">{{'SHARED.SHOP' | translate}}</button>
           </div>
         </div>
-        <figure class="header__intro__media"><img src="../../../assets/media/header-2.jpg" alt="Sfeerbeelden Revive vzw"></figure>
+        <!-- <figure class="header__intro__media"><img src="../../../assets/media/header-2.jpg" alt="Sfeerbeelden Revive vzw"></figure> -->
+        <div class="header__intro__media">
+            <carousel autoplay="true" loop="true" autoplayInterval="3000" cellsToShow="1" [arrows]="false" width="640" height="390">
+                <div class="carousel-cell" *ngFor="let carrouselImage of $carrouselImages | async">
+                    <img [src]="carrouselImage.url" [alt]="carrouselImage.titel">
+                </div>
+                <div class="carousel-cell" *ngFor="let youtubeUrl of $carrouselYoutubeUrls | async">
+                    <iframe id="player" type="text/html" width="640" height="390" [src]="youtubeUrl" allowfullscreen frameborder="0"></iframe>
+                </div>
+            </carousel>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <app-home-section titleKey="Laatste berichten">
-  <div class="news-item__items d-flex justify-content-between mt-4">
-    <div class="news-item__item mb-4" *ngFor="let newsItem of newsItems">
+  <div class="news-item__items d-flex mt-4">
+    <div class="news-item__item" *ngFor="let newsItem of newsItems">
       <p class="mb-4">{{localize(newsItem.title)}}</p>
       <!-- <div class="action"> -->
         <a class="url url--primary" [href]="newsItem.url">Meer info</a>
