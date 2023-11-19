@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
         })
     }
 
-    public $carrouselItems = this.carrouselApi.getCarrouselItems();
+    public $carrouselItems = this.carrouselApi.getCarrouselItems().pipe(map(x => x.filter(y => new Date(y.expDate) > new Date())));
     public $carrouselImages = this.$carrouselItems.pipe(map(x => x.filter(y => !y.isYoutubeId)));
     public $carrouselYoutubeUrls = this.$carrouselItems.pipe(map(x => x.filter(y => y.isYoutubeId).map(y => this.buildYoutubeUrl(y.url))));
 
