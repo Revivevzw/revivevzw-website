@@ -42,16 +42,15 @@ export class HomeComponent implements OnInit {
         })
     }
 
-    public $carrouselItems = this.carrouselApi.getCarrouselItems().pipe(map(x => x.filter(y => new Date(y.expDate) > new Date())));
-    public $carrouselImages = this.$carrouselItems.pipe(map(x => x.filter(y => !y.isYoutubeId)));
-    public $carrouselYoutubeUrls = this.$carrouselItems.pipe(map(x => x.filter(y => y.isYoutubeId).map(y => this.buildYoutubeUrl(y.url))));
+    public $carrouselItems = this.carrouselApi.getCarrouselItems().pipe(map(x => x.map(x => Object.assign(x, { url: this.buildYoutubeUrl(x.url) })).filter(y => new Date(y.expDate) > new Date())));
+    public $carrouselImages = this.$carrouselItems.pipe(map(x => x.filter(y => !y.isEmbededYoutubeUrl)));
+    public $carrouselYoutubeUrls = this.$carrouselItems.pipe(map(x => x.filter(y => y.isEmbededYoutubeUrl).map(y => this.buildYoutubeUrl(y.url))));
 
     public localize = (localization: Localization) => {
         return this.localizeService.localizeData(localization);
     }
 
-    public buildYoutubeUrl(id: string) {
-        const url = `https://www.youtube.com/embed/${id}?enablejsapi=1&origin=http://example.com`;
+    public buildYoutubeUrl(url: string) {
         return this.sanitizer.bypassSecurityTrustResourceUrl(url);
     }
 
@@ -63,14 +62,13 @@ export class HomeComponent implements OnInit {
                 this.translateService.get(['HOME.HEAD_SUBTITLE']),
                 this.sponsorApi.getAll(),
                 this.newsItemApi.getAll(),
+                this.$carrouselItems,
             ]).subscribe(results => {
                 this.loaded = false;
                 this.translations = results[0];
                 this.sponsors = this.sponsorApi.filterActiveSponsors(results[1]);
                 this.newsItems = results[2];
-                // this.images = this.sponsors.map(x => ({path: x.logoUrl}));
                 this.loaded = true;
-                // console.log(results[3]);
                 resolve();
             })
         })

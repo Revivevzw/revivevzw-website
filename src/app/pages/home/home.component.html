@@ -10,16 +10,18 @@
             <button *ngIf="currentLanguage == 'nl-BE'" class="btn btn-outline-light shop" (click)="redirectToSponsoring()">{{'SHARED.SHOP' | translate}}</button>
           </div>
         </div>
-        <!-- <figure class="header__intro__media"><img src="../../../assets/media/header-2.jpg" alt="Sfeerbeelden Revive vzw"></figure> -->
         <div class="header__intro__media">
-            <carousel autoplay="true" loop="true" autoplayInterval="3000" cellsToShow="1" [arrows]="false" width="640" height="390">
-                <div class="carousel-cell" *ngFor="let carrouselImage of $carrouselImages | async">
-                    <img [src]="carrouselImage.url" [alt]="carrouselImage.titel">
+            <ngb-carousel interval="3000" [showNavigationArrows]="false" [showNavigationIndicators]="false">
+              <ng-template ngbSlide *ngFor="let item of $carrouselItems | async">
+                <div class="carousel-image-container">
+                  <img *ngIf="!item.isEmbededYoutubeUrl" [src]="item.url" [alt]="item.titel">
                 </div>
-                <div class="carousel-cell" *ngFor="let youtubeUrl of $carrouselYoutubeUrls | async">
-                    <iframe id="player" type="text/html" width="640" height="390" [src]="youtubeUrl" allowfullscreen frameborder="0"></iframe>
+                <iframe *ngIf="item.isEmbededYoutubeUrl" id="player" type="text/html" width="640" height="390" [src]="item.url" allowfullscreen frameborder="0"></iframe>
+                <div class="carousel-caption">
+                  <h3>{{item.titel}}</h3>
                 </div>
-            </carousel>
+              </ng-template>
+            </ngb-carousel>
         </div>
       </div>
     </div>

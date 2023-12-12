@@ -1,6 +1,6 @@
 export interface Carrousel {
     id: number;
-    isYoutubeId: boolean;
+    isEmbededYoutubeUrl: boolean;
     url: string;
     titel: string;
     expDate: Date;

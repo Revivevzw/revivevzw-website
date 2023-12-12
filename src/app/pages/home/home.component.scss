@@ -5,8 +5,15 @@
   display: flex;
 }
 
+// .carousel-cell > img { display: none !important; } // Workaround, see https://github.com/ivylaboratory/angular-carousel/issues/37#issuecomment-1019585170
+
 .shop{
   margin-left: 10px;
+}
+
+.carousel-image-container {
+  max-height: 40vh;
+  text-align: center;
 }
 
 .news-item__items {
@@ -76,7 +83,8 @@
     }
 
     &__media {
-      width: 60%;
+      height: 40vh;
+      width: 70%;
       // height: 100%;
       // background-image: url("src/assets/media/header-2.jpg");
       // background-size: contain;
@@ -86,7 +94,7 @@
       
       img{
         border-radius: $border-radius;
-        width: 100%;
+        max-height: inherit;
       }
 
       @media (min-width: $breakpoint-desktop) {
