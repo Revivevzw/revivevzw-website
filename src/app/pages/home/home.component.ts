@@ -55,18 +55,18 @@ export class HomeComponent implements OnInit {
     }
 
     private setData = () => {
+        this.carrouselApi.getCarrouselItems().subscribe(x => {
+            this.carrouselItems = x.map(y => Object.assign(y, { url: y.isEmbededYoutubeUrl ? this.buildYoutubeUrl(y.url) : y.url })).filter(y => new Date(y.expDate) > new Date());
+        });
+
         forkJoin([
             this.sponsorApi.getAll(),
             this.newsItemApi.getAll(),
-            // this.carrouselApi.getCarrouselItems(),
         ]).subscribe(results => {
             this.loaded = false;
             this.sponsors = this.sponsorApi.filterActiveSponsors(results[0]);
             this.newsItems = results[1];
-            // this.carrouselItems = results[2].map(y => Object.assign(y, { url: y.isEmbededYoutubeUrl ? this.buildYoutubeUrl(y.url) : y.url })).filter(y => new Date(y.expDate) > new Date());
             this.loaded = true;
-            console.log(this.carrouselItems);
-            console.log(this.sponsors);
         })
     }
 
