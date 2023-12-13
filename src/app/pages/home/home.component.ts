@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Localization, NewsItem, Sponsor } from 'src/app/models';
+import { Carrousel, Localization, NewsItem, Sponsor } from 'src/app/models';
 import { CarrouselApiService, LocalizeService, NewsItemApiService, SponsorApiService } from 'src/app/services';
 
 @Component({
@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
     public newsItems: NewsItem[];
     public loaded: boolean;
     public currentLanguage: string;
+    public carrouselItems: Carrousel[];
 
     ngOnInit() {
         this.setData().then(this.setMetaData);
@@ -42,9 +43,9 @@ export class HomeComponent implements OnInit {
         })
     }
 
-    public $carrouselItems = this.carrouselApi.getCarrouselItems().pipe(map(x => x.map(y => Object.assign(y, { url: y.isEmbededYoutubeUrl ? this.buildYoutubeUrl(y.url) : y.url })).filter(y => new Date(y.expDate) > new Date())));
-    public $carrouselImages = this.$carrouselItems.pipe(map(x => x.filter(y => !y.isEmbededYoutubeUrl)));
-    public $carrouselYoutubeUrls = this.$carrouselItems.pipe(map(x => x.filter(y => y.isEmbededYoutubeUrl).map(y => this.buildYoutubeUrl(y.url))));
+    // public $carrouselItems = this.carrouselApi.getCarrouselItems().pipe(map(x => x.map(y => Object.assign(y, { url: y.isEmbededYoutubeUrl ? this.buildYoutubeUrl(y.url) : y.url })).filter(y => new Date(y.expDate) > new Date())));
+    // public $carrouselImages = this.$carrouselItems.pipe(map(x => x.filter(y => !y.isEmbededYoutubeUrl)));
+    // public $carrouselYoutubeUrls = this.$carrouselItems.pipe(map(x => x.filter(y => y.isEmbededYoutubeUrl).map(y => this.buildYoutubeUrl(y.url))));
 
     public localize = (localization: Localization) => {
         return this.localizeService.localizeData(localization);
@@ -62,12 +63,13 @@ export class HomeComponent implements OnInit {
                 this.translateService.get(['HOME.HEAD_SUBTITLE']),
                 this.sponsorApi.getAll(),
                 this.newsItemApi.getAll(),
-                this.$carrouselItems,
+                this.carrouselApi.getCarrouselItems(),
             ]).subscribe(results => {
                 this.loaded = false;
                 this.translations = results[0];
                 this.sponsors = this.sponsorApi.filterActiveSponsors(results[1]);
                 this.newsItems = results[2];
+                this.carrouselItems = results[3].map(y => Object.assign(y, { url: y.isEmbededYoutubeUrl ? this.buildYoutubeUrl(y.url) : y.url })).filter(y => new Date(y.expDate) > new Date());
                 this.loaded = true;
                 resolve();
             })

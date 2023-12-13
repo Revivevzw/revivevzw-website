@@ -11,8 +11,8 @@
           </div>
         </div>
         <div class="header__intro__media">
-            <ngb-carousel interval="3000" [showNavigationArrows]="false" [showNavigationIndicators]="false">
-              <ng-template ngbSlide *ngFor="let item of $carrouselItems | async">
+            <ngb-carousel *ngIf="carrouselItems" interval="3000" [showNavigationArrows]="false" [showNavigationIndicators]="false">
+              <ng-template ngbSlide *ngFor="let item of carrouselItems">
                 <div class="carousel-image-container">
                   <img *ngIf="!item.isEmbededYoutubeUrl" [src]="item.url" [alt]="item.titel">
                 </div>
