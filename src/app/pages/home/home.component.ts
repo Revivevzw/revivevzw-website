@@ -30,7 +30,8 @@ export class HomeComponent implements OnInit {
     public carrouselItems: Carrousel[];
 
     ngOnInit() {
-        this.setData().then(this.setMetaData);
+        this.setMetaData();
+        this.setData();
         this.translateService.onLangChange.subscribe((params: LangChangeEvent) => this.currentLanguage = params.lang);
         window.addEventListener('resize', () => {
             this.loaded = false;
@@ -52,24 +53,19 @@ export class HomeComponent implements OnInit {
         return this.sanitizer.bypassSecurityTrustResourceUrl(url);
     }
 
-    private setData = (): Promise<void> => {
-        this.loaded = false;
-
-        return new Promise((resolve) => {
-            forkJoin(
-                this.sponsorApi.getAll(),
-                this.newsItemApi.getAll(),
-                this.carrouselApi.getCarrouselItems(),
-            ).subscribe(results => {
-                this.loaded = false;
-                this.sponsors = this.sponsorApi.filterActiveSponsors(results[0]);
-                this.newsItems = results[1];
-                this.carrouselItems = results[2].map(y => Object.assign(y, { url: y.isEmbededYoutubeUrl ? this.buildYoutubeUrl(y.url) : y.url })).filter(y => new Date(y.expDate) > new Date());
-                this.loaded = true;
-                console.log(this.carrouselItems);
-                console.log(this.sponsors);
-                resolve();
-            })
+    private setData = () => {
+        forkJoin([
+            this.sponsorApi.getAll(),
+            this.newsItemApi.getAll(),
+            this.carrouselApi.getCarrouselItems(),
+        ]).subscribe(results => {
+            this.loaded = false;
+            this.sponsors = this.sponsorApi.filterActiveSponsors(results[0]);
+            this.newsItems = results[1];
+            this.carrouselItems = results[2].map(y => Object.assign(y, { url: y.isEmbededYoutubeUrl ? this.buildYoutubeUrl(y.url) : y.url })).filter(y => new Date(y.expDate) > new Date());
+            this.loaded = true;
+            console.log(this.carrouselItems);
+            console.log(this.sponsors);
         })
     }
 
