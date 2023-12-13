@@ -21,7 +21,9 @@ export class HomeComponent implements OnInit {
         private localizeService: LocalizeService,
         private carrouselApi: CarrouselApiService,
         private sanitizer: DomSanitizer
-    ) { }
+    ) {
+        this.setData();
+    }
 
     public sponsors: Sponsor[];
     public newsItems: NewsItem[];
@@ -31,7 +33,6 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
         this.setMetaData();
-        this.setData();
         this.translateService.onLangChange.subscribe((params: LangChangeEvent) => this.currentLanguage = params.lang);
         window.addEventListener('resize', () => {
             this.loaded = false;
@@ -57,12 +58,12 @@ export class HomeComponent implements OnInit {
         forkJoin([
             this.sponsorApi.getAll(),
             this.newsItemApi.getAll(),
-            this.carrouselApi.getCarrouselItems(),
+            // this.carrouselApi.getCarrouselItems(),
         ]).subscribe(results => {
             this.loaded = false;
             this.sponsors = this.sponsorApi.filterActiveSponsors(results[0]);
             this.newsItems = results[1];
-            this.carrouselItems = results[2].map(y => Object.assign(y, { url: y.isEmbededYoutubeUrl ? this.buildYoutubeUrl(y.url) : y.url })).filter(y => new Date(y.expDate) > new Date());
+            // this.carrouselItems = results[2].map(y => Object.assign(y, { url: y.isEmbededYoutubeUrl ? this.buildYoutubeUrl(y.url) : y.url })).filter(y => new Date(y.expDate) > new Date());
             this.loaded = true;
             console.log(this.carrouselItems);
             console.log(this.sponsors);
