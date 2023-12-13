@@ -1,10 +1,8 @@
-import { KeyValue } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Carrousel, Localization, NewsItem, Sponsor } from 'src/app/models';
 import { CarrouselApiService, LocalizeService, NewsItemApiService, SponsorApiService } from 'src/app/services';
 
@@ -25,7 +23,6 @@ export class HomeComponent implements OnInit {
         private sanitizer: DomSanitizer
     ) { }
 
-    private translations: Array<KeyValue<string, string>>;
     public sponsors: Sponsor[];
     public newsItems: NewsItem[];
     public loaded: boolean;
@@ -60,17 +57,17 @@ export class HomeComponent implements OnInit {
 
         return new Promise((resolve) => {
             forkJoin(
-                this.translateService.get(['HOME.HEAD_SUBTITLE']),
                 this.sponsorApi.getAll(),
                 this.newsItemApi.getAll(),
                 this.carrouselApi.getCarrouselItems(),
             ).subscribe(results => {
                 this.loaded = false;
-                this.translations = results[0];
-                this.sponsors = this.sponsorApi.filterActiveSponsors(results[1]);
-                this.newsItems = results[2];
-                this.carrouselItems = results[3].map(y => Object.assign(y, { url: y.isEmbededYoutubeUrl ? this.buildYoutubeUrl(y.url) : y.url })).filter(y => new Date(y.expDate) > new Date());
+                this.sponsors = this.sponsorApi.filterActiveSponsors(results[0]);
+                this.newsItems = results[1];
+                this.carrouselItems = results[2].map(y => Object.assign(y, { url: y.isEmbededYoutubeUrl ? this.buildYoutubeUrl(y.url) : y.url })).filter(y => new Date(y.expDate) > new Date());
                 this.loaded = true;
+                console.log(this.carrouselItems);
+                console.log(this.sponsors);
                 resolve();
             })
         })
@@ -78,7 +75,7 @@ export class HomeComponent implements OnInit {
 
     private setMetaData = () => {
         this.meta.addTags([
-            { name: "description", content: this.translations['HOME.HEAD_SUBTITLE'] },
+            { name: "description", content: this.translateService.instant('HOME.HEAD_SUBTITLE') },
             { name: "keywords", content: 'Revive vzw, humanitaire hulp, vrijwilligers' }
         ])
     }
