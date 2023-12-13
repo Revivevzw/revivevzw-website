@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
         })
     }
 
-    public $carrouselItems = this.carrouselApi.getCarrouselItems().pipe(map(x => x.map(x => Object.assign(x, { url: this.buildYoutubeUrl(x.url) })).filter(y => new Date(y.expDate) > new Date())));
+    public $carrouselItems = this.carrouselApi.getCarrouselItems().pipe(map(x => x.map(x => Object.assign(x, { url: x.isEmbededYoutubeUrl ? this.buildYoutubeUrl(x.url.replace("&origin=https://www.revivevzw.be/", "")) : x.url })).filter(y => new Date(y.expDate) > new Date())));
     public $carrouselImages = this.$carrouselItems.pipe(map(x => x.filter(y => !y.isEmbededYoutubeUrl)));
     public $carrouselYoutubeUrls = this.$carrouselItems.pipe(map(x => x.filter(y => y.isEmbededYoutubeUrl).map(y => this.buildYoutubeUrl(y.url))));
 
