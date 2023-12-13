@@ -42,10 +42,6 @@ export class HomeComponent implements OnInit {
         })
     }
 
-    // public $carrouselItems = this.carrouselApi.getCarrouselItems().pipe(map(x => x.map(y => Object.assign(y, { url: y.isEmbededYoutubeUrl ? this.buildYoutubeUrl(y.url) : y.url })).filter(y => new Date(y.expDate) > new Date())));
-    // public $carrouselImages = this.$carrouselItems.pipe(map(x => x.filter(y => !y.isEmbededYoutubeUrl)));
-    // public $carrouselYoutubeUrls = this.$carrouselItems.pipe(map(x => x.filter(y => y.isEmbededYoutubeUrl).map(y => this.buildYoutubeUrl(y.url))));
-
     public localize = (localization: Localization) => {
         return this.localizeService.localizeData(localization);
     }
@@ -55,6 +51,7 @@ export class HomeComponent implements OnInit {
     }
 
     private setData = () => {
+        // For some weird reason, the website does not work (in production) when this is included in the forkJoin. No errors just no data set in the subscribe function. WEIRDEST THING EVER SEEN
         this.carrouselApi.getCarrouselItems().subscribe(x => {
             this.carrouselItems = x.map(y => Object.assign(y, { url: y.isEmbededYoutubeUrl ? this.buildYoutubeUrl(y.url) : y.url })).filter(y => new Date(y.expDate) > new Date());
         });
