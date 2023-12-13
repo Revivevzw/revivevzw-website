@@ -59,12 +59,12 @@ export class HomeComponent implements OnInit {
         this.loaded = false;
 
         return new Promise((resolve) => {
-            forkJoin([
+            forkJoin(
                 this.translateService.get(['HOME.HEAD_SUBTITLE']),
                 this.sponsorApi.getAll(),
                 this.newsItemApi.getAll(),
                 this.carrouselApi.getCarrouselItems(),
-            ]).subscribe(results => {
+            ).subscribe(results => {
                 this.loaded = false;
                 this.translations = results[0];
                 this.sponsors = this.sponsorApi.filterActiveSponsors(results[1]);
