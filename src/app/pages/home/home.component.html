@@ -1,6 +1,6 @@
 <div class="header">
   <div class="header__content">
-    <div class="responsive-container container">
+    <div class="responsive-container">
       <div class="header__intro">
         <div class="header__intro__content">
           <h1>{{ "HOME.HEAD_TITLE" | translate }}</h1>
@@ -13,12 +13,14 @@
         <div class="header__intro__media">
             <ngb-carousel *ngIf="carrouselItems" interval="3000" [showNavigationArrows]="false" [showNavigationIndicators]="false">
               <ng-template ngbSlide *ngFor="let item of carrouselItems">
-                <div class="carousel-image-container">
-                  <img *ngIf="!item.isEmbededYoutubeUrl" [src]="item.url" [alt]="item.titel">
-                </div>
-                <iframe *ngIf="item.isEmbededYoutubeUrl" id="player" type="text/html" width="640" height="390" [src]="item.url" allowfullscreen frameborder="0"></iframe>
-                <div class="carousel-caption">
-                  <h3>{{item.titel}}</h3>
+                <div>
+                  <div *ngIf="!item.isEmbededYoutubeUrl" class="carousel-image-container">
+                    <img [src]="item.url" [alt]="item.titel">
+                  </div>
+                  <iframe *ngIf="item.isEmbededYoutubeUrl" id="player" type="text/html" [src]="item.url" allowfullscreen frameborder="0"></iframe>
+                  <div class="carousel-caption">
+                    <h3>{{item.titel}}</h3>
+                  </div>
                 </div>
               </ng-template>
             </ngb-carousel>

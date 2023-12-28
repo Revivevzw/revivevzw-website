@@ -1,7 +1,7 @@
 @import "src/variables";
 
 .header_secondary{
-   height: 50vh;
+   min-height: 300px;
    background-color: $accent-color-dark;
    width: 100%;
    background-repeat: no-repeat;
@@ -9,7 +9,9 @@
    background-position: center;
    
    &__title {
-      margin-top: 70px;
+      margin-top: 150px;
+      margin-bottom: 100px;
+      height: inherit;
       font-weight: bold;
       font-size: 2rem;
       display: block;
